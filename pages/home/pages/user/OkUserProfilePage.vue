@@ -14,7 +14,6 @@
             ></ok-desktop-user-page-skeleton>
             <ok-mobile-user-page-skeleton v-else></ok-mobile-user-page-skeleton>
         </div>
-        <ok-new-post-action/>
     </div>
 </template>
 
@@ -45,7 +44,6 @@
     import { IUser } from "~/models/auth/user/IUser";
     import { ILoggingService } from "~/services/logging/ILoggingService";
     import { IOkLogger } from "~/services/logging/types";
-    import OkNewPostAction from '~/components/new-post-action/OkNewPostAction.vue';
 
 
     @Component({
@@ -53,8 +51,7 @@
             OkMobileUserPage,
             OkMobileUserPageSkeleton,
             OkDesktopUserPage,
-            OkDesktopUserPageSkeleton,
-            OkNewPostAction
+            OkDesktopUserPageSkeleton
         },
         subscriptions: function () {
             return {

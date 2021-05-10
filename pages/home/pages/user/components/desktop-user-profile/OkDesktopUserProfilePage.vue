@@ -18,6 +18,7 @@
                 </div>
             </div>
         </div>
+        <ok-new-post-action/>
     </div>
 </template>
 
@@ -51,12 +52,13 @@
         from "~/pages/home/pages/user/components/desktop-user-profile/components/desktop-user-profile-sidebar/OkDesktopUserProfileSidebar.vue";
     import OkDesktopUserProfileTimeline
         from "~/pages/home/pages/user/components/desktop-user-profile/components/desktop-user-profile-timeline/OkDesktopUserProfileTimeline.vue";
+    import OkNewPostAction from '~/components/new-post-action/OkNewPostAction.vue';
 
     @Component({
         name: "OkDesktopUserProfilePage",
         components: {
             OkDesktopUserProfileTimeline,
-            OkDesktopUserProfileSidebar, OkDesktopUserProfileHeader, OkUserAvatar, OkUserCover
+            OkDesktopUserProfileSidebar, OkDesktopUserProfileHeader, OkUserAvatar, OkUserCover, OkNewPostAction
         },
     })
     export default class OkDesktopUserProfilePage extends Vue {
