@@ -13,21 +13,21 @@ export default {
         },
         "home": {
             "communities": {
-                "title": "Organizations",
+                "title": "Groups",
                 "favorites": {
                     "title": "Favorites",
-                    "see_all_communities": "See all favorite organizations",
+                    "see_all_communities": "See all favorite Groups",
                 },
                 "joined": {
-                    "see_all_communities": "See all joined organizations",
+                    "see_all_communities": "See all joined Groups",
                     "title": "Joined",
                 },
                 "administrated": {
-                    "see_all_communities": "See all administrated organizations",
+                    "see_all_communities": "See all administrated Groups",
                     "title": "Administrated",
                 },
                 "moderated": {
-                    "see_all_communities": "See all moderated organizations",
+                    "see_all_communities": "See all moderated Groups",
                     "title": "Moderated",
                 },
             }
@@ -307,7 +307,7 @@ export default {
             "hashtag": "Hashtag",
             "hashtags": "Hashtags",
             "community": "Organization",
-            "communities": "Organizations",
+            "communities": "Groups",
             "users": "Users",
             "more": "More",
             "optional": "Optional",
@@ -347,7 +347,7 @@ export default {
             "share_to": "Share to",
             "share_to_circles": "Share to circles",
             "share_to_community": "Share to organization",
-            "get_started_with_communities": "Get started by joining the following organizations.",
+            "get_started_with_communities": "Get started by joining the following Groups.",
             "forgot_password": "Forgot password?",
             "get_the_app": "Get the app",
             "create_post": "Create post",
@@ -449,7 +449,7 @@ export default {
             "your_account_is_ready": "Your account is ready.",
             "its_better_on_the_app": "It's better on the app",
             "okuna_web_is_wip": "H2pro3 for the web is a work-in-progress.",
-            "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your organizations reports and more.",
+            "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your Groups reports and more.",
             "glad_you_made_it": "We're glad you made it!",
             "welcome_to_okuna": "Welcome to H2pro3 for the web.",
             "welcome_to_okuna_keep_in_mind_okuna_wip": "Please keep in mind that this version is a WIP (Work In Progress) and some functionality will be missing while we catch up with our mobile version.",
