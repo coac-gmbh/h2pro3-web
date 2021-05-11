@@ -228,7 +228,7 @@ export default {
                 "description": "Display the number of people that follow you, on your profile."
             },
             "community_posts": {
-                "name": "Groups posts",
+                "name": "Group posts",
                 "description": "Display posts you share with public groups, on your profile."
             }
         }
