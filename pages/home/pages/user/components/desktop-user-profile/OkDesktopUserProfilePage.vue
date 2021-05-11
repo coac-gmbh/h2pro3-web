@@ -18,7 +18,6 @@
                 </div>
             </div>
         </div>
-        <ok-new-post-action :user="user"/>
     </div>
 </template>
 

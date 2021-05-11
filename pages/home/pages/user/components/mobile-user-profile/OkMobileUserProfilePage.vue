@@ -4,7 +4,6 @@
         <ok-user-cover :user="user"></ok-user-cover>
         <ok-mobile-user-profile-card :user="user"></ok-mobile-user-profile-card>
         <ok-user-posts-stream :user="user"></ok-user-posts-stream>
-        <ok-new-post-action :user="user"/>
     </div>
 </template>
 
