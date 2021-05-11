@@ -4,6 +4,7 @@
         <ok-user-cover :user="user"></ok-user-cover>
         <ok-mobile-user-profile-card :user="user"></ok-mobile-user-profile-card>
         <ok-user-posts-stream :user="user"></ok-user-posts-stream>
+        <ok-new-post-action/>
     </div>
 </template>
 
@@ -22,10 +23,12 @@
     import OkMobileUserProfileCard
         from "~/pages/home/pages/user/components/mobile-user-profile/components/mobile-user-profile-card/OkMobileUserProfileCard.vue";
     import OkUserPostsStream from '~/components/posts-stream/OkUserPostsStream.vue';
+    import OkNewPostAction from '~/components/new-post-action/OkNewPostAction.vue';
+
 
     @Component({
         name: "OkMobileUserProfilePage",
-        components: {OkUserPostsStream, OkMobileUserProfileCard, OkUserCover, OkMobileUserProfileHeader},
+        components: {OkUserPostsStream, OkMobileUserProfileCard, OkUserCover, OkMobileUserProfileHeader, OkNewPostAction},
     })
     export default class OkMobileUserProfilePage extends Vue {
         @Prop({
