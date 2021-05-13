@@ -75,6 +75,8 @@ export interface IModalService {
 
     openCommunitySettingsModal(params: CommunitySettingsModalParams): Promise<void>;
 
+    openCommunityCreateModal(): Promise<void>;
+
     openCommunityDetailsSettingsModal(params: CommunityDetailsSettingsModalParams): Promise<void>;
 
     openCommunityAdministratorsSettingsModal(params: CommunityAdministratorsSettingsModalParams): Promise<void>;

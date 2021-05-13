@@ -231,6 +231,11 @@ export class ModalService implements IModalService {
         return this.openModal(ModalType.communityDetailsSettings, params);
     }
 
+    async openCommunityCreateModal(): Promise<void> {
+        this.ensureHasNoActiveModal();
+        return this.openModal(ModalType.communityCreate);
+    }
+
     async openCommunityAdministratorsSettingsModal(params: CommunityAdministratorsSettingsModalParams): Promise<void> {
         this.ensureHasNoActiveModal();
         return this.openModal(ModalType.communityAdministratorsSettings, params);
