@@ -527,6 +527,7 @@ export default {
             "forgot_password": "Forgot password?",
             "get_the_app": "Get the app",
             "create_post": "Create post",
+            "create_group": "Create group",
             "type_here": "Type here...",
             "about_us": "About us",
             "hooray": "Hooray!",

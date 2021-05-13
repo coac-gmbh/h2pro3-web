@@ -6,6 +6,7 @@
         <ok-mobile-communities-page
                 :communities-uuid="communitiesUuid"
                 v-else></ok-mobile-communities-page>
+        <ok-new-group-action />
     </div>
 </template>
 
@@ -25,9 +26,10 @@
     import { EnvironmentResolution } from "~/services/environment/lib/EnvironmentResolution";
     import OkDesktopCommunitiesPage from "~/pages/home/pages/communities/components/desktop-communities/OkDesktopCommunitiesPage.vue";
     import OkMobileCommunitiesPage from "~/pages/home/pages/communities/components/mobile-communities/OkMobileCommunitiesPage.vue";
+    import OkNewGroupAction from "~/pages/home/pages/communities/components/OkNewGroupAction.vue";
 
     @Component({
-        components: {OkMobileCommunitiesPage, OkDesktopCommunitiesPage},
+        components: {OkMobileCommunitiesPage, OkDesktopCommunitiesPage, OkNewGroupAction},
         subscriptions: function () {
             return {
                 environmentResolution: this["environmentService"].environmentResolution
