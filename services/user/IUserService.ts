@@ -129,7 +129,7 @@ import { IHashtag } from '~/models/common/hashtag/IHashtag';
 import { IModerationCategory } from '~/models/moderation/moderation_category/IModerationCategory';
 import { IConnection } from '~/models/connections/connection/IConnection';
 import { ICircle } from '~/models/connections/circle/ICircle';
-import { GetSuggestedCommunitiesApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
+import { CreateCommunityApiParams, GetSuggestedCommunitiesApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
 import { PostStatus } from '~/models/posts/post/lib/PostStatus';
 import { ILinkPreview } from '~/models/link-previews/link-preview/ILinkPreview';
 
@@ -256,6 +256,8 @@ export interface IUserService {
     unfavoriteCommunity(params: UnfavoriteCommunityParams): Promise<void>;
 
     updateCommunity(params: UpdateCommunityParams): Promise<ICommunity>;
+
+    createCommunity(params: CreateCommunityApiParams): Promise<ICommunity>;
 
     updateCommunityAvatar(params: UpdateCommunityAvatarParams): Promise<ICommunity>;
 

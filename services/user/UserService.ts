@@ -143,6 +143,7 @@ import { ICategory } from '~/models/common/category/ICategory';
 import { CategoryData } from '~/types/models-data/common/CategoryData';
 import categoryFactory from '~/models/common/category/factory';
 import {
+    CreateCommunityApiParams,
     GetSuggestedCommunitiesApiParams,
     GetTrendingCommunitiesApiParams
 } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
@@ -602,6 +603,23 @@ export class UserService implements IUserService {
         await this.communitiesApiService.unfavoriteCommunity({
             communityName: params.community.name
         });
+    }
+
+    async createCommunity(params: CreateCommunityApiParams): Promise<ICommunity> {
+        const response: AxiosResponse<CommunityData> = await this.communitiesApiService.createCommunity({
+            name: params.name,
+            type: params.type,
+            rules: params.rules,
+            title: params.title,
+            categories: params.categories,
+            userAdjective: params.userAdjective,
+            usersAdjective: params.usersAdjective,
+            description: params.description,
+            color: params.color,
+            invitesEnabled: params.invitesEnabled
+        });
+
+        return communityFactory.make(response.data);
     }
 
     async updateCommunity(params: UpdateCommunityParams): Promise<ICommunity> {

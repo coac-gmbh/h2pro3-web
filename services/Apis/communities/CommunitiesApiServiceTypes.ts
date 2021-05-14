@@ -209,3 +209,15 @@ export interface UpdateCommunityApiParams {
     color?: Color;
     invitesEnabled?: boolean;
 }
+export interface CreateCommunityApiParams {
+    name: string;
+    type: CommunityType;
+    color: Color;
+    categories: string[];
+    title: string;
+    rules?: string;
+    userAdjective?: string;
+    usersAdjective?: string;
+    description?: string;
+    invitesEnabled?: boolean;
+}

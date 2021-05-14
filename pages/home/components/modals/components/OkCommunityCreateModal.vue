@@ -427,7 +427,6 @@
 
     import { BehaviorSubject } from 'rxjs';
     import { IUser } from '~/models/auth/user/IUser';
-    import { ICommunity } from '~/models/communities/community/ICommunity';
     import { OkAvatarSize } from '~/components/avatars/lib/OkAvatarSize';
     import { OkCoverSize } from '~/components/covers/lib/OkCoverSize';
     import { CommunityType } from '~/models/communities/community/lib/CommunityType';
@@ -439,6 +438,7 @@
     import { CommunityImages, IModalService } from '~/services/modal/IModalService';
     import { IUtilsService } from '~/services/utils/IUtilsService';
     import { UpdateCommunityParams } from '~/services/user/UserServiceTypes';
+import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
 
     @Component({
         name: 'OkCommunityDetailsSettings',
@@ -465,11 +465,6 @@
             coverInput: HTMLInputElement,
             colorInput: HTMLInputElement
         };
-
-        @Prop({
-            type: Object,
-            required: true
-        }) readonly community: ICommunity;
 
         @Prop({
             type: Object,
@@ -506,7 +501,9 @@
         @Validate(communityDescriptionValidators)
         description: string = '';
 
-        colorString: string = '';
+        community: UpdateCommunityApiParams = {}
+
+        colorString: string = '#000000';
         categories: ICategory[] = [];
         invitesEnabled: boolean = false;
 
@@ -525,40 +522,6 @@
                 this.userService.getCategories()
                     .then(allCategories => {
                         this.allCategories = allCategories;
-
-                        const {
-                            name,
-                            title,
-                            type,
-                            rules,
-                            userAdjective,
-                            usersAdjective,
-                            description,
-                            color,
-                            categories,
-                            invitesEnabled,
-                            avatar,
-                            cover
-                        } = this.community;
-
-                        this.communityName = name;
-                        this.communityTitle = title;
-                        this.communityTypeString = type?.toString();
-                        this.rules = rules;
-                        this.userAdjective = userAdjective;
-                        this.usersAdjective = usersAdjective;
-                        this.description = description;
-                        this.colorString = color.hex();
-                        this.categories = categories.slice(0);
-                        this.invitesEnabled = invitesEnabled;
-
-                        this.avatarUrl = this.images?.avatarUrl || avatar;
-                        this.coverUrl = this.images?.coverUrl || cover;
-
-                        this.avatarBlob = this.images?.avatarBlob;
-                        this.coverBlob = this.images?.coverBlob;
-
-                        this.hasInitialDataLoaded = true;
                     });
             }
         }
@@ -578,7 +541,6 @@
 
         async handleFormSubmit(e: Event) {
             e.preventDefault();
-            console.log('clic');
             
 
             // if (this.requestInProgress) {
@@ -594,29 +556,22 @@
 
             // this.requestInProgress = true;
 
-            // try {
-            //     const updatedCommunityDetails: UpdateCommunityParams = {
-            //         community: this.community,
-            //         name: this.communityName,
-            //         type: CommunityType.parse(this.communityTypeString),
-            //         title: this.communityTitle,
-            //         rules: this.rules,
-            //         userAdjective: this.userAdjective,
-            //         usersAdjective: this.usersAdjective,
-            //         description: this.description,
-            //         color: Color(this.colorString),
-            //         invitesEnabled: this.invitesEnabled
-            //     };
+            try {
+                const communityDetails: CreateCommunityApiParams = {
+                    name: this.communityName,
+                    type: CommunityType.parse(this.communityTypeString),
+                    title: this.communityTitle,
+                    rules: this.rules,
+                    userAdjective: this.userAdjective,
+                    usersAdjective: this.usersAdjective,
+                    description: this.description,
+                    color: Color(this.colorString),
+                    invitesEnabled: this.invitesEnabled,
+                    categories: this.categories.length ? this.categories.map(c => c.name) : [],
+                };
 
-            //     if (this.categories.length) { // probably a redundant check
-            //         updatedCommunityDetails.categories = this.categories.map(c => c.name);
-            //     }
+                await this.userService.createCommunity(communityDetails);
 
-            //     await this.userService.updateCommunity(updatedCommunityDetails);
-
-            //     if (this.avatarUrl === '') {
-            //         await this.userService.deleteCommunityAvatar({ community: this.community });
-            //     }
 
             //     if (this.avatarBlob?.size) {
             //         await this.userService.updateCommunityAvatar({
@@ -636,21 +591,21 @@
             //         });
             //     }
 
-            //     this.requestInProgress = false;
-            //     this.formWasSubmitted = false;
-            //     this.$emit('onSaveComplete');
-            // } catch (err) {
-            //     const handledError = this.utilsService.handleErrorWithToast(err);
+                this.requestInProgress = false;
+                this.formWasSubmitted = false;
+                this.onSaveComplete()
+            } catch (err) {
+                const handledError = this.utilsService.handleErrorWithToast(err);
 
-            //     if (handledError.isUnhandled) {
-            //         throw handledError.error;
-            //     }
+                if (handledError.isUnhandled) {
+                    throw handledError.error;
+                }
 
-            //     this.requestInProgress = false;
-            //     this.formWasSubmitted = false;
-            // }
+                this.requestInProgress = false;
+                this.formWasSubmitted = false;
+            }
         }
-
+        
         changeAvatar() {
             this.$refs.avatarInput.click();
         }
@@ -689,7 +644,7 @@
                     coverBlob: this.coverBlob
                 },
 
-                community: this.community
+                // community: this.community
             });
         }
 
@@ -706,8 +661,12 @@
                     coverBlob: this.coverBlob
                 },
 
-                community: this.community
+                // community: this.community
             });
+        }
+
+        onSaveComplete() {
+            this.$parent['close']();
         }
 
         activateColorPicker() {
@@ -786,9 +745,7 @@
         }
 
         handleCancelClick() {
-            this.modalService.openCommunitySettingsModal({
-                community: this.community
-            });
+            this.modalService.openCommunityCreateModal();
         }
     }
 </script>
