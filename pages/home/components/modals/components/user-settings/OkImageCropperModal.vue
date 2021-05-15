@@ -8,6 +8,7 @@
             :fieldName="params.fieldName"
             :images="params.images"
             :community="params.community"
+            :isCreateCommunity="params.isCreateCommunity"
         />
     </div>
 </template>

@@ -94,6 +94,11 @@
             required: false
         }) readonly community: ICommunity;
 
+        @Prop({
+            type: Boolean,
+            required: false
+        }) readonly isCreateCommunity: Boolean;
+
         image: string = '';
 
         avatarUrl: string = '';
@@ -135,6 +140,10 @@
                 coverBlob: this.coverBlob
             };
 
+            if (this.isCreateCommunity) {
+                return this.modalService.openCommunityCreateModal({images});
+            }
+
             if (this.community) {
                 return this.modalService.openCommunityDetailsSettingsModal({
                     community: this.community,
@@ -166,6 +175,10 @@
                     avatarBlob: this.avatarBlob,
                     coverBlob: this.coverBlob
                 };
+                
+                if (this.isCreateCommunity) {
+                    return this.modalService.openCommunityCreateModal({images});
+                }
 
                 if (this.community) {
                     return this.modalService.openCommunityDetailsSettingsModal({

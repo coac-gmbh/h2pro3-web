@@ -435,10 +435,11 @@
     import { IUserService } from '~/services/user/IUserService';
     import { okunaContainer } from '~/services/inversify';
     import { TYPES } from '~/services/inversify-types';
-    import { CommunityImages, IModalService } from '~/services/modal/IModalService';
+    import { CommunityImages, IModalService, OnlyImages } from '~/services/modal/IModalService';
     import { IUtilsService } from '~/services/utils/IUtilsService';
-    import { UpdateCommunityParams } from '~/services/user/UserServiceTypes';
-import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
+    import { CreateCommunityApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
+    import { ICommunity } from '~/models/communities/community/ICommunity';
+    import { lchown } from 'fs';
 
     @Component({
         name: 'OkCommunityDetailsSettings',
@@ -469,7 +470,7 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
         @Prop({
             type: Object,
             required: false
-        }) readonly images: CommunityImages;
+        }) readonly params: OnlyImages;
 
         OkAvatarSize = OkAvatarSize;
         OkCoverSize = OkCoverSize;
@@ -501,7 +502,7 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
         @Validate(communityDescriptionValidators)
         description: string = '';
 
-        community: UpdateCommunityApiParams = {}
+        community: ICommunity;
 
         colorString: string = '#000000';
         categories: ICategory[] = [];
@@ -512,6 +513,8 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
 
         avatarBlob?: Blob | null;
         coverBlob?: Blob | null;
+
+        images: CommunityImages | null = null;
 
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
@@ -524,6 +527,11 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
                         this.allCategories = allCategories;
                     });
             }
+            this.images = this.params?.images;
+            this.avatarUrl = this.images?.avatarUrl;
+            this.coverUrl = this.images?.coverUrl;
+            this.avatarBlob = this.images?.avatarBlob;
+            this.coverBlob = this.images?.coverBlob;
         }
 
         get letterAvatarLetter(): string {
@@ -543,18 +551,18 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
             e.preventDefault();
             
 
-            // if (this.requestInProgress) {
-            //     return;
-            // }
+            if (this.requestInProgress) {
+                return;
+            }
 
-            // this.formWasSubmitted = true;
-            // const isValid = true;
+            this.formWasSubmitted = true;
+            const isValid = true;
 
-            // if (!isValid) {
-            //     return;
-            // }
+            if (!isValid) {
+                return;
+            }
 
-            // this.requestInProgress = true;
+            this.requestInProgress = true;
 
             try {
                 const communityDetails: CreateCommunityApiParams = {
@@ -570,26 +578,28 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
                     categories: this.categories.length ? this.categories.map(c => c.name) : [],
                 };
 
-                await this.userService.createCommunity(communityDetails);
+                this.community = await this.userService.createCommunity(communityDetails);
 
+                console.log(this.community);
+                
 
-            //     if (this.avatarBlob?.size) {
-            //         await this.userService.updateCommunityAvatar({
-            //             community: this.community,
-            //             avatar: this.avatarBlob
-            //         });
-            //     }
+                if (this.avatarBlob?.size) {
+                    await this.userService.updateCommunityAvatar({
+                        community: this.community,
+                        avatar: this.avatarBlob
+                    });
+                }
 
-            //     if (this.coverUrl === '') {
-            //         await this.userService.deleteCommunityCover({ community: this.community });
-            //     }
+                if (this.coverUrl === '') {
+                    await this.userService.deleteCommunityCover({ community: this.community });
+                }
 
-            //     if (this.coverBlob?.size) {
-            //         await this.userService.updateCommunityCover({
-            //             community: this.community,
-            //             cover: this.coverBlob
-            //         });
-            //     }
+                if (this.coverBlob?.size) {
+                    await this.userService.updateCommunityCover({
+                        community: this.community,
+                        cover: this.coverBlob
+                    });
+                }
 
                 this.requestInProgress = false;
                 this.formWasSubmitted = false;
@@ -644,11 +654,14 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
                     coverBlob: this.coverBlob
                 },
 
-                // community: this.community
+                community: this.community,
+                isCreateCommunity: true
             });
         }
 
         handleCoverInputChange() {
+            console.log(this.$refs.coverInput.files[0]);
+            
             this.modalService.openImageCropperModal({
                 file: this.$refs.coverInput.files[0],
                 aspectRatio: 16 / 9,
@@ -661,7 +674,8 @@ import { CreateCommunityApiParams, UpdateCommunityApiParams } from '~/services/A
                     coverBlob: this.coverBlob
                 },
 
-                // community: this.community
+                community: this.community,
+                isCreateCommunity: true
             });
         }
 

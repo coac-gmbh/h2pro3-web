@@ -75,7 +75,7 @@ export interface IModalService {
 
     openCommunitySettingsModal(params: CommunitySettingsModalParams): Promise<void>;
 
-    openCommunityCreateModal(): Promise<void>;
+    openCommunityCreateModal(params?: OnlyImages): Promise<void>;
 
     openCommunityDetailsSettingsModal(params: CommunityDetailsSettingsModalParams): Promise<void>;
 
@@ -184,11 +184,15 @@ export interface CommunityImages {
     coverBlob?: Blob;
 };
 
+export interface OnlyImages {
+    images: CommunityImages;
+}
+
 export interface ImageCropperModalParams {
     file: File;
     aspectRatio: number;
     fieldName: 'avatar' | 'cover';
-
+    isCreateCommunity?: Boolean,
     images?: UserProfileImages | CommunityImages;
     community?: ICommunity;
 }

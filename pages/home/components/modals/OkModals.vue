@@ -112,7 +112,7 @@
             <ok-community-details-settings-modal :params="activeModalParams" v-if="activeModalParams"></ok-community-details-settings-modal>
         </b-modal>
         <b-modal :active.sync="communityCreateModalOpen" :trap-focus="true" @close="onModalClosed">
-            <ok-community-create-modal></ok-community-create-modal>
+            <ok-community-create-modal :params="activeModalParams"></ok-community-create-modal>
         </b-modal>
         <b-modal :active.sync="communityAdministratorsSettingsModalOpen" :trap-focus="true" @close="onModalClosed">
             <ok-community-administrators-settings-modal :params="activeModalParams" v-if="activeModalParams"></ok-community-administrators-settings-modal>
