@@ -440,6 +440,8 @@
     import { CreateCommunityApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
     import { ICommunity } from '~/models/communities/community/ICommunity';
     import { lchown } from 'fs';
+import { IToastService } from '~/services/toast/IToastService';
+import { ToastType } from '~/services/toast/lib/ToastType';
 
     @Component({
         name: 'OkCommunityDetailsSettings',
@@ -519,6 +521,7 @@
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
         private utilsService: IUtilsService = okunaContainer.get<IUtilsService>(TYPES.UtilsService);
+        private toastService: IToastService = okunaContainer.get<IToastService>(TYPES.ToastService);
 
         mounted() {
             if (this.userService.loggedInUser) {
@@ -549,7 +552,7 @@
 
         async handleFormSubmit(e: Event) {
             e.preventDefault();
-            
+            let isImageFailed = false
 
             if (this.requestInProgress) {
                 return;
@@ -580,14 +583,28 @@
 
                 this.community = await this.userService.createCommunity(communityDetails);
 
-                console.log(this.community);
-                
+                if (this.avatarUrl === '' && this.community) {
+                    await this.userService.deleteCommunityAvatar({ community: this.community });
+                }
 
                 if (this.avatarBlob?.size) {
-                    await this.userService.updateCommunityAvatar({
-                        community: this.community,
-                        avatar: this.avatarBlob
-                    });
+                    try {
+                        await this.userService.updateCommunityAvatar({
+                            community: this.community,
+                            avatar: this.avatarBlob
+                        });
+                    } catch (error) {
+                        isImageFailed = true
+                        const handledError = this.utilsService.handleErrorWithToast(error);
+
+                        if (handledError.isUnhandled) {
+                            throw handledError.error;
+                        }
+
+                        if (this.$parent['isActive']) {
+                            this.$parent['close']();
+                        }
+                    }
                 }
 
                 if (this.coverUrl === '') {
@@ -595,24 +612,43 @@
                 }
 
                 if (this.coverBlob?.size) {
-                    await this.userService.updateCommunityCover({
-                        community: this.community,
-                        cover: this.coverBlob
+                    try {
+                        await this.userService.updateCommunityCover({
+                            community: this.community,
+                            cover: this.coverBlob
+                        });
+                    } catch (error) {
+                        if (!isImageFailed) {
+                            const handledError = this.utilsService.handleErrorWithToast(error);
+    
+                            if (handledError.isUnhandled) {
+                                throw handledError.error;
+                            }
+                            
+                            if (this.$parent['isActive']) {
+                                this.$parent['close']();
+                            }
+                        }
+                    }
+                }
+
+                this.requestInProgress = false;
+                this.formWasSubmitted = false;
+                if (isImageFailed) {
+                    this.toastService.show({
+                        message: "Your group was created with failed images",
+                        type: ToastType.info,
+                        duration: 4000
+                    });
+                } else {
+                    this.toastService.show({
+                        message: "Your group was created successfully",
+                        type: ToastType.success,
                     });
                 }
-
-                this.requestInProgress = false;
-                this.formWasSubmitted = false;
                 this.onSaveComplete()
             } catch (err) {
-                const handledError = this.utilsService.handleErrorWithToast(err);
-
-                if (handledError.isUnhandled) {
-                    throw handledError.error;
-                }
-
-                this.requestInProgress = false;
-                this.formWasSubmitted = false;
+                this.utilsService.handleErrorWithToast(err);
             }
         }
         
@@ -660,8 +696,6 @@
         }
 
         handleCoverInputChange() {
-            console.log(this.$refs.coverInput.files[0]);
-            
             this.modalService.openImageCropperModal({
                 file: this.$refs.coverInput.files[0],
                 aspectRatio: 16 / 9,
@@ -680,7 +714,9 @@
         }
 
         onSaveComplete() {
-            this.$parent['close']();
+            if (this.$parent['isActive']) {
+                this.$parent['close']();
+            }
         }
 
         activateColorPicker() {
