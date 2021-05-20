@@ -2,9 +2,9 @@
     <div class="is-flex justify-center align-items-center">
         <ok-community-details-settings
             class="ok-community-details-settings-modal"
-            :images="(params && params.images) || params"
+            :images="params && params.images"
             :community="params && params.community"
-            @onCloseModal="onCloseModal"
+            @onSaveComplete="onSaveComplete"
         />
     </div>
 </template>
@@ -39,7 +39,7 @@
             required: false
         }) readonly params: CommunityDetailsSettingsModalParams;
 
-        onCloseModal() {
+        onSaveComplete() {
             this.$parent['close']();
         }
     }

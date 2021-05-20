@@ -589,42 +589,6 @@ export class CommunitiesApiService implements ICommunitiesApiService {
         });
     }
 
-    createCommunity(params: CreateCommunityApiParams): Promise<AxiosResponse<CommunityData>> {
-        const bodyFormData = new FormData();
-
-        bodyFormData.set('name', params.name);
-        bodyFormData.set('type', params.type.toString());
-        bodyFormData.set('title', params.title);
-        bodyFormData.set('color', params.color.hex());
-        bodyFormData.set('categories', params.categories.join(','));
-        
-
-        if (params.rules) {
-            bodyFormData.set('rules', params.rules);
-        }
-
-        if (params.userAdjective) {
-            bodyFormData.set('user_adjective', params.userAdjective);
-        }
-
-        if (params.usersAdjective) {
-            bodyFormData.set('users_adjective', params.usersAdjective);
-        }
-
-        if (typeof params.invitesEnabled) {
-            bodyFormData.set('invites_enabled', params.invitesEnabled ? '1': '0');
-        }
-
-        if (params.description) {
-            bodyFormData.set('description', params.description);
-        }
-
-        return this.httpService.put(CommunitiesApiService.CREATE_COMMUNITY_PATH, bodyFormData, {
-            appendAuthorizationToken: true,
-            isApiRequest: true
-        });
-    }
-
     updateCommunityAvatar(name: string, avatar: File | Blob): Promise<AxiosResponse<CommunityData>> {
         const path = this.makeCommunityAvatarPath(name);
 

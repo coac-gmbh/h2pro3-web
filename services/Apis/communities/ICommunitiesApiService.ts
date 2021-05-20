@@ -105,8 +105,6 @@ export interface ICommunitiesApiService {
 
     updateCommunity(name: string, params: UpdateCommunityApiParams): Promise<AxiosResponse<CommunityData>>;
 
-    createCommunity(params: UpdateCommunityApiParams): Promise<AxiosResponse<CommunityData>>;
-
     updateCommunityAvatar(name: string, avatar: File | Blob): Promise<AxiosResponse<CommunityData>>;
 
     deleteCommunityAvatar(name: string): Promise<AxiosResponse<CommunityData>>;
