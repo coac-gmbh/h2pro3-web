@@ -4,7 +4,7 @@
             class="ok-community-details-settings-modal"
             :images="(params && params.images) || params"
             :community="params && params.community"
-            @onSaveComplete="onSaveComplete"
+            @onCloseModal="onCloseModal"
         />
     </div>
 </template>
@@ -39,7 +39,7 @@
             required: false
         }) readonly params: CommunityDetailsSettingsModalParams;
 
-        onSaveComplete() {
+        onCloseModal() {
             this.$parent['close']();
         }
     }

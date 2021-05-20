@@ -30,6 +30,7 @@
             </h2>
             <ok-http-list
                     :refresher="administratedCommunitiesRefresher"
+                    :group="'administrated'"
                     ref="okHttpList"
                     list-type="community"
                     :limit="4"

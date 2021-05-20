@@ -435,6 +435,7 @@
     import { CreateCommunityApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
     import { IToastService } from '~/services/toast/IToastService';
     import { ToastType } from '~/services/toast/lib/ToastType';
+    import { groupsEventBus, ListGroupsBusEvents } from '~/helpers/UpdateListGroupsBusEvents';
 
     @Component({
         name: 'OkCommunityDetailsSettings',
@@ -724,7 +725,9 @@
 
                 this.requestInProgress = false;
                 this.formWasSubmitted = false;
-                this.$emit('onSaveComplete');
+                this.$emit('onCloseModal');
+                groupsEventBus.$emit(ListGroupsBusEvents.AdministerEvent);
+
 
             } catch (err) {
                 const handledError = this.utilsService.handleErrorWithToast(err);

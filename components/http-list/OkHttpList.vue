@@ -82,7 +82,6 @@
                 {{ $t('global.snippets.search_for_something')}}
             </div>
         </div>
-    </div>
 </template>
 
 <style lang="scss">
@@ -114,6 +113,7 @@
     import OkCommunityCardSkeleton from "~/components/skeletons/cards/community-card/OkCommunityCardSkeleton.vue";
     import OkCommunityTileSkeleton from "~/components/skeletons/tiles/OkCommunityTileSkeleton.vue";
     import OkNotificationSkeleton from "~/components/skeletons/notification/OkNotificationSkeleton.vue";
+    import { groupsEventBus, ListGroupsBusEvents } from '~/helpers/UpdateListGroupsBusEvents';
 
     @Component({
         name: "OkHttpList",
@@ -178,6 +178,11 @@
             type: String,
         }) readonly listType: string;
 
+        @Prop({
+            type: String,
+            required: false,
+        }) readonly group: string;
+
         $refs!: {
             infiniteLoading: InfiniteLoading
         };
@@ -205,6 +210,11 @@
 
         created() {
             this.listKey = `l-${this.utilsService.generateUuid()}`;
+            groupsEventBus.$on(ListGroupsBusEvents.AdministerEvent, () => {
+                if (this.group === 'administrated') {
+                    this.refresh()
+                }
+            });
         }
 
         destroyed() {
