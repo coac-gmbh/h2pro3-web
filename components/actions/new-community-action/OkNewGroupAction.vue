@@ -1,13 +1,13 @@
 <template>
-    <div class="ok-new-community-action" v-if="loggedInUser">
+    <div class="ok-new-group-action" v-if="loggedInUser">
         <div class="has-padding-20">
-            <ok-new-community-button />
+            <ok-new-group-button/>
         </div>
     </div>
 </template>
 
 <style lang="scss">
-    .ok-new-community-action {
+    .ok-new-group-action{
         position: fixed;
         bottom: 68px;
         right: 0;
@@ -18,6 +18,7 @@
     }
 </style>
 
+
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator'
     import { IUserService } from '~/services/user/IUserService';
@@ -25,21 +26,25 @@
     import { okunaContainer } from '~/services/inversify';
     import { BehaviorSubject } from '~/node_modules/rxjs';
     import { IUser } from '~/models/auth/user/IUser';
-    import OkNewCommunityButton from '~/components/actions/new-community-action/components/OkNewCommunityButton.vue';
+    import OkNewGroupButton from "~/components/actions/new-community-action/components/OkNewGroupButton.vue";
+
+
     @Component({
-        name: 'OkNewCommunityAction',
-        components: {OkNewCommunityButton},
+        name: "OkNewGroupAction",
+        components: {OkNewGroupButton},
         subscriptions: function () {
             return {
                 loggedInUser: this['userService'].loggedInUser
             }
         },
     })
-    export default class OkNewCommunityAction extends Vue {
+    export default class OkNewGroupAction extends Vue {
         $observables!: {
             loggedInUser: BehaviorSubject<IUser | undefined>
         };
-
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
     }
 </script>
+
+
+

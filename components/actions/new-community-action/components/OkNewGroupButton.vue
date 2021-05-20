@@ -3,8 +3,6 @@
         class="button is-fullwidth has-text-weight-bold has-text-white ok-has-background-accent-gradient justify-center align-items-center ok-new-group-button"
         @click="onButtonClicked"
     >
-        <!-- <ok-plus-icon
-                class="is-icon-4x"></ok-plus-icon> -->
         <span class="">{{$t('global.snippets.create_group')}}</span>
     </button>
 </template>
@@ -18,6 +16,7 @@
         border: 0;
         padding: 1.5rem;
     }
+
     .ok-new-group-button:hover {
         box-shadow: 0px 15px 20px hsla(41, 82%, 68%, 0.6);
         color: #fff;
@@ -35,9 +34,11 @@ import { TYPES } from "~/services/inversify-types";
 import { IModalService } from "~/services/modal/IModalService";
 import { okunaContainer } from '~/services/inversify';
 
-@Component({})
+@Component({
+        name: 'OkNewGroupButton',
+        components: {}
+})
 export default class OkNewGroupButton extends Vue {
-
     private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
 
     async onButtonClicked() {
