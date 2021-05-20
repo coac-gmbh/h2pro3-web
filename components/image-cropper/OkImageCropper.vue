@@ -51,6 +51,8 @@
 </style>
 
 <script lang="ts">
+    // TODO: abstract this component a little better
+
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import VueCropper from 'vue-cropperjs';
     import 'cropperjs/dist/cropper.css';
@@ -61,6 +63,9 @@
     import { okunaContainer } from '~/services/inversify';
     import { TYPES } from '~/services/inversify-types';
     import { ICommunity } from '~/models/communities/community/ICommunity';
+
+    import { OkImageCropperType } from '~/components/image-cropper/lib/OkImageCropperType';
+    import { CreateCommunityParams } from '~/services/user/UserServiceTypes';
 
     @Component({
         name: 'OkImageCropper',
@@ -85,6 +90,12 @@
         }) readonly fieldName: 'avatar' | 'cover';
 
         @Prop({
+            type: Number,
+            required: false,
+            default: OkImageCropperType.profile
+        }) readonly type: OkImageCropperType;
+
+        @Prop({
             type: Object,
             required: false
         }) readonly images: UserProfileImages;
@@ -95,9 +106,9 @@
         }) readonly community: ICommunity;
 
         @Prop({
-            type: Boolean,
+            type: Object,
             required: false
-        }) readonly isCreateCommunity: Boolean;
+        }) readonly communityStub: CreateCommunityParams;
 
         image: string = '';
 
@@ -132,16 +143,16 @@
             this.$refs.cropper.relativeZoom(amount);
         }
 
-        handleCancelClick() {
+        private closeCropper() {
             const images = {
                 avatarUrl: this.avatarUrl,
                 coverUrl: this.coverUrl,
                 avatarBlob: this.avatarBlob,
                 coverBlob: this.coverBlob
             };
-                
-            if (this.isCreateCommunity) {
-                return this.modalService.openCommunityCreateModal(images);
+
+            if (this.type === OkImageCropperType.profile) {
+                return this.modalService.openUserProfileSettingsModal({ images });
             }
 
             if (this.community) {
@@ -151,7 +162,14 @@
                 });
             }
 
-            this.modalService.openUserProfileSettingsModal({ images });
+            return this.modalService.openCreateCommunityModal({
+                images,
+                communityStub: this.communityStub
+            });
+        }
+
+        handleCancelClick() {
+            this.closeCropper();
         }
 
         handleSaveClick() {
@@ -169,25 +187,7 @@
                     this.coverBlob = blob;
                 }
 
-                const images = {
-                    avatarUrl: this.avatarUrl,
-                    coverUrl: this.coverUrl,
-                    avatarBlob: this.avatarBlob,
-                    coverBlob: this.coverBlob
-                };
-                
-                if (this.isCreateCommunity) {
-                    return this.modalService.openCommunityCreateModal(images);
-                }
-
-                if (this.community) {
-                    return this.modalService.openCommunityDetailsSettingsModal({
-                        community: this.community,
-                        images
-                    });
-                }
-
-                this.modalService.openUserProfileSettingsModal({ images });
+                this.closeCropper();
             });
         }
 

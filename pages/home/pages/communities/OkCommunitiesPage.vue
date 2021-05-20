@@ -7,6 +7,7 @@
                 :communities-uuid="communitiesUuid"
                 v-else></ok-mobile-communities-page>
         <ok-new-group-action />
+        <!-- <ok-new-community-action /> -->
     </div>
 </template>
 
@@ -27,9 +28,10 @@
     import OkDesktopCommunitiesPage from "~/pages/home/pages/communities/components/desktop-communities/OkDesktopCommunitiesPage.vue";
     import OkMobileCommunitiesPage from "~/pages/home/pages/communities/components/mobile-communities/OkMobileCommunitiesPage.vue";
     import OkNewGroupAction from "~/pages/home/pages/communities/components/OkNewGroupAction.vue";
+    import OkNewCommunityAction from '~/components/actions/new-community-action/OkNewCommunityAction.vue';
 
     @Component({
-        components: {OkMobileCommunitiesPage, OkDesktopCommunitiesPage, OkNewGroupAction},
+        components: {OkMobileCommunitiesPage, OkDesktopCommunitiesPage, OkNewCommunityAction,OkNewGroupAction},
         subscriptions: function () {
             return {
                 environmentResolution: this["environmentService"].environmentResolution
@@ -51,6 +53,3 @@
 
     }
 </script>
-
-
-

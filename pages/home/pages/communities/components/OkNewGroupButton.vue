@@ -40,8 +40,15 @@ export default class OkNewGroupButton extends Vue {
 
     private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
 
-    async onButtonClicked() {   
-        this.modalService.openCommunityCreateModal();
+    async onButtonClicked() {
+        await this.modalService.openCreateCommunityModal({
+            images: {
+                avatarUrl: '',
+                avatarBlob: null,
+                coverUrl: '',
+                coverBlob: null
+            }
+        });
     }
 }
 </script>

@@ -93,7 +93,7 @@ import {
     SearchJoinedCommunitiesParams,
     CreatePostParams,
     AddMediaToPostParams,
-    PublishPostParams, GetPostStatusParams, CreateCommunityPostParams, PreviewLinkParams, UpdateUserParams, GetFollowersParams, GetFollowingsParams, SearchFollowersParams, SearchFollowingsParams, FavoriteCommunityParams, UnfavoriteCommunityParams, RemoveCommunityAdministratorParams, UpdateCommunityParams, UpdateCommunityAvatarParams, DeleteCommunityAvatarParams, UpdateCommunityCoverParams, DeleteCommunityCoverParams, RemoveCommunityModeratorParams, GetCommunityBannedUsersParams, SearchCommunityBannedUsersParams, BanCommunityUserParams, UnbanCommunityUserParams, DeleteCommunityParams, AddCommunityAdministratorParams, AddCommunityModeratorParams
+    PublishPostParams, GetPostStatusParams, CreateCommunityPostParams, PreviewLinkParams, UpdateUserParams, GetFollowersParams, GetFollowingsParams, SearchFollowersParams, SearchFollowingsParams, FavoriteCommunityParams, UnfavoriteCommunityParams, RemoveCommunityAdministratorParams, UpdateCommunityParams, UpdateCommunityAvatarParams, DeleteCommunityAvatarParams, UpdateCommunityCoverParams, DeleteCommunityCoverParams, RemoveCommunityModeratorParams, GetCommunityBannedUsersParams, SearchCommunityBannedUsersParams, BanCommunityUserParams, UnbanCommunityUserParams, DeleteCommunityParams, AddCommunityAdministratorParams, AddCommunityModeratorParams, CreateCommunityParams
 } from '~/services/user/UserServiceTypes';
 import { ICommunity } from '~/models/communities/community/ICommunity';
 import { ICommunitiesApiService } from '~/services/Apis/communities/ICommunitiesApiService';
@@ -143,7 +143,6 @@ import { ICategory } from '~/models/common/category/ICategory';
 import { CategoryData } from '~/types/models-data/common/CategoryData';
 import categoryFactory from '~/models/common/category/factory';
 import {
-    CreateCommunityApiParams,
     GetSuggestedCommunitiesApiParams,
     GetTrendingCommunitiesApiParams
 } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
@@ -605,16 +604,18 @@ export class UserService implements IUserService {
         });
     }
 
-    async createCommunity(params: CreateCommunityApiParams): Promise<ICommunity> {
+    async createCommunity(params: CreateCommunityParams): Promise<ICommunity> {
         const response: AxiosResponse<CommunityData> = await this.communitiesApiService.createCommunity({
             name: params.name,
-            type: params.type,
-            rules: params.rules,
             title: params.title,
+            type: params.type,
             categories: params.categories,
+            avatar: params.avatar,
+            cover: params.cover,
+            description: params.description,
+            rules: params.rules,
             userAdjective: params.userAdjective,
             usersAdjective: params.usersAdjective,
-            description: params.description,
             color: params.color,
             invitesEnabled: params.invitesEnabled
         });

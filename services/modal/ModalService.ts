@@ -34,7 +34,8 @@ import {
     CommunityAddAdministratorModalParams,
     CommunityAddModeratorModalParams,
     CommunityAddBannedUserModalParams,
-    CommunityImages
+    // CommunityImages,
+    CreateCommunityModalParams
 } from '~/services/modal/IModalService';
 // From outside Vue instance
 import { BehaviorSubject } from '~/node_modules/rxjs';
@@ -217,6 +218,11 @@ export class ModalService implements IModalService {
     }
 
 
+    async openCreateCommunityModal(params: CreateCommunityModalParams): Promise<void> {
+        this.ensureHasNoActiveModal();
+        return this.openModal(ModalType.createCommunity, params);
+    }
+
     async openCommunityGuidelinesModal(): Promise<void> {
         this.ensureHasNoActiveModal();
         return this.openModal(ModalType.communityGuidelines);
@@ -232,10 +238,10 @@ export class ModalService implements IModalService {
         return this.openModal(ModalType.communityDetailsSettings, params);
     }
 
-    async openCommunityCreateModal(params: CommunityImages): Promise<void> {
-        this.ensureHasNoActiveModal();
-        return this.openModal(ModalType.communityCreate, params);
-    }
+    // async openCommunityCreateModal(params: CommunityImages): Promise<void> {
+    //     this.ensureHasNoActiveModal();
+    //     return this.openModal(ModalType.communityCreate, params);
+    // }
 
     async openCommunityAdministratorsSettingsModal(params: CommunityAdministratorsSettingsModalParams): Promise<void> {
         this.ensureHasNoActiveModal();
