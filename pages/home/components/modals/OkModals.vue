@@ -112,7 +112,7 @@
             <ok-community-details-settings-modal :params="activeModalParams" v-if="activeModalParams"></ok-community-details-settings-modal>
         </b-modal>
         <b-modal :active.sync="communityCreateModalOpen" :trap-focus="true" @close="onModalClosed">
-            <ok-community-create-modal :params="activeModalParams"></ok-community-create-modal>
+            <ok-community-details-settings-modal :params="activeModalParams"></ok-community-details-settings-modal>
         </b-modal>
         <b-modal :active.sync="communityAdministratorsSettingsModalOpen" :trap-focus="true" @close="onModalClosed">
             <ok-community-administrators-settings-modal :params="activeModalParams" v-if="activeModalParams"></ok-community-administrators-settings-modal>
@@ -199,7 +199,6 @@
 
     import OkCommunitySettingsModal from '~/pages/home/components/modals/components/community-settings/OkCommunitySettingsModal.vue';
     import OkCommunityDetailsSettingsModal from '~/pages/home/components/modals/components/community-settings/OkCommunityDetailsSettingsModal.vue';
-    import OkCommunityCreateModal from '~/pages/home/components/modals/components/OkCommunityCreateModal.vue';
     import OkCommunityAdministratorsSettingsModal from '~/pages/home/components/modals/components/community-settings/OkCommunityAdministratorsSettingsModal.vue';
     import OkCommunityAddAdministratorModal from '~/pages/home/components/modals/components/community-settings/OkCommunityAddAdministratorModal.vue';
     import OkCommunityModeratorsSettingsModal from '~/pages/home/components/modals/components/community-settings/OkCommunityModeratorsSettingsModal.vue';
@@ -237,7 +236,6 @@
             OkUserFollowersModal,
             OkCommunitySettingsModal,
             OkCommunityDetailsSettingsModal,
-            OkCommunityCreateModal,
             OkCommunityAdministratorsSettingsModal,
             OkCommunityAddAdministratorModal,
             OkCommunityModeratorsSettingsModal,

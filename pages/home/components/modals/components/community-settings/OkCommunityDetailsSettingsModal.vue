@@ -2,7 +2,7 @@
     <div class="is-flex justify-center align-items-center">
         <ok-community-details-settings
             class="ok-community-details-settings-modal"
-            :images="params && params.images"
+            :images="(params && params.images) || params"
             :community="params && params.community"
             @onSaveComplete="onSaveComplete"
         />

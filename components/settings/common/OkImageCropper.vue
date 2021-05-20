@@ -139,9 +139,9 @@
                 avatarBlob: this.avatarBlob,
                 coverBlob: this.coverBlob
             };
-
+                
             if (this.isCreateCommunity) {
-                return this.modalService.openCommunityCreateModal({images});
+                return this.modalService.openCommunityCreateModal(images);
             }
 
             if (this.community) {
@@ -177,7 +177,7 @@
                 };
                 
                 if (this.isCreateCommunity) {
-                    return this.modalService.openCommunityCreateModal({images});
+                    return this.modalService.openCommunityCreateModal(images);
                 }
 
                 if (this.community) {

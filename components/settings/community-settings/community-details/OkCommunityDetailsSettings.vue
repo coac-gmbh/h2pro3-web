@@ -432,6 +432,9 @@
     import { CommunityImages, IModalService } from '~/services/modal/IModalService';
     import { IUtilsService } from '~/services/utils/IUtilsService';
     import { UpdateCommunityParams } from '~/services/user/UserServiceTypes';
+    import { CreateCommunityApiParams } from '~/services/Apis/communities/CommunitiesApiServiceTypes';
+    import { IToastService } from '~/services/toast/IToastService';
+    import { ToastType } from '~/services/toast/lib/ToastType';
 
     @Component({
         name: 'OkCommunityDetailsSettings',
@@ -461,7 +464,7 @@
 
         @Prop({
             type: Object,
-            required: true
+            required: false
         }) readonly community: ICommunity;
 
         @Prop({
@@ -509,49 +512,59 @@
         avatarBlob?: Blob | null;
         coverBlob?: Blob | null;
 
+        communityCreated: ICommunity | null;
+        isImageFailed: Boolean = false;
+
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
         private utilsService: IUtilsService = okunaContainer.get<IUtilsService>(TYPES.UtilsService);
+        private toastService: IToastService = okunaContainer.get<IToastService>(TYPES.ToastService);
 
         mounted() {
             if (this.userService.loggedInUser) {
                 this.userService.getCategories()
                     .then(allCategories => {
                         this.allCategories = allCategories;
+                        if (this.community) {
+                            const {
+                                name,
+                                title,
+                                type,
+                                rules,
+                                userAdjective,
+                                usersAdjective,
+                                description,
+                                color,
+                                categories,
+                                invitesEnabled,
+                                avatar,
+                                cover
+                            } = this.community;
+                            
+                            this.communityName = name;
+                            this.communityTitle = title;
+                            this.communityTypeString = type?.toString();
+                            this.rules = rules;
+                            this.userAdjective = userAdjective;
+                            this.usersAdjective = usersAdjective;
+                            this.description = description;
+                            this.colorString = color.hex();
+                            this.categories = categories.slice(0);
+                            this.invitesEnabled = invitesEnabled;
 
-                        const {
-                            name,
-                            title,
-                            type,
-                            rules,
-                            userAdjective,
-                            usersAdjective,
-                            description,
-                            color,
-                            categories,
-                            invitesEnabled,
-                            avatar,
-                            cover
-                        } = this.community;
+                            this.avatarUrl = this.images?.avatarUrl || avatar;
+                            this.coverUrl = this.images?.coverUrl || cover;
+                            this.avatarBlob = this.images?.avatarBlob;
+                            this.coverBlob = this.images?.coverBlob;
 
-                        this.communityName = name;
-                        this.communityTitle = title;
-                        this.communityTypeString = type?.toString();
-                        this.rules = rules;
-                        this.userAdjective = userAdjective;
-                        this.usersAdjective = usersAdjective;
-                        this.description = description;
-                        this.colorString = color.hex();
-                        this.categories = categories.slice(0);
-                        this.invitesEnabled = invitesEnabled;
+                            this.hasInitialDataLoaded = true;
+                        } else {
+                            this.avatarUrl = this.images?.avatarUrl;
+                            this.coverUrl = this.images?.coverUrl;
+                            this.avatarBlob = this.images?.avatarBlob;
+                            this.coverBlob = this.images?.coverBlob;
+                        }
 
-                        this.avatarUrl = this.images?.avatarUrl || avatar;
-                        this.coverUrl = this.images?.coverUrl || cover;
-
-                        this.avatarBlob = this.images?.avatarBlob;
-                        this.coverBlob = this.images?.coverBlob;
-
-                        this.hasInitialDataLoaded = true;
                     });
             }
         }
@@ -569,9 +582,88 @@
             return backgroundColor.isDark() ? Color('#ffffff') : Color('#000000');
         }
 
+        getBaseCommunityDetails() {
+            return {
+                name: this.communityName,
+                type: CommunityType.parse(this.communityTypeString),
+                title: this.communityTitle,
+                rules: this.rules,
+                userAdjective: this.userAdjective,
+                usersAdjective: this.usersAdjective,
+                description: this.description,
+                color: Color(this.colorString ? this.colorString : '#000000'),
+                categories: this.categories.length ? this.categories.map(c => c.name) : []
+            }
+        }
+        getCreateCommunityApiParams(): CreateCommunityApiParams {
+            return { ...this.getBaseCommunityDetails() }
+        }
+
+        getUpdateCommunityApiParams(): UpdateCommunityParams {
+            return { ...this.getBaseCommunityDetails(), community: this.community, invitesEnabled: this.invitesEnabled}
+        }
+        async updateCommunityAvatar(){
+            if (this.avatarBlob?.size) {
+                try {
+                    await this.userService.updateCommunityAvatar({
+                        community: this.community || this.communityCreated,
+                        avatar: this.avatarBlob
+                    });
+                } catch (error) {
+                    this.isImageFailed = true
+                    const handledError = this.utilsService.handleErrorWithToast(error);
+
+                    if (handledError.isUnhandled) {
+                        throw handledError.error;
+                    }
+
+                    if (this.$parent['isActive']) {
+                        this.$parent['close']();
+                    }
+                }
+            }
+        }
+
+        async updateCommunityCover(){
+            if (this.coverBlob?.size) {
+                try {
+                    await this.userService.updateCommunityCover({
+                        community: this.community || this.communityCreated,
+                        cover: this.coverBlob
+                    });
+                } catch (error) {
+                    if (!this.isImageFailed) {
+                        const handledError = this.utilsService.handleErrorWithToast(error);
+
+                        if (handledError.isUnhandled) {
+                            throw handledError.error;
+                        }
+                        
+                        if (this.$parent['isActive']) {
+                            this.$parent['close']();
+                        }
+                    }
+                }
+            }
+        }
+
+        showCreationMessage(){
+            if (this.isImageFailed) {
+                this.toastService.show({
+                    message: "Your group was created with failed images",
+                    type: ToastType.info,
+                    duration: 4000
+                });
+            } else {
+                this.toastService.show({
+                    message: "Your group was created successfully",
+                    type: ToastType.success,
+                });
+            }
+        }
+
         async handleFormSubmit(e: Event) {
             e.preventDefault();
-
             if (this.requestInProgress) {
                 return;
             }
@@ -586,50 +678,54 @@
             this.requestInProgress = true;
 
             try {
-                const updatedCommunityDetails: UpdateCommunityParams = {
-                    community: this.community,
-                    name: this.communityName,
-                    type: CommunityType.parse(this.communityTypeString),
-                    title: this.communityTitle,
-                    rules: this.rules,
-                    userAdjective: this.userAdjective,
-                    usersAdjective: this.usersAdjective,
-                    description: this.description,
-                    color: Color(this.colorString),
-                    invitesEnabled: this.invitesEnabled
-                };
+                if (!this.community) {
+                    this.communityCreated = await this.userService.createCommunity(this.getCreateCommunityApiParams());
+                    if (this.avatarUrl === '' && this.communityCreated) {
+                        await this.userService.deleteCommunityAvatar({ community: this.community || this.communityCreated });
+                    }
+                    await this.updateCommunityAvatar();
 
-                if (this.categories.length) { // probably a redundant check
-                    updatedCommunityDetails.categories = this.categories.map(c => c.name);
-                }
+                    if (this.coverUrl === '') {
+                        await this.userService.deleteCommunityCover({ community: this.community || this.communityCreated});
+                    }
 
-                await this.userService.updateCommunity(updatedCommunityDetails);
+                    await this.updateCommunityCover();
 
-                if (this.avatarUrl === '') {
-                    await this.userService.deleteCommunityAvatar({ community: this.community });
-                }
-
-                if (this.avatarBlob?.size) {
-                    await this.userService.updateCommunityAvatar({
-                        community: this.community,
-                        avatar: this.avatarBlob
-                    });
-                }
-
-                if (this.coverUrl === '') {
-                    await this.userService.deleteCommunityCover({ community: this.community });
-                }
-
-                if (this.coverBlob?.size) {
-                    await this.userService.updateCommunityCover({
-                        community: this.community,
-                        cover: this.coverBlob
-                    });
+                    
+                    this.showCreationMessage()
+                    
+                } else {
+    
+                    await this.userService.updateCommunity(this.getUpdateCommunityApiParams());
+    
+                    if (this.avatarUrl === '') {
+                        await this.userService.deleteCommunityAvatar({ community: this.community });
+                    }
+    
+                    if (this.avatarBlob?.size) {
+                        await this.userService.updateCommunityAvatar({
+                            community: this.community,
+                            avatar: this.avatarBlob
+                        });
+                    }
+    
+                    if (this.coverUrl === '') {
+                        await this.userService.deleteCommunityCover({ community: this.community });
+                    }
+    
+                    if (this.coverBlob?.size) {
+                        await this.userService.updateCommunityCover({
+                            community: this.community,
+                            cover: this.coverBlob
+                        });
+                    }
+    
                 }
 
                 this.requestInProgress = false;
                 this.formWasSubmitted = false;
                 this.$emit('onSaveComplete');
+
             } catch (err) {
                 const handledError = this.utilsService.handleErrorWithToast(err);
 
@@ -680,7 +776,8 @@
                     coverBlob: this.coverBlob
                 },
 
-                community: this.community
+                community: this.community || this.communityCreated,
+                isCreateCommunity: this.community ? undefined : true
             });
         }
 
@@ -697,7 +794,8 @@
                     coverBlob: this.coverBlob
                 },
 
-                community: this.community
+                community: this.community || this.communityCreated,
+                isCreateCommunity: this.community ? undefined : true
             });
         }
 
@@ -777,9 +875,13 @@
         }
 
         handleCancelClick() {
-            this.modalService.openCommunitySettingsModal({
-                community: this.community
-            });
+            if (this.community) {     
+                this.modalService.openCommunitySettingsModal({
+                    community: this.community
+                });
+            }else {
+                this.$parent['$parent']['close']()
+            }
         }
     }
 </script>

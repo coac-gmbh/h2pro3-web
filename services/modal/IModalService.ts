@@ -75,7 +75,7 @@ export interface IModalService {
 
     openCommunitySettingsModal(params: CommunitySettingsModalParams): Promise<void>;
 
-    openCommunityCreateModal(params?: OnlyImages): Promise<void>;
+    openCommunityCreateModal(params?: CommunityImages): Promise<void>;
 
     openCommunityDetailsSettingsModal(params: CommunityDetailsSettingsModalParams): Promise<void>;
 
@@ -278,7 +278,7 @@ export interface CommunityStaffModalParams {
 }
 
 export interface CommunitySettingsModalParams {
-    community: ICommunity;
+    community?: ICommunity;
 }
 
 export interface CommunityDetailsSettingsModalParams extends CommunitySettingsModalParams {
