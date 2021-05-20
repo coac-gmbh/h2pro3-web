@@ -13,21 +13,21 @@ export default {
         },
         "home": {
             "communities": {
-                "title": "Organizations",
+                "title": "Groups",
                 "favorites": {
                     "title": "Favorites",
-                    "see_all_communities": "See all favorite organizations",
+                    "see_all_communities": "See all favorite groups",
                 },
                 "joined": {
-                    "see_all_communities": "See all joined organizations",
+                    "see_all_communities": "See all joined groups",
                     "title": "Joined",
                 },
                 "administrated": {
-                    "see_all_communities": "See all administrated organizations",
+                    "see_all_communities": "See all administrated groups",
                     "title": "Administrated",
                 },
                 "moderated": {
-                    "see_all_communities": "See all moderated organizations",
+                    "see_all_communities": "See all moderated groups",
                     "title": "Moderated",
                 },
             }
@@ -94,7 +94,7 @@ export default {
             "reacted_to_post": "reacted to your post.",
             "reacted_to_post_comment": "reacted to your post comment.",
             "following_you": "is now following you.",
-            "user_community_invite": "has invited you to join organization c/{communityName}.",
+            "user_community_invite": "has invited you to join group c/{communityName}.",
             "user_replied": "replied: {postCommentText}",
             "user_also_replied": "also replied: {postCommentText}",
             "commented_on_your_post": "commented on your post: {postCommentText}",
@@ -131,10 +131,10 @@ export default {
             "provide_additional_details": "Can you provide additional details that might be relevant to the report?",
             "heres_what_happens_next": "Here's what will happen next:",
             "report_submitted_anon": "Your report will be submitted anonymously.",
-            "if_reporting_post_or_comment": "If you are reporting a post or comment, the report will be sent to the H2pro3 staff and the organization moderators if applicable and the post will be hidden from your feed.",
-            "if_reporting_account_or_community": "If you are reporting an account or organization, it will be sent to the H2pro3 staff.",
+            "if_reporting_post_or_comment": "If you are reporting a post or comment, the report will be sent to the H2pro3 staff and the group moderators if applicable and the post will be hidden from your feed.",
+            "if_reporting_account_or_community": "If you are reporting an account or group, it will be sent to the H2pro3 staff.",
             "we_will_review_it": "We'll review it, if approved, content will be deleted and penalties delivered to the people involved ranging from a temporary suspension to deletion of the account depending on the severity of the transgression.",
-            "if_report_approved": "If the report is found to be made in an attempt to damage the reputation of another member or organization in the platform with no infringement of the stated reason, penalties will be applied to you.",
+            "if_report_approved": "If the report is found to be made in an attempt to damage the reputation of another member or group in the platform with no infringement of the stated reason, penalties will be applied to you.",
             "i_understand_submit": "I understand, submit.",
         },
         "login": {
@@ -228,8 +228,8 @@ export default {
                 "description": "Display the number of people that follow you, on your profile."
             },
             "community_posts": {
-                "name": "Community posts",
-                "description": "Display posts you share with public communities, on your profile."
+                "name": "Group posts",
+                "description": "Display posts you share with public groups, on your profile."
             }
         }
     },
@@ -253,7 +253,7 @@ export default {
             },
             "moderation_reports": {
                 "name": "Moderation reports",
-                "description": "Review the community moderation reports."
+                "description": "Review the group moderation reports."
             },
             "closed_posts": {
                 "name": "Closed posts",
@@ -265,25 +265,25 @@ export default {
             },
             "invite": {
                 "name": "Invite people",
-                "description": "Invite your connections and followers to join the community."
+                "description": "Invite your connections and followers to join the group."
             },
             "favorite": {
-                "name_favorite": "Favorite community",
-                "description_favorite": "Add the community to your favorites.",
-                "name_unfavorite": "Unfavorite community",
-                "description_unfavorite": "Remove the community from your favorites."
+                "name_favorite": "Favorite group",
+                "description_favorite": "Add the group to your favorites.",
+                "name_unfavorite": "Unfavorite group",
+                "description_unfavorite": "Remove the group from your favorites."
             },
             "delete": {
-                "name": "Delete community",
-                "description": "Delete the community, forever."
+                "name": "Delete group",
+                "description": "Delete the group, forever."
             },
             "report": {
-                "name": "Report community",
-                "description": "Report this community"
+                "name": "Report group",
+                "description": "Report this group"
             },
             "leave": {
-                "name": "Leave community",
-                "description": "Leave this community"
+                "name": "Leave group",
+                "description": "Leave this group"
             }
         },
 
@@ -292,8 +292,8 @@ export default {
             "add_administrator": "Add administrator",
             "remove": "Remove",
             "add_confirmation": {
-                "title": "Are you sure you want to add @{username} as a community administrator?",
-                "contents": "This will allow the member to edit the community details, administrators, moderators, and banned users."
+                "title": "Are you sure you want to add @{username} as a group administrator?",
+                "contents": "This will allow the member to edit the group details, administrators, moderators, and banned users."
             }
         },
 
@@ -302,8 +302,8 @@ export default {
             "add_moderator": "Add moderator",
             "remove": "Remove",
             "add_confirmation": {
-                "title": "Are you sure you want to add @{username} as a community moderator?",
-                "contents": "This will allow the member to edit the community details, moderators, and banned users."
+                "title": "Are you sure you want to add @{username} as a group moderator?",
+                "contents": "This will allow the member to edit the group details, moderators, and banned users."
             }
         },
 
@@ -313,13 +313,13 @@ export default {
             "ban_user": "Ban user",
             "ban_confirmation": {
                 "title": "Are you sure you want to ban @{username}?",
-                "contents": "This will remove the user from the community and disallow them from joining again."
+                "contents": "This will remove the user from the group and disallow them from joining again."
             }
         },
 
         "delete": {
             "delete_confirmation": {
-                "title": "Are you sure you want to delete the community?",
+                "title": "Are you sure you want to delete the group?",
                 "contents": "You won't see its posts in your timeline nor will be able to post to it anymore."
             }
         },
@@ -330,8 +330,8 @@ export default {
             "change_avatar": "Change Avatar",
             "remove_avatar": "Remove Avatar",
 
-            "remove_cover_confirmation": "Are you sure you want to remove the community's cover?",
-            "remove_avatar_confirmation": "Are you sure you want to remove the community's avatar?",
+            "remove_cover_confirmation": "Are you sure you want to remove the group's cover?",
+            "remove_avatar_confirmation": "Are you sure you want to remove the group's avatar?",
 
             "title": {
                 "label": "Title",
@@ -355,7 +355,7 @@ export default {
 
             "invites_enabled": {
                 "label": "Member invites",
-                "description": "Members can invite other people to the community"
+                "description": "Members can invite other people to the group"
             },
 
             "category": {
@@ -364,7 +364,7 @@ export default {
 
             "description": {
                 "label": "Description (optional)",
-                "placeholder": "What is your community about?"
+                "placeholder": "What is your group about?"
             },
 
             "rules": {
@@ -435,7 +435,7 @@ export default {
                 "required": "Name cannot be empty",
                 "max_length": "Name can't be longer than {max} characters",
                 "min_length": "Name can't be shorter than {min} characters",
-                "taken": "This community name is already taken",
+                "taken": "This group name is already taken",
             },
             "community_title": {
                 "required": "Title cannot be empty",
@@ -479,8 +479,8 @@ export default {
             "search": "Search",
             "hashtag": "Hashtag",
             "hashtags": "Hashtags",
-            "community": "Organization",
-            "communities": "Organizations",
+            "community": "Group",
+            "communities": "Groups",
             "users": "Users",
             "more": "More",
             "optional": "Optional",
@@ -512,36 +512,36 @@ export default {
             "post_comment": "post comment",
             "user": "user",
             "hashtag": "hashtag",
-            "community": "organization",
+            "community": "group",
             "fallback": "item"
         },
         "snippets": {
-            "a_community": "A organization",
+            "a_community": "A group",
             "my_circles": "My circles",
             "share_to_circles_description": "Share the post to one of multiple of your circles.",
-            "share_to_community_description": "Share the post to a organization you're part of.",
+            "share_to_community_description": "Share the post to a group you're part of.",
             "share_to": "Share to",
             "share_to_circles": "Share to circles",
-            "share_to_community": "Share to organization",
-            "get_started_with_communities": "Get started by joining the following organizations.",
+            "share_to_community": "Share to group",
+            "get_started_with_communities": "Get started by joining the following groups.",
             "forgot_password": "Forgot password?",
             "get_the_app": "Get the app",
             "create_post": "Create post",
             "type_here": "Type here...",
             "about_us": "About us",
             "hooray": "Hooray!",
-            "community_rules": "Organization rules",
-            "community_staff": "Organization staff",
+            "community_rules": "Group rules",
+            "community_staff": "Group staff",
             "account_created": "Your account has been created.",
             "legal_confirmation": "Legal confirmation",
-            "legal_confirmation_description": "By registering in H2pro3, I certify that I'm older than 16 years old and have read the Organization Guidelines, Privacy Policy and Terms of Use and agree to all of the items included.",
+            "legal_confirmation_description": "By registering in H2pro3, I certify that I'm older than 16 years old and have read the Group Guidelines, Privacy Policy and Terms of Use and agree to all of the items included.",
             "privacy_policy": "Privacy policy",
             "terms_of_use": "Terms of use",
             "one_last_thing": "One last thing",
             "do_you_agree_to_the_presented_terms": "Do you agree?",
             "please_take_a_moment_to_read_the_following_documents": "Please take a moment to read through the following documents.",
             "documents_contain_important_information": "They contain important information about your experience in H2pro3 and you must agree to them.",
-            "community_guidelines": "Organization guidelines",
+            "community_guidelines": "Group guidelines",
             "dont_have_an_account": "Dont have an account?",
             "already_have_an_account": "Already have an account?",
             "remembered_your_password": "Remembered your password?",
@@ -573,8 +573,8 @@ export default {
             "user_reported": "User reported",
             "report_hashtag": "Report hashtag",
             "hashtag_reported": "Hashtag reported",
-            "report_community": "Report organization",
-            "commmunity_reported": "Organization reported",
+            "report_community": "Report group",
+            "commmunity_reported": "Group reported",
             "block_user": "Block user",
             "user_blocked": "User blocked",
             "unblock_user": "Unblock user",
@@ -625,7 +625,7 @@ export default {
             "your_account_is_ready": "Your account is ready.",
             "its_better_on_the_app": "It's better on the app",
             "okuna_web_is_wip": "H2pro3 for the web is a work-in-progress.",
-            "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your organizations reports and more.",
+            "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your groups reports and more.",
             "glad_you_made_it": "We're glad you made it!",
             "welcome_to_okuna": "Welcome to H2pro3 for the web.",
             "welcome_to_okuna_keep_in_mind_okuna_wip": "Please keep in mind that this version is a WIP (Work In Progress) and some functionality will be missing while we catch up with our mobile version.",
