@@ -2,13 +2,13 @@
     <div>
         <button v-if="canBanOrUnban"
                 @click.prevent="openCommunityMenu"
-                class="button is-rounded ok-has-background-primary-highlight is-borderless has-text-white has-text-weight-bold">
+                class="button is-rounded ok-has-background-primary-highlight ok-has-text-primary-invert is-borderless has-text-white has-text-weight-bold">
             Manage
         </button>
-        <button v-if="isLoggedInUser" class="button is-rounded ok-has-background-accent has-text-white has-text-weight-bold" @click="OpenPostModal">
+        <button v-if="isLoggedInUser && !canBanOrUnban" class="button is-rounded ok-has-background-accent has-text-white has-text-weight-bold" @click="OpenPostModal">
             Post
         </button>
-        <div v-else class="columns is-vcentered is-mobile">
+        <div v-if="!isLoggedInUser && !canBanOrUnban" class="columns is-vcentered is-mobile">
             <div class="column is-narrow">
                 <ok-join-community-button :community="community"></ok-join-community-button>
             </div>
