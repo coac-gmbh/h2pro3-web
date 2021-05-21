@@ -73,7 +73,7 @@
             this.canBanOrUnban = loggedInUser.canBanOrUnbanUsersInCommunity(this.community);
         }
 
-        async OpenPostModal() {
+        async openPostModal() {
             const postStudioData = await this.modalService.openPostStudioModal({
                 community: this.community,
             });
