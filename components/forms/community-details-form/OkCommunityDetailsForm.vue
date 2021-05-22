@@ -155,7 +155,7 @@
                     </template>
                 </ok-tile>
 
-                <ok-tile alignmentClass="align-items-start">
+                <!-- <ok-tile alignmentClass="align-items-start">
                     <template v-slot:content>
                         <div class="field">
                             <label for="communityType" class="label has-text-left ok-has-text-primary-invert-80">
@@ -176,8 +176,63 @@
                             </div>
                         </div>
                     </template>
-                </ok-tile>
+                </ok-tile> -->
 
+                <ok-tile alignmentClass="align-items-start">
+                    <template v-slot:content>
+                        <div class="field">
+                            <label for="communityType" class="label has-text-left ok-has-text-primary-invert-80">
+                                <ok-community-type-icon class="ok-svg-icon-primary-invert has-margin-right-10"></ok-community-type-icon>
+                                {{ $t('manage_community.details.type.label') }}
+                            </label>
+
+                            <div class="control">
+                                <select name="communityType" v-model="selectedCommunityType" class="input ok-input is-rounded" id="communityType">
+                                    <option :value="type" v-for="type in groupTypes" :key="type.id">
+                                        {{ $t(`forms.create_community.community_type.${type.name.toLowerCase().replaceAll(/ /ig, '_')}`) }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </template>
+                </ok-tile>
+                
+                <template v-for="input in inputsType">
+                    <ok-tile alignmentClass="align-items-start" v-if="selectedCommunityType && selectedCommunityType.requiredInputs.includes(input.input)" :key="input.input">
+                        <template v-slot:content>
+                            <div class="field">
+                                <label :for="input.input" class="label has-text-left ok-has-text-primary-invert-80">
+                                    <ok-community-categories-icon class="ok-svg-icon-primary-invert has-margin-right-10"></ok-community-categories-icon>
+                                    {{ $t(`forms.create_community.details.${input.input}.label`) }}
+                                </label>
+
+                                <div class="control">
+                                    <input 
+                                        type="text"
+                                        v-if="input.inputType === 'input'"
+                                        :placeholder="$t(`forms.create_community.details.${input.input}.label`)"
+                                        class="input ok-input is-rounded"
+                                        :id="input.input" 
+                                    >
+                                    <textarea
+                                        v-if="input.inputType === 'textarea'"
+                                        :placeholder="$t(`forms.create_community.details.${input.input}.label`)"
+                                        class="input ok-input is-rounded ok-community-details-settings-textarea"
+                                        :id="input.input" />
+                                        <!-- v-model="usersAdjective" -->
+                                </div>
+
+                                <!-- <div v-if="$v.usersAdjective.$invalid && formWasSubmitted" class="has-padding-top-5 has-text-left">
+                                    <p class="help is-danger" v-if="!$v.usersAdjective.maxLength">
+                                        {{usersAdjectiveMaxLengthError}}
+                                    </p>
+                                </div> -->
+                            </div>
+                        </template>
+                    </ok-tile>
+                </template>
+
+                
                 <ok-tile v-if="communityTypeString === CommunityType.private.toString()">
                     <template v-slot:leading>
                         <ok-community-invites-enabled-icon class="ok-svg-icon-primary-invert"></ok-community-invites-enabled-icon>
@@ -440,7 +495,7 @@
             OkImageCover,
             OkImageAvatar,
             OkLetterAvatar,
-            OkCommunityCategoriesSelector
+            OkCommunityCategoriesSelector,
         },
         subscriptions: function () {
             return {
@@ -517,6 +572,58 @@
 
         avatarBlob?: Blob | null;
         coverBlob?: Blob | null;
+        
+        groupTypes: any[] = [
+            {id: 0, name: 'No type', requiredInputs: [] },
+            {id: 1, name: 'City', requiredInputs: ['about_us', 'website', 'population', 'area', 'energy_demand'] },
+            {id: 2, name: 'Company', requiredInputs: ['about_us', 'website', 'insdustry', 'employee', 'location']},
+            {id: 3, name: 'University', requiredInputs: ['about_us', 'website', 'institution', 'department']},
+            {id: 4, name: 'Institution', requiredInputs: ['about_us', 'website']}
+        ];
+        selectedCommunityType: any[] = this.groupTypes[0];
+
+        inputsType = [
+            {
+                input: 'about_us',
+                inputType: 'textarea'
+            },
+            {
+                input: 'website',
+                inputType: 'input'
+            },
+            {
+                input: 'population',
+                inputType: 'input'
+            },
+            {
+                input: 'area',
+                inputType: 'input'
+            },
+            {
+                input: 'energy_demand',
+                inputType: 'textarea'
+            },
+            {
+                input: 'industry',
+                inputType: 'input'
+            },
+            {
+                input: 'employee',
+                inputType: 'input'
+            },
+            {
+                input: 'location',
+                inputType: 'input'
+            },
+            {
+                input: 'institution',
+                inputType: 'input'
+            },
+            {
+                input: 'department',
+                inputType: 'textarea'
+            },
+        ]
 
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);

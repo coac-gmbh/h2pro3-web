@@ -148,6 +148,47 @@ export default {
             "title": "Comment post",
             "title_reply": "Reply to comment",
         },
+        "create_community": {
+            "community_type": {
+                "no_type": "No type",
+                "city": "City",
+                "company": "Company",
+                "university": "University",
+                "institution": "Institution"
+            },
+            "details": {
+                "about_us": {
+                    "label": "About us"
+                },
+                "website": {
+                    "label": "Website"
+                },
+                "population": {
+                    "label": "Population"
+                },
+                "energy_demand": {
+                    "label": "Energy demand"
+                },
+                "area": {
+                    "label": "Area"
+                },
+                "industry": {
+                    "label": "Industry"
+                },
+                "employee": {
+                    "label": "Employee"
+                },
+                "location": {
+                    "label": "Location"
+                },
+                "institution": {
+                    "label": "Institution"
+                },
+                "department": {
+                    "label": "Department"
+                },
+            }
+        },
     },
     "user_preferences": {
         "link_previews_setting": {
