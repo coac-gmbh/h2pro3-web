@@ -10,7 +10,7 @@
         </button>
         <div v-else class="columns column is-vcentered is-mobile">
             <div class="column is-narrow">
-                <ok-join-community-button @onJoinButton="togglePostButton" :community="community"></ok-join-community-button>
+                <ok-join-community-button @toggleFinished="togglePostButton" :community="community"></ok-join-community-button>
             </div>
             <div
                 class="column is-narrow is-flex justify-center align-items-center has-cursor-pointer"
@@ -95,11 +95,15 @@
 
         private onLoggedInUserChanged(loggedInUser: IUser) {
             this.canBanOrUnban = loggedInUser.canBanOrUnbanUsersInCommunity(this.community);
-            this.canCreatePost = this.community.isMember(this.$observables.loggedInUser.value);
+            this.canCreatePost = this.loadCanCreatePost();
         }
 
-        togglePostButton(value: boolean) {
-            this.canCreatePost = value;
+        private loadCanCreatePost(): boolean {
+            return this.community.isMember(this.$observables.loggedInUser.value);
+        }
+
+        togglePostButton() {
+            this.canCreatePost = this.loadCanCreatePost();
         }
 
         async openPostModal() {
