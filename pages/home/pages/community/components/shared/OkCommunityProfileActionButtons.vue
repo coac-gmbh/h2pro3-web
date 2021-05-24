@@ -1,6 +1,6 @@
 <template>
     <div class="columns column is-vcentered">
-        <button v-if="loggedInUser" class="button is-rounded has-text-weight-bold is-borderless" :style="buttonCssStyle" @click="openPostModal">
+        <button v-if="canCreatePost" class="button is-rounded has-text-weight-bold is-borderless" :style="buttonCssStyle" @click="openPostModal">
             Post
         </button>
         <button v-if="canBanOrUnban"
@@ -10,7 +10,7 @@
         </button>
         <div v-else class="columns column is-vcentered is-mobile">
             <div class="column is-narrow">
-                <ok-join-community-button :community="community"></ok-join-community-button>
+                <ok-join-community-button @onJoinButton="togglePostButton" :community="community"></ok-join-community-button>
             </div>
             <div
                 class="column is-narrow is-flex justify-center align-items-center has-cursor-pointer"
@@ -95,7 +95,11 @@
 
         private onLoggedInUserChanged(loggedInUser: IUser) {
             this.canBanOrUnban = loggedInUser.canBanOrUnbanUsersInCommunity(this.community);
-            this.canCreatePost = loggedInUser.canCloseOrOpenPostInCommunity(this.community) //TODO change service to one where you can create post if you are a user of the community
+            this.canCreatePost = this.community.isMember(this.$observables.loggedInUser.value);
+        }
+
+        togglePostButton(value: boolean) {
+            this.canCreatePost = value;
         }
 
         async openPostModal() {
