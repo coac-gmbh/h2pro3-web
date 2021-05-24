@@ -5,7 +5,7 @@
                 class="button is-rounded ok-has-background-primary-highlight is-borderless has-text-white has-text-weight-bold">
             Manage
         </button>
-        <button v-if="isLoggedInUser" class="button is-rounded ok-has-background-accent has-text-white has-text-weight-bold" @click="OpenPostModal">
+        <button v-if="isLoggedInUser" class="button is-rounded ok-has-background-accent has-text-white has-text-weight-bold" @click="openPostModal">
             Post
         </button>
         <div v-else class="columns is-vcentered is-mobile">
@@ -73,7 +73,7 @@
             this.canBanOrUnban = loggedInUser.canBanOrUnbanUsersInCommunity(this.community);
         }
 
-        async OpenPostModal() {
+        async openPostModal() {
             const postStudioData = await this.modalService.openPostStudioModal({
                 community: this.community,
             });
