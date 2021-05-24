@@ -205,6 +205,7 @@
         created() {
             this.listKey = `l-${this.utilsService.generateUuid()}`;
         }
+        
         async activated(){
             this.refresh();     
         }
