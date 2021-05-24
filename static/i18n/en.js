@@ -492,8 +492,35 @@ export default {
             "community_user_adjective": {
                 "max_length": "User adjective can't be longer than {max} characters",
             },
-            "community_users_adjective": {
-                "max_length": "Users adjective can't be longer than {max} characters",
+            "community_about_us": {
+                "max_length": "About us can't be longer than {max} characters",
+            },
+            "community_website": {
+                "max_length": "Website can't be longer than {max} characters",
+            },
+            "community_population": {
+                "max_length": "Population can't be longer than {max} characters",
+            },
+            "community_area": {
+                "max_length": "Area can't be longer than {max} characters",
+            },
+            "community_energy_demand": {
+                "max_length": "Energy Demand can't be longer than {max} characters",
+            },
+            "community_industry": {
+                "max_length": "Industry can't be longer than {max} characters",
+            },
+            "community_employee": {
+                "max_length": "Employee can't be longer than {max} characters",
+            },
+            "community_location": {
+                "max_length": "Location can't be longer than {max} characters",
+            },
+            "community_institution": {
+                "max_length": "Institution can't be longer than {max} characters",
+            },
+            "community_department": {
+                "max_length": "Department can't be longer than {max} characters",
             },
         },
         "keywords": {
