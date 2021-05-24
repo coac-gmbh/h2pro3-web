@@ -164,6 +164,29 @@
                             </label>
 
                             <div class="control">
+                                <select name="communityType" v-model="communityTypeString" class="input ok-input is-rounded" id="communityType">
+                                    <option :value="CommunityType.public.toString()">
+                                        {{ $t('manage_community.details.type.public') }}
+                                    </option>
+
+                                    <option :value="CommunityType.private.toString()">
+                                        {{ $t('manage_community.details.type.private') }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </template>
+                </ok-tile>
+
+                <ok-tile alignmentClass="align-items-start">
+                    <template v-slot:content>
+                        <div class="field">
+                            <label for="communityType" class="label has-text-left ok-has-text-primary-invert-80">
+                                <ok-communities-icon class="ok-svg-icon-primary-invert has-margin-right-10"></ok-communities-icon>
+                                {{ $t('manage_community.details.community_type.label') }}
+                            </label>
+
+                            <div class="control">
                                 <select name="communityType" v-model="selectedCommunityType" class="input ok-input is-rounded" id="communityType">
                                     <option :value="type" v-for="type in groupTypes" :key="type.id">
                                         {{ $t(`forms.create_community.community_type.${type.key}`) }}
@@ -552,16 +575,16 @@
         categories: ICategory[] = [];
         invitesEnabled: boolean = false;
 
-        about_us: string = ''
-        website: string = ''
-        population: string = ''
-        area: string = ''
-        energy_demand: string = ''
-        industry: string = ''
-        employee: string = ''
-        location: string = ''
-        institution: string = ''
-        department: string = ''
+        about_us: string = '';
+        website: string = '';
+        population: string = '';
+        area: string = '';
+        energy_demand: string = '';
+        industry: string = '';
+        employee: string = '';
+        location: string = '';
+        institution: string = '';
+        department: string = '';
 
         avatarUrl: string = '';
         coverUrl: string = '';
@@ -572,21 +595,23 @@
         groupTypes: any[] = [
             {id: 0, key: 'no_type', requiredInputs: [] },
             {id: 1, key: 'city', requiredInputs: ['about_us', 'website', 'population', 'area', 'energy_demand'] },
-            {id: 2, key: 'company', requiredInputs: ['about_us', 'website', 'insdustry', 'employee', 'location']},
+            {id: 2, key: 'company', requiredInputs: ['about_us', 'website', 'industry', 'employee', 'location']},
             {id: 3, key: 'university', requiredInputs: ['about_us', 'website', 'institution', 'department']},
             {id: 4, key: 'institution', requiredInputs: ['about_us', 'website']}
         ];
         selectedCommunityType: any[] = this.groupTypes[0];
 
         @Validations()
-        validations() {
-            const validations = {}
+        groupTypesFieldsValidations() {
+            const validations = {};
+
             this.inputTypesConfiguration.forEach(input => {
                 if (this.selectedCommunityType['requiredInputs'].includes(input.key)) {
                     validations[input.key] = input.validations                   
                 }   
-            })         
-            return validations
+            });
+
+            return validations;
         }
 
 
@@ -875,7 +900,7 @@
         }
 
         handleCancelClick() {
-            this.$emit('cancel')
+            this.$emit('cancel');
         }
     }
 </script>

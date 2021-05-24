@@ -150,7 +150,7 @@ export default {
         },
         "create_community": {
             "community_type": {
-                "no_type": "No type",
+                "no_type": "No group type",
                 "city": "City",
                 "company": "Company",
                 "university": "University",
@@ -389,9 +389,13 @@ export default {
             },
 
             "type": {
-                "label": "Type",
+                "label": "Privacy type",
                 "public": "Public",
                 "private": "Private"
+            },
+
+            "community_type": {
+                "label": "Group type",
             },
 
             "invites_enabled": {
