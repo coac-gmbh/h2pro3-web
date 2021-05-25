@@ -594,46 +594,6 @@ export class CommunitiesApiService implements ICommunitiesApiService {
             bodyFormData.set('description', params.description);
         }
 
-        if (params.area !== undefined) {
-            bodyFormData.set('area', params.area);
-        }
-
-        if (params.about_us !== undefined) {
-            bodyFormData.set('about_us', params.about_us);
-        }
-
-        if (params.energy_demand !== undefined) {
-            bodyFormData.set('energy_demand', params.energy_demand);
-        }
-
-        if (params.population !== undefined) {
-            bodyFormData.set('population', params.population);
-        }
-
-        if (params.website !== undefined) {
-            bodyFormData.set('website', params.website);
-        }
-
-        if (params.industry !== undefined) {
-            bodyFormData.set('industry', params.industry);
-        }
-
-        if (params.employee !== undefined) {
-            bodyFormData.set('employee', params.employee);
-        }
-
-        if (params.location !== undefined) {
-            bodyFormData.set('location', params.location);
-        }
-
-        if (params.institution !== undefined) {
-            bodyFormData.set('institution', params.institution);
-        }
-
-        if (params.departments !== undefined) {
-            bodyFormData.set('departments', params.departments);
-        }
-
         if (params.group_type) {
             bodyFormData.set('group_type', params.group_type);
 
