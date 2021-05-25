@@ -673,19 +673,13 @@
                         
                         if (this.community.groupType) {
                             this.selectedGroupType = this.groupTypes.find(group => group.key === this.community.groupType);
-                            
-                            this.about_us = this.community.about_us;
-                            this.website = this.community.website;
-                            this.population = this.community.population;
-                            this.area = this.community.area;
-                            this.energy_demand = this.community.energy_demand;
-                            this.industry = this.community.industry;
-                            this.employee = this.community.employee;
-                            this.location = this.community.location;
-                            this.institution = this.community.institution;
-                            this.departments = this.community.departments;
-                        }
 
+                            for(const groupTypeField of GROUP_TYPES_FIELDS) {   
+                                if (this.community[groupTypeField.key] || this.community[groupTypeField.key] === '') {
+                                    this[groupTypeField.key] = this.community[groupTypeField.key];
+                                }
+                            } 
+                        }
 
                         if (this.community.avatar && !this.avatarBlob) {
                             this.avatarUrl = this.community.avatar;
