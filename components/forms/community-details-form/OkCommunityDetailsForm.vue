@@ -780,8 +780,7 @@
                 return;
             }
 
-            const categoryIdx = this.categories.findIndex(
-                element => element.name === category.name);
+            const categoryIdx = this.categories.findIndex(cat => cat.id === category.id);
 
             if (categoryIdx === -1) {
                 return;
