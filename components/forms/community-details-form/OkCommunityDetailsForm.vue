@@ -670,6 +670,21 @@
                         this.colorString = this.community.color.hex();
                         this.categories = this.community.categories.slice(0);
                         this.invitesEnabled = this.community.invitesEnabled;
+                        
+                        if (this.community.groupType) {
+                            this.selectedGroupType = this.groupTypes.find(group => group.key === this.community.groupType);
+                        }
+
+                        this.about_us = this.community.about_us;
+                        this.website = this.community.website;
+                        this.population = this.community.population;
+                        this.area = this.community.area;
+                        this.energy_demand = this.community.energy_demand;
+                        this.industry = this.community.industry;
+                        this.employee = this.community.employee;
+                        this.location = this.community.location;
+                        this.institution = this.community.institution;
+                        this.departments = this.community.departments;
 
                         if (this.community.avatar && !this.avatarBlob) {
                             this.avatarUrl = this.community.avatar;

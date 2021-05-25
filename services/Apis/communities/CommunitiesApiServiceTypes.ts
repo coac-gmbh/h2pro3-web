@@ -236,4 +236,17 @@ export interface UpdateCommunityApiParams {
     description?: string;
     color?: Color;
     invitesEnabled?: boolean;
+    /* Group types */
+    group_type?: string,
+    about_us?: string,
+    website?: string,
+    population?: string,
+    area?: string,
+    energy_demand?: string,
+    industry?: string,
+    employee?: string,
+    location?: string,
+    institution?: string,
+    departments?: string,
+    /* End group types */
 }
