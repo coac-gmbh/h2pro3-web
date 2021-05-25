@@ -675,7 +675,7 @@
                             this.selectedGroupType = this.groupTypes.find(group => group.key === this.community.groupType);
 
                             for(const groupTypeField of GROUP_TYPES_FIELDS) {   
-                                if (this.community[groupTypeField.key] || this.community[groupTypeField.key] === '') {
+                                if (this.community[groupTypeField.key]) {
                                     this[groupTypeField.key] = this.community[groupTypeField.key];
                                 }
                             } 
