@@ -178,6 +178,78 @@
                     </template>
                 </ok-tile>
 
+                <ok-tile alignmentClass="align-items-start">
+                    <template v-slot:content>
+                        <div class="field">
+                            <label for="communityType" class="label has-text-left ok-has-text-primary-invert-80">
+                                <ok-communities-icon class="ok-svg-icon-primary-invert has-margin-right-10"></ok-communities-icon>
+                                {{ $t('manage_community.details.community_type.label') }}
+                            </label>
+
+                            <div class="control">
+                                <select name="communityType" v-model="selectedGroupType" class="input ok-input is-rounded" id="communityType">
+                                    <option :value="null">
+                                        ---
+                                    </option>
+                                    <option :value="type" v-for="type in groupTypes" :key="type.id">
+                                        {{ $t(`global.group_types.${type.key}`) }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </template>
+                </ok-tile>
+                
+                <template v-for="(input) in groupTypesFields">
+                    <transition name="fade" :key="`${input.key}-transition`">
+                        <ok-tile alignmentClass="align-items-start" v-if="selectedGroupType && selectedGroupType.fields.includes(input.key)" :key="input.key">
+                            <template v-slot:content>
+                                <div class="field">
+                                    <label :for="input.key" class="label has-text-left ok-has-text-primary-invert-80">
+                                        <ok-community-categories-icon class="ok-svg-icon-primary-invert has-margin-right-10"></ok-community-categories-icon>
+                                        {{ $t(`forms.create_community.details.${input.key}.label`) }}
+                                    </label>
+
+                                    <div class="control">
+                                        <input 
+                                            type="text"
+                                            v-if="input.type === 'input-text'"
+                                            :placeholder="$t(`forms.create_community.details.${input.key}.label`)"
+                                            class="input ok-input is-rounded"
+                                            :id="input.key"
+                                            :value="$v[input.key].$model"
+                                            @input="changeModelValidation(input.key, $event.target.value)"
+                                        />
+                                        <textarea
+                                            v-if="input.type === 'textarea'"
+                                            :placeholder="$t(`forms.create_community.details.${input.key}.label`)"
+                                            class="input ok-input is-rounded ok-community-details-settings-textarea"
+                                            :id="input.key"
+                                            :value="$v[input.key].$model"
+                                            @input="changeModelValidation(input.key, $event.target.value)"
+                                        />
+                                    </div>
+                                    <div v-if="$v[input.key].$invalid && formWasSubmitted" class="has-padding-top-5 has-text-left">
+                                        <p class="help is-danger" v-if="input.validations.maxLength && !$v[input.key].maxLength">
+                                            {{
+                                                $t(`global.errors.community_${input.key}.max_length`, {
+                                                    max: $v[input.key].$params.maxLength.max
+                                                })
+                                            }}
+                                        </p>
+                                        <p class="help is-danger" v-if="input.validations.url && !$v[input.key].url">
+                                            {{
+                                                $t(`global.errors.validations.invalid_url`)
+                                            }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </template>
+                        </ok-tile>
+                    </transition>
+                </template>
+
+                
                 <ok-tile v-if="communityTypeString === CommunityType.private.toString()">
                     <template v-slot:leading>
                         <ok-community-invites-enabled-icon class="ok-svg-icon-primary-invert"></ok-community-invites-enabled-icon>
@@ -404,13 +476,14 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { Validate } from 'vuelidate-property-decorators';
+    import { Validate, Validations } from 'vuelidate-property-decorators';
 
     import { communityNameMaxLength, communityNameMinLength, communityNameValidators } from '~/validators/community-name';
     import { communityTitleMaxLength, communityTitleMinLength, communityTitleValidators } from '~/validators/community-title';
     import { communityDescriptionMaxLength, communityDescriptionValidators } from '~/validators/community-description';
     import { communityRulesMaxLength, communityRulesValidators } from '~/validators/community-rules';
     import { communityUserAdjectiveMaxLength, communityUserAdjectiveValidators } from '~/validators/community-user-adjective';
+    import { IGroupTypeConfig, GROUP_TYPES, GROUP_TYPES_FIELDS } from '~/config/groups';
 
     import OkTile from '~/components/tiles/OkTile.vue';
     import OkImageCover from '~/components/covers/image-cover/OkImageCover.vue';
@@ -440,7 +513,7 @@
             OkImageCover,
             OkImageAvatar,
             OkLetterAvatar,
-            OkCommunityCategoriesSelector
+            OkCommunityCategoriesSelector,
         },
         subscriptions: function () {
             return {
@@ -512,11 +585,43 @@
         categories: ICategory[] = [];
         invitesEnabled: boolean = false;
 
+        /* Group types */
+        groupTypes = GROUP_TYPES;
+        groupTypesFields = GROUP_TYPES_FIELDS;
+        selectedGroupType: IGroupTypeConfig = null;
+        about_us: string = null;
+        website: string = null;
+        population: string = null;
+        area: string = null;
+        energy_demand: string = null;
+        industry: string = null;
+        employee: string = null;
+        location: string = null;
+        institution: string = null;
+        departments: string = null;
+        /* End group types */
+
         avatarUrl: string = '';
         coverUrl: string = '';
 
         avatarBlob?: Blob | null;
         coverBlob?: Blob | null;
+        
+
+        @Validations()
+        groupTypesFieldsValidations() {
+            const validations = {};
+            if (this.selectedGroupType) {
+                this.groupTypesFields.forEach(input => {
+                    if (this.selectedGroupType['fields'].includes(input.key)) {
+                        validations[input.key] = input.validations;             
+                    }
+                });
+            }
+
+            return validations;
+        }
+
 
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
@@ -614,11 +719,26 @@
                 invitesEnabled: this.invitesEnabled
             };
 
+            if (this.selectedGroupType) {
+                communityDetails.group_type = this.selectedGroupType.key;
+                
+                for(const groupTypeField of GROUP_TYPES_FIELDS) {
+                    if (this[groupTypeField.key]) {
+                        communityDetails[groupTypeField.key] = this[groupTypeField.key];
+                    }
+                }
+            }
+
             if (this.categories.length) { // probably a redundant check
                 communityDetails.categories = this.categories.map(c => c.name);
             }
 
             return communityDetails;
+        }
+
+        changeModelValidation(name: string, value: any){       
+            this.$v[name].$model = value
+            this.$v[name].$touch();      
         }
 
         async handleFormSubmit(e: Event) {
@@ -656,11 +776,12 @@
         }
 
         handleRemoveCategory(category: ICategory) {
-            if (this.categories.length === 1) {
+            if (this.categories.length === 0) {
                 return;
             }
 
-            const categoryIdx = this.categories.indexOf(category);
+            const categoryIdx = this.categories.findIndex(cat => cat.id === category.id);
+
             if (categoryIdx === -1) {
                 return;
             }
@@ -669,7 +790,7 @@
         }
 
         handleAddCategory(category: ICategory) {
-            if (this.categories.length === 3) {
+            if (this.categories.length === 6) {
                 return;
             }
 
@@ -794,7 +915,7 @@
         }
 
         handleCancelClick() {
-            this.$emit('cancel')
+            this.$emit('cancel');
         }
     }
 </script>

@@ -148,6 +148,40 @@ export default {
             "title": "Comment post",
             "title_reply": "Reply to comment",
         },
+        "create_community": {
+            "details": {
+                "about_us": {
+                    "label": "About us"
+                },
+                "website": {
+                    "label": "Website"
+                },
+                "population": {
+                    "label": "Population"
+                },
+                "energy_demand": {
+                    "label": "Energy demand"
+                },
+                "area": {
+                    "label": "Area"
+                },
+                "industry": {
+                    "label": "Industry"
+                },
+                "employee": {
+                    "label": "Employee"
+                },
+                "location": {
+                    "label": "Location"
+                },
+                "institution": {
+                    "label": "Institution"
+                },
+                "departments": {
+                    "label": "Departments"
+                },
+            }
+        },
     },
     "user_preferences": {
         "link_previews_setting": {
@@ -348,9 +382,13 @@ export default {
             },
 
             "type": {
-                "label": "Type",
+                "label": "Privacy type",
                 "public": "Public",
                 "private": "Private"
+            },
+
+            "community_type": {
+                "label": "Group type",
             },
 
             "invites_enabled": {
@@ -390,7 +428,10 @@ export default {
                 "tooManyRequests": "😥 Too many requests. Please wait a couple minutes until trying again",
                 "invalidRequest": '🤔 The request was invalid.',
                 "notFound": "👀 Not found",
-                "unhandled": "😭 Unhandled error"
+                "unhandled": "😭 Unhandled error",
+            },
+            "validations": {
+                "invalid_url": "The URL is invalid"
             },
             "captcha": {
                 "required": "You must pass the captcha"
@@ -451,8 +492,35 @@ export default {
             "community_user_adjective": {
                 "max_length": "User adjective can't be longer than {max} characters",
             },
-            "community_users_adjective": {
-                "max_length": "Users adjective can't be longer than {max} characters",
+            "community_about_us": {
+                "max_length": "About us can't be longer than {max} characters",
+            },
+            "community_website": {
+                "max_length": "Website can't be longer than {max} characters",
+            },
+            "community_population": {
+                "max_length": "Population can't be longer than {max} characters",
+            },
+            "community_area": {
+                "max_length": "Area can't be longer than {max} characters",
+            },
+            "community_energy_demand": {
+                "max_length": "Energy Demand can't be longer than {max} characters",
+            },
+            "community_industry": {
+                "max_length": "Industry can't be longer than {max} characters",
+            },
+            "community_employee": {
+                "max_length": "Employee can't be longer than {max} characters",
+            },
+            "community_location": {
+                "max_length": "Location can't be longer than {max} characters",
+            },
+            "community_institution": {
+                "max_length": "Institution can't be longer than {max} characters",
+            },
+            "community_department": {
+                "max_length": "Department can't be longer than {max} characters",
             },
         },
         "keywords": {
@@ -506,6 +574,12 @@ export default {
             "rotate_90deg_right": "Rotate 90° clockwise",
             "zoom_in": "Zoom In",
             "zoom_out": "Zoom Out"
+        },
+        "group_types": {
+            "C": "City",
+            "Q": "Company",
+            "U": "University",
+            "I": "Institution"
         },
         "models": {
             "post": "post",
