@@ -593,12 +593,12 @@ export class CommunitiesApiService implements ICommunitiesApiService {
         if (params.description !== undefined) {
             bodyFormData.set('description', params.description);
         }
-
+    
         if (params.group_type) {
             bodyFormData.set('group_type', params.group_type);
 
             for(const groupTypeField of GROUP_TYPES_FIELDS) {
-                if (params[groupTypeField.key]) {
+                if (params[groupTypeField.key] || params[groupTypeField.key] === '') {
                     bodyFormData.set(groupTypeField.key, params[groupTypeField.key]);
                 }
             }

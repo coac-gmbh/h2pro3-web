@@ -738,11 +738,11 @@
             if (this.selectedGroupType) {
                 communityDetails.group_type = this.selectedGroupType.key;
                 
-                for(const groupTypeField of GROUP_TYPES_FIELDS) {
-                    if (this[groupTypeField.key]) {
+                for(const groupTypeField of GROUP_TYPES_FIELDS) {   
+                    if (this[groupTypeField.key] || this[groupTypeField.key] === '') {
                         communityDetails[groupTypeField.key] = this[groupTypeField.key];
                     }
-                }
+                }    
             }
 
             if (this.categories.length) { // probably a redundant check
