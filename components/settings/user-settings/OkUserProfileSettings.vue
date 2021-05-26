@@ -360,7 +360,7 @@
                 this.url = url;
                 this.location = location;
                 this.bio = bio;
-                this.categories = categories
+                this.categories = [...categories]
 
                 this.avatarUrl = this.images?.avatarUrl || avatar;
                 this.coverUrl = this.images?.coverUrl || cover;
