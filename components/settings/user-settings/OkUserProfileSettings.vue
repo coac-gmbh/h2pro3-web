@@ -354,14 +354,15 @@
                         this.allCategories = allCategories;
                 });
 
-                const { profile: { name, url, location, bio, avatar, cover, categories }, username } = this.userService.loggedInUser.getValue();
+                const { profile: { name, url, location, bio, avatar, cover }, username, categories } = this.userService.loggedInUser.getValue();
                 this.username = username;
                 this.fullName = name;
                 this.url = url;
                 this.location = location;
                 this.bio = bio;
+                
                 if (categories) {
-                    this.categories = categories;
+                    this.categories = categories.map(name => this.allCategories.find(category => category.name === name));;
                 }
 
                 this.avatarUrl = this.images?.avatarUrl || avatar;
@@ -395,7 +396,7 @@
                     url: this.url,
                     location: this.location,
                     bio: this.bio,
-                    categories: []
+                    categories: this.categories.length ? this.categories.map(c => c.name) : []
                 };
 
                 if (this.avatarUrl === '') {
