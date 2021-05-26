@@ -360,10 +360,7 @@
                 this.url = url;
                 this.location = location;
                 this.bio = bio;
-                
-                if (categories) {
-                    this.categories = categories.map(name => this.allCategories.find(category => category.name === name));;
-                }
+                this.categories = categories
 
                 this.avatarUrl = this.images?.avatarUrl || avatar;
                 this.coverUrl = this.images?.coverUrl || cover;
