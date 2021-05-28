@@ -29,7 +29,7 @@
                         :show-no-more="false"
                 >
                     <template slot-scope="props">
-                        <div class="columns is-mobile has-cursor-pointer" @click="()=> onCommunityClicked(props.item)" v-if="props.item.allow_post">
+                        <div class="columns is-mobile has-cursor-pointer" @click="()=> onCommunityClicked(props.item)" v-if="props.item.user_can_post">
                             <div class="column">
                                 <ok-community-tile
                                         :community="props.item">
