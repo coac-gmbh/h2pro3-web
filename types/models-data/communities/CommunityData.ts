@@ -42,4 +42,5 @@ export interface CommunityData extends ModelData {
     pending_moderated_objects_count?: number;
     categories?: CategoryData[];
     closed: boolean;
+    allow_post: boolean;
 }

@@ -28,8 +28,8 @@
                         :onScrollLoader="communitiesOnScrollLoader"
                         :show-no-more="false"
                 >
-                    <div slot-scope="props">
-                        <div class="columns is-mobile has-cursor-pointer" @click="()=> onCommunityClicked(props.item)">
+                    <template slot-scope="props">
+                        <div class="columns is-mobile has-cursor-pointer" @click="()=> onCommunityClicked(props.item)" v-if="props.item.allow_post">
                             <div class="column">
                                 <ok-community-tile
                                         :community="props.item">
@@ -39,7 +39,7 @@
                                 <ok-checkbox :checked="communityIsSelected(props.item)"/>
                             </div>
                         </div>
-                    </div>
+                    </template>
                 </ok-http-list>
             </div>
         </div>

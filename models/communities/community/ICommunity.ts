@@ -45,6 +45,7 @@ export interface ICommunity extends IDataModel<ICommunity> {
     categories?: ICategory[];
     colorInvert?: Color;
     closed: boolean;
+    allow_post: boolean;
 
     isMember(user: IUser): boolean;
 
