@@ -24,8 +24,11 @@
             <p class="menu-label ok-has-text-primary-invert-80 has-padding-left-20 has-padding-right-20 has-padding-top-20 is-marginless">
                 {{$t('global.keywords.about')}}
             </p>
-            <div v-if="user.profile.bio" class="content ok-has-text-primary-invert has-padding-top-10 has-padding-right-20 has-padding-left-20 has-padding-bottom-20">
+            <div v-if="user.profile.bio" class="ok-has-text-primary-invert has-padding-top-10 has-padding-right-20 has-padding-left-20 has-padding-bottom-10">
                 <ok-smart-text :text="user.profile.bio"></ok-smart-text>
+            </div>
+            <div v-if="user.categories.length" class="column has-padding-bottom-20 has-padding-left-20 has-padding-top-10">
+                <ok-community-profile-categories :categories="user.categories"></ok-community-profile-categories>
             </div>
         </div>
         <div class="card-content">
@@ -60,6 +63,8 @@
     import OkUserProfileName from '~/pages/home/pages/user/components/shared/OkUserProfileName.vue';
     import OkUserProfileUsername from '~/pages/home/pages/user/components/shared/OkUserProfileUsername.vue';
     import OkUserProfileActionButtons from '~/pages/home/pages/user/components/shared/OkUserProfileActionButtons.vue';
+    import OkCommunityProfileCategories
+        from '~/pages/home/pages/community/components/shared/OkCommunityProfileCategories.vue';
 
     @Component({
         name: "OkDesktopUserProfileSidebar",
@@ -72,6 +77,7 @@
             OkUserProfileUrl,
             OkUserProfileLocation,
             OkSmartText,
+            OkCommunityProfileCategories
         },
     })
     export default class OkDesktopUserProfileSidebar extends Vue {

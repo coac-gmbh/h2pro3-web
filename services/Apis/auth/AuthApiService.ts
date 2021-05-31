@@ -185,6 +185,10 @@ export class AuthApiService implements IAuthApiService {
             bodyFormData.set('community_posts_visible', params.communityPostsVisible.toString());
         }
 
+        if (params.categories) {
+            bodyFormData.set('categories', params.categories.toString());
+        }
+
         return this.httpService.patch(AuthApiService.UPDATE_AUTHENTICATED_USER_PATH, bodyFormData, {
             appendAuthorizationToken: true,
             isApiRequest: true

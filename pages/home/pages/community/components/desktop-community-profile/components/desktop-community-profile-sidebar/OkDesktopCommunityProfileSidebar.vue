@@ -42,7 +42,7 @@
                     <ok-community-profile-visibility :community="community"></ok-community-profile-visibility>
                 </div>
                 <div class="column">
-                    <ok-community-profile-categories :community="community"></ok-community-profile-categories>
+                    <ok-community-profile-categories :categories="community.categories ? community.categories : []"></ok-community-profile-categories>
                 </div>
             </div>
         </div>
