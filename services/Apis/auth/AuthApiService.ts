@@ -185,7 +185,7 @@ export class AuthApiService implements IAuthApiService {
             bodyFormData.set('community_posts_visible', params.communityPostsVisible.toString());
         }
 
-        if (typeof params.categories) {
+        if (params.categories) {
             bodyFormData.set('categories', params.categories.toString());
         }
 
