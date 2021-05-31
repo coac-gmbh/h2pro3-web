@@ -505,6 +505,7 @@ export class CommunitiesApiService implements ICommunitiesApiService {
         bodyFormData.set('title', params.title);
         bodyFormData.set('type', params.type.toString());
         bodyFormData.set('categories', params.categories.join(','));
+        bodyFormData.set('closed', params.closed.toString());
 
         if (params.description !== undefined) {
             bodyFormData.set('description', params.description);
@@ -603,6 +604,8 @@ export class CommunitiesApiService implements ICommunitiesApiService {
                 }
             }
         }
+
+        bodyFormData.set('closed', params.closed.toString());
 
         return this.httpService.patch(path, bodyFormData, {
             appendAuthorizationToken: true,

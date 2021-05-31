@@ -622,6 +622,7 @@ export class UserService implements IUserService {
             description: params.description,
             color: params.color,
             invitesEnabled: params.invitesEnabled,
+            closed: params.closed,
             group_type: params.group_type,
             about_us: params.about_us,
             website: params.website,

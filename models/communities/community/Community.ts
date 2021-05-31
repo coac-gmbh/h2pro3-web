@@ -60,7 +60,7 @@ export class Community extends DataModel<Community> implements ICommunity {
     postsCount?: number;
     pendingModeratedObjectsCount?: number;
     categories?: ICategory[];
-
+    closed?: boolean;
     // Computed attributes
 
     colorInvert: Color;
@@ -180,6 +180,14 @@ export class Community extends DataModel<Community> implements ICommunity {
         {
             dataKey: 'group_type',
             attributeKey: 'groupType'
+        },
+        {
+            dataKey: 'closed',
+            attributeKey: 'closed'
+        },
+        {
+            dataKey: 'user_can_post',
+            attributeKey: 'user_can_post'
         },
         ...GROUP_TYPES_FIELDS.map(field => { return { dataKey: field.key, attributeKey: field.key } })
     ];
