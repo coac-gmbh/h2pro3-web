@@ -283,7 +283,7 @@
 
         // For clients to use with $refs.okHttpList.refresh()
         async refresh(config: OkHttpListRefreshParams = {isProgrammaticRefresh: true}) {
-            if (this.items.length) {
+            if (this.items) {
                 if (this.refreshInProgress) return;
 
                 this.setRefreshInProgress(true);
