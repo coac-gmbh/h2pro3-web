@@ -8,6 +8,8 @@ import { DataModel } from '~/models/abstract/DataModel';
 import { DataModelAttributeMap } from '~/models/abstract/IDataModel';
 import { ModelData } from '~/types/models-data/ModelData';
 import {
+    categoriesDeserializer,
+    categoriesSerializer,
     dateDeserializer,
     dateSerializer, languageDeserializer, languageSerializer,
     userProfileDeserializer,
@@ -18,6 +20,7 @@ import { ICommunity } from '~/models/communities/community/ICommunity';
 import { IPostComment } from '~/models/posts/post-comment/IPostComment';
 import { ILanguage } from '~/models/common/language/ILanguage';
 import { UserVisibility } from '~/models/auth/user/lib/UserVisibility';
+import { ICategory } from '~/models/common/category/ICategory';
 
 export class User extends DataModel<User> implements IUser {
     uuid!: string;
@@ -47,6 +50,7 @@ export class User extends DataModel<User> implements IUser {
     profile!: IUserProfile;
     language!: ILanguage;
     visibility!: UserVisibility;
+    categories!: ICategory[];
 
     dataMaps: DataModelAttributeMap<IUser>[] = [
         {
@@ -106,6 +110,12 @@ export class User extends DataModel<User> implements IUser {
         {
             dataKey: 'email',
             attributeKey: 'email'
+        },
+        {
+            dataKey: 'categories',
+            attributeKey: 'categories',
+            deserializer: categoriesDeserializer,
+            serializer: categoriesSerializer,
         },
         {
             dataKey: 'username',

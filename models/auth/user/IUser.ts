@@ -6,6 +6,7 @@ import { ILanguage } from '~/models/common/language/ILanguage';
 import { IPostComment } from '~/models/posts/post-comment/IPostComment';
 import { ICommunity } from '~/models/communities/community/ICommunity';
 import { UserVisibility } from '~/models/auth/user/lib/UserVisibility';
+import { ICategory } from '~/models/common/category/ICategory';
 
 
 export interface IUser extends IDataModel<IUser> {
@@ -34,7 +35,7 @@ export interface IUser extends IDataModel<IUser> {
     isPendingConnectionConfirmation: boolean;
     language: ILanguage;
     visibility: UserVisibility;
-
+    categories: ICategory[];
     connectedCircles: ICircle[];
     profile: IUserProfile;
 
