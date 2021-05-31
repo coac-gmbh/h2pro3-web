@@ -26,7 +26,7 @@
                 <ok-loading-indicator></ok-loading-indicator>
             </div>
             <div v-else-if="searchItems.length > 0">
-                <div v-for="item in searchItems" :key="item.id" :class="itemClass"
+                <div v-for="item in searchItems" :key="`${listKey}-${item.id}`" :class="itemClass"
                      @click="onListItemClicked(item)">
                     <slot name="default" :item="item"></slot>
                 </div>

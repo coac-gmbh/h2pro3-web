@@ -50,6 +50,7 @@ export interface UpdateUserApiParams {
     bio?: string;
     location?: string;
     visibility?: UserVisibility;
+    categories?: string[];
 }
 
 export interface SearchUsersApiParams {

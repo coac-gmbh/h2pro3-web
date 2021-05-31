@@ -675,6 +675,16 @@
                         this.categories = this.community.categories.slice(0);
                         this.invitesEnabled = this.community.invitesEnabled;
                         this.isClosedCommunity = this.community.closed;
+                        
+                        if (this.community.groupType) {
+                            this.selectedGroupType = this.groupTypes.find(group => group.key === this.community.groupType);
+
+                            for(const groupTypeField of GROUP_TYPES_FIELDS) {   
+                                if (this.community[groupTypeField.key]) {
+                                    this[groupTypeField.key] = this.community[groupTypeField.key];
+                                }
+                            } 
+                        }
 
                         if (this.community.avatar && !this.avatarBlob) {
                             this.avatarUrl = this.community.avatar;
@@ -728,11 +738,11 @@
             if (this.selectedGroupType) {
                 communityDetails.group_type = this.selectedGroupType.key;
                 
-                for(const groupTypeField of GROUP_TYPES_FIELDS) {
-                    if (this[groupTypeField.key]) {
+                for(const groupTypeField of GROUP_TYPES_FIELDS) {   
+                    if (this[groupTypeField.key] || this[groupTypeField.key] === '') {
                         communityDetails[groupTypeField.key] = this[groupTypeField.key];
                     }
-                }
+                }    
             }
 
             if (this.categories.length) { // probably a redundant check

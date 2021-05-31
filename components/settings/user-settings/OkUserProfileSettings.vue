@@ -162,6 +162,26 @@
                 <ok-tile alignmentClass="align-items-start">
                     <template v-slot:content>
                         <div class="field">
+                            <label for="category" class="label has-text-left ok-has-text-primary-invert-80">
+                                <ok-community-categories-icon class="ok-svg-icon-primary-invert has-margin-right-10"></ok-community-categories-icon>
+                                {{ $t('manage_community.details.category.label') }}
+                            </label>
+
+                            <div class="control">
+                                <ok-community-categories-selector
+                                    :allCategories="allCategories"
+                                    :categories="categories"
+                                    @removeCategory="handleRemoveCategory"
+                                    @addCategory="handleAddCategory"
+                                ></ok-community-categories-selector>
+                            </div>
+                        </div>
+                    </template>
+                </ok-tile>
+
+                <ok-tile alignmentClass="align-items-start">
+                    <template v-slot:content>
+                        <div class="field">
                             <label for="bio" :placeholder="$t('manage_user.profile.bio.placeholder')"
                                 class="label has-text-left ok-has-text-primary-invert-80"
                             >
@@ -266,13 +286,16 @@
 
     import { userUsernameMaxLength, userUsernameMinLength, usernameValidators } from '~/validators/username';
     import { userNameMaxLength, userNameMinLength, userNameValidators } from '~/validators/user-name';
+    import { ICategory } from '~/models/common/category/ICategory';
+    import OkCommunityCategoriesSelector from '~/components/forms/community-details-form/OkCommunityCategoriesSelector.vue';
 
     @Component({
         name: 'OkUserProfileSettings',
         components: {
             OkTile,
             OkImageCover,
-            OkImageAvatar
+            OkImageAvatar,
+            OkCommunityCategoriesSelector
         },
         subscriptions: function () {
             return {
@@ -317,18 +340,27 @@
         avatarBlob?: Blob | null;
         coverBlob?: Blob | null;
 
+        allCategories: ICategory[] = [];
+        categories: ICategory[] = [];
+
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
         private utilsService: IUtilsService = okunaContainer.get<IUtilsService>(TYPES.UtilsService);
 
         mounted() {
             if (this.userService.loggedInUser) {
-                const { profile: { name, url, location, bio, avatar, cover }, username } = this.userService.loggedInUser.getValue();
+                this.userService.getCategories()
+                    .then(allCategories => {
+                        this.allCategories = allCategories;
+                });
+
+                const { profile: { name, url, location, bio, avatar, cover }, username, categories } = this.userService.loggedInUser.getValue();
                 this.username = username;
                 this.fullName = name;
                 this.url = url;
                 this.location = location;
                 this.bio = bio;
+                this.categories = [...categories];
 
                 this.avatarUrl = this.images?.avatarUrl || avatar;
                 this.coverUrl = this.images?.coverUrl || cover;
@@ -360,7 +392,8 @@
                     name: this.fullName,
                     url: this.url,
                     location: this.location,
-                    bio: this.bio
+                    bio: this.bio,
+                    categories: this.categories.length ? this.categories.map(c => c.name) : []
                 };
 
                 if (this.avatarUrl === '') {
@@ -417,6 +450,28 @@
                     coverBlob: this.coverBlob
                 }
             });
+        }
+
+        handleAddCategory(category: ICategory) {
+            if (this.categories.length === 6) {
+                return;
+            }
+
+            this.categories.push(category);
+        }
+
+        handleRemoveCategory(category: ICategory) {
+            if (this.categories.length === 0) {
+                return;
+            }
+
+            const categoryIdx = this.categories.findIndex(cat => cat.id === category.id);
+
+            if (categoryIdx === -1) {
+                return;
+            }
+
+            this.categories.splice(categoryIdx, 1);
         }
 
         handleCoverInputChange() {

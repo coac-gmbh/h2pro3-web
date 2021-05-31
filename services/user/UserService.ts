@@ -622,7 +622,18 @@ export class UserService implements IUserService {
             description: params.description,
             color: params.color,
             invitesEnabled: params.invitesEnabled,
-            closed: params.closed
+            closed: params.closed,
+            group_type: params.group_type,
+            about_us: params.about_us,
+            website: params.website,
+            population: params.population,
+            area: params.area,
+            energy_demand: params.energy_demand,
+            industry: params.industry,
+            employee: params.employee,
+            location: params.location,
+            institution: params.institution,
+            departments: params.departments,
         });
 
         return communityFactory.make(response.data);

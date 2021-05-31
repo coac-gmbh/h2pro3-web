@@ -203,17 +203,17 @@ export interface CreateCommunityApiParams {
     type: CommunityType;
     categories: string[];
     /* Group types */
-    group_type?: string,
-    about_us?: string,
-    website?: string,
-    population?: string,
-    area?: string,
-    energy_demand?: string,
-    industry?: string,
-    employee?: string,
-    location?: string,
-    institution?: string,
-    departments?: string,
+    group_type?: string;
+    about_us?: string;
+    website?: string;
+    population?: string;
+    area?: string;
+    energy_demand?: string;
+    industry?: string;
+    employee?: string;
+    location?: string;
+    institution?: string;
+    departments?: string;
     /* End group types */
     avatar?: File | Blob | string;
     cover?: File | Blob | string;
@@ -238,4 +238,17 @@ export interface UpdateCommunityApiParams {
     color?: Color;
     invitesEnabled?: boolean;
     closed: boolean;
+    /* Group types */
+    group_type?: string;
+    about_us?: string;
+    website?: string;
+    population?: string;
+    area?: string;
+    energy_demand?: string;
+    industry?: string;
+    employee?: string;
+    location?: string;
+    institution?: string;
+    departments?: string;
+    /* End group types */
 }
