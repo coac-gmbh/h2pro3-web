@@ -20,7 +20,7 @@
     import {ICommunity} from "~/models/communities/community/ICommunity";
 
     @Component({
-        name: "OkButtonDynamicStyles",
+        name: "OkDynamicStylesButton",
         components: {},
         subscriptions: function () {
             return {
@@ -28,7 +28,7 @@
             }
         }
     })
-    export default class OkButtonDynamicStyles extends Vue {
+    export default class OkDynamicStylesButton extends Vue {
 
         @Prop({
             type: Object,
