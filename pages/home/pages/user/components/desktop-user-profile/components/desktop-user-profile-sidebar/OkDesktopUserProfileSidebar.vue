@@ -31,15 +31,15 @@
                 <ok-community-profile-categories :categories="user.categories"></ok-community-profile-categories>
             </div>
         </div>
-        <div class="card-content">
-            <div class="ok-has-border-bottom-primary-highlight">
-                <p class="menu-label ok-has-text-primary-invert-80 has-padding-left-20 has-padding-right-20 has-padding-top-20 is-marginless">
-                    {{$t('global.keywords.communities')}}
-                </p>
-                <div class="has-padding-left-20 has-padding-right-20 has-padding-top-10 is-marginless">
-                    <ok-user-profile-groups :communities="communities" />
-                </div>
+        <div v-if="communities.length" class="ok-has-border-bottom-primary-highlight">
+            <p class="menu-label ok-has-text-primary-invert-80 has-padding-left-20 has-padding-right-20 has-padding-top-20 is-marginless">
+                {{$t('global.keywords.communities')}}
+            </p>
+            <div class="has-padding-left-20 has-padding-right-20 has-padding-top-10 is-marginless has-padding-bottom-30">
+                <ok-user-profile-groups :communities="communities" />
             </div>
+        </div>
+        <div class="card-content">
             <div class="columns is-mobile is-multiline is-variable is-3 is-marginless">
                 <div class="column is-narrow" v-if="user.profile.location">
                     <ok-user-profile-location :user="user"></ok-user-profile-location>
@@ -114,7 +114,6 @@
         async mounted() {
             this.communities = await this.joinedCommunitiesRefresher()
         }
-
 
         joinedCommunitiesRefresher(): Promise<ICommunity[]> {
             return this.userService.getJoinedCommunities();

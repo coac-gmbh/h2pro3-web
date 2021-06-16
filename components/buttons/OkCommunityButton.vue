@@ -1,11 +1,10 @@
 <template>
     <button v-if="activeTheme"
-            :disabled="requestInProgress"
             class="button has-text-weight-bol is-small is-borderless is-semi-rounded"
             :style="buttonCssStyle"
             @click="handleButtonClick"
     >
-        {{ community.title.toLowerCase() }}
+        {{ community.title }}
     </button>
 </template>
 
@@ -47,9 +46,6 @@ export default class OkCommunityButton extends Vue {
     $observables!: {
         activeTheme: BehaviorSubject<ITheme | undefined>
     };
-
-
-    requestInProgress = false;
 
     private themeService: IThemeService = okunaContainer.get<IThemeService>(TYPES.ThemeService);
 
