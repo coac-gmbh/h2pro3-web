@@ -8,10 +8,6 @@
     </button>
 </template>
 
-<style lang="scss">
-
-</style>
-
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator"
 import { okunaContainer } from "~/services/inversify";
