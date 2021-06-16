@@ -5,7 +5,7 @@
             :style="buttonCssStyle"
             @click="handleButtonClick"
     >
-        {{ category.title.toLowerCase() }}
+        {{ category ? category.title.toLowerCase() : community.title }}
     </button>
 </template>
 
@@ -17,9 +17,10 @@
     import { BehaviorSubject } from "~/node_modules/rxjs";
     import { ITheme } from "~/models/common/theme/ITheme";
     import { IThemeService } from "~/services/theme/IThemeService";
+    import {ICommunity} from "~/models/communities/community/ICommunity";
 
     @Component({
-        name: "OkCategoryButton",
+        name: "OkButtonDynamicStyles",
         components: {},
         subscriptions: function () {
             return {
@@ -27,12 +28,17 @@
             }
         }
     })
-    export default class OkCategoryButton extends Vue {
+    export default class OkButtonDynamicStyles extends Vue {
 
         @Prop({
             type: Object,
-            required: true
+            required: false
         }) readonly category: ICategory;
+
+        @Prop({
+            type: Object,
+            required: false
+        }) readonly community: ICommunity;
 
         @Prop({
             type: Boolean,
@@ -53,18 +59,27 @@
         get buttonCssStyle() {
 
             const activeTheme = this.$observables.activeTheme.value;
-            const themeColorIsCommunityColor = this.category.color.hex() === activeTheme.primaryColor.hex();
+            const themeColorIsCommunityColor = this.category ? this.category.color.hex() === activeTheme.primaryColor.hex() : this.community.color.hex() === activeTheme.primaryColor.hex();
 
-            return {
-                "backgroundColor": themeColorIsCommunityColor ? activeTheme.primaryHighlightColor.hsl().string() : this.category.color.hex(),
-                "color": themeColorIsCommunityColor ? activeTheme.primaryInvertColor.hex() : this.category.colorInvert.hex(),
-                "opacity": this.faint ? 0.5 : undefined
-            };
+            if (this.category) {
+                return {
+                    "backgroundColor": themeColorIsCommunityColor ? activeTheme.primaryHighlightColor.hsl().string() : this.category.color.hex(),
+                    "color": themeColorIsCommunityColor ? activeTheme.primaryInvertColor.hex() : this.category.colorInvert.hex(),
+                    "opacity": this.faint ? 0.5 : undefined
+                };
+            } else {
+                return {
+                    "backgroundColor": themeColorIsCommunityColor ? activeTheme.primaryHighlightColor?.hsl().string() : this.community.color?.hex(),
+                    "color": themeColorIsCommunityColor ? activeTheme.primaryInvertColor?.hex() : this.community.colorInvert?.hex(),
+                    "opacity": this.faint ? 0.5 : undefined
+                };
+            }
         }
 
         handleButtonClick(e: Event) {
             e.preventDefault();
-            this.$emit('categoryClick', this.category);
+            const params = this.category ? this.category : this.community;
+            this.$emit('handleButtonClick', params);
         }
 
 
