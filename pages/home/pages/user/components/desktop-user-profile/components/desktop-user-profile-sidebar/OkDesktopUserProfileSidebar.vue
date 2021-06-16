@@ -32,6 +32,14 @@
             </div>
         </div>
         <div class="card-content">
+            <div class="ok-has-border-bottom-primary-highlight">
+                <p class="menu-label ok-has-text-primary-invert-80 has-padding-left-20 has-padding-right-20 has-padding-top-20 is-marginless">
+                    {{$t('global.keywords.communities')}}
+                </p>
+                <div class="has-padding-left-20 has-padding-right-20 has-padding-top-10 is-marginless">
+                    <ok-user-profile-groups :communities="communities" />
+                </div>
+            </div>
             <div class="columns is-mobile is-multiline is-variable is-3 is-marginless">
                 <div class="column is-narrow" v-if="user.profile.location">
                     <ok-user-profile-location :user="user"></ok-user-profile-location>
@@ -51,10 +59,6 @@
 <script lang="ts">
     import { Component, Prop, Vue } from "nuxt-property-decorator"
     import { IUser } from "~/models/auth/user/IUser";
-    import OkDesktopUserProfileSidebarDetails
-        from "~/pages/home/pages/user/components/desktop-user-profile/components/desktop-user-profile-sidebar/components/OkDesktopUserProfileSidebarDetails.vue";
-    import OkDesktopUserProfileSidebarActions
-        from '~/pages/home/pages/user/components/desktop-user-profile/components/desktop-user-profile-sidebar/components/OkDesktopUserProfileSidebarActions.vue';
     import OkSmartText from '~/components/smart-text/OkSmartText.vue';
     import OkUserProfileLocation from '~/pages/home/pages/user/components/shared/OkUserProfileLocation.vue';
     import OkUserProfileUrl from '~/pages/home/pages/user/components/shared/OkUserProfileUrl.vue';
@@ -65,6 +69,11 @@
     import OkUserProfileActionButtons from '~/pages/home/pages/user/components/shared/OkUserProfileActionButtons.vue';
     import OkCommunityProfileCategories
         from '~/pages/home/pages/community/components/shared/OkCommunityProfileCategories.vue';
+    import {ICommunity} from "~/models/communities/community/ICommunity";
+    import {IUserService} from "~/services/user/IUserService";
+    import {okunaContainer} from "~/services/inversify";
+    import {TYPES} from "~/services/inversify-types";
+    import OkUserProfileGroups from "~/pages/home/pages/user/components/shared/OkUserProfileGroups.vue";
 
     @Component({
         name: "OkDesktopUserProfileSidebar",
@@ -77,10 +86,17 @@
             OkUserProfileUrl,
             OkUserProfileLocation,
             OkSmartText,
-            OkCommunityProfileCategories
+            OkCommunityProfileCategories,
+            OkUserProfileGroups
         },
+        subscriptions: function () {
+            return {
+                loggedInUser: this["userService"].loggedInUser,
+            }
+        }
     })
     export default class OkDesktopUserProfileSidebar extends Vue {
+
         @Prop({
             type: Object,
             required: true
@@ -90,6 +106,19 @@
             type: Boolean,
             required: true
         }) readonly headerVisible: boolean;
+
+        private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
+
+        communities: ICommunity[] = [];
+
+        async mounted() {
+            this.communities = await this.joinedCommunitiesRefresher()
+        }
+
+
+        joinedCommunitiesRefresher(): Promise<ICommunity[]> {
+            return this.userService.getJoinedCommunities();
+        }
 
     }
 </script>
