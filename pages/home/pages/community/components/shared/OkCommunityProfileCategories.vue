@@ -1,7 +1,7 @@
 <template>
     <div class="columns is-multiline is-variable is-1 is-mobile">
         <div class="column is-narrow is-paddingless has-padding-right-10 has-padding-top-10" v-for="category in categories" :key="category.name">
-            <ok-dynamic-styles-button :category="category"></ok-dynamic-styles-button>
+            <ok-dynamic-styles-button  @handleButtonClick="categoryRedirect" :category="category" />
         </div>
     </div>
 </template>
@@ -24,7 +24,9 @@
             required: true
         }) readonly categories: ICategory;
 
-
+        categoryRedirect(category) {
+            this.$router.push({ name: 'communities', params: { category: category.name }})
+        }
     }
 </script>
 
