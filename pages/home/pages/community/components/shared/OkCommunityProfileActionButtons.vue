@@ -114,6 +114,7 @@
 
         togglePostButton() {
             this.isMember = this.loadIsMember();
+            this.canCreatePost = this.community.closed ? this.isAdministrator : this.isMember;
         }
 
         async openPostModal() {
