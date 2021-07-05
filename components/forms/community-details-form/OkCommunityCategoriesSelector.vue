@@ -1,11 +1,11 @@
 <template>
     <div class="columns is-multiline is-variable is-1 is-mobile">
         <div class="column is-narrow" v-for="category in allCategories" :key="category.name">
-            <ok-category-button
+            <ok-dynamic-styles-button
                 :category="category"
                 :faint="!selectedCategoriesMap[category.name]"
-                @categoryClick="toggleCategoryActiveState"
-            ></ok-category-button>
+                @handleButtonClick="toggleCategoryActiveState"
+            ></ok-dynamic-styles-button>
         </div>
     </div>
 </template>
@@ -13,11 +13,11 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import { ICategory } from '~/models/common/category/ICategory';
-    import OkCategoryButton from '~/components/buttons/OkCategoryButton.vue';
+    import OkDynamicStylesButton from '~/components/buttons/OkDynamicStylesButton.vue';
 
     @Component({
         name: 'OkCommunityCategoriesSelector',
-        components: { OkCategoryButton }
+        components: { OkDynamicStylesButton }
     })
     export default class OkCommunityCategoriesSelector extends Vue {
         @Prop({

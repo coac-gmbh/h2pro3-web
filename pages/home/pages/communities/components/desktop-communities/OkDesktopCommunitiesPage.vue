@@ -99,7 +99,6 @@
     })
     export default class OkDesktopCommunitiesPage extends Vue {
 
-
         communitiesCategories: ICategory[] = [];
 
         $observables!: {
@@ -123,6 +122,12 @@
 
         created() {
             this.$observables.loggedInUser.subscribe(this.onLoggedInUser);
+        }
+
+        activated() {
+            if (this.$route.params?.category) {
+                this.refreshCategories();
+            }
         }
 
         get youButtonTextColor() {
@@ -159,11 +164,13 @@
             if (this.requestInProgress) return;
             this.requestInProgress = true;
 
-
             try {
                 this.requestOperation = CancelableOperation.fromPromise(this.userService.getCategories());
 
                 this.communitiesCategories = await this.requestOperation.value;
+                this.$nextTick(() => {
+                    this.activeTab = this.communitiesCategories.findIndex(category => category.name === this.$route.params.category) + 2;
+                })
             } catch (error) {
                 this.utilsService.handleErrorWithToast(error);
             } finally {
