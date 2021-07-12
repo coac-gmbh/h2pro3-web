@@ -13,6 +13,7 @@ export class CommunityMembership extends DataModel<CommunityMembership> implemen
     isAdministrator: boolean;
     isModerator: boolean;
     color: Color;
+    colorInvert?: Color;
     title: string;
     name: string;
 
@@ -28,6 +29,8 @@ export class CommunityMembership extends DataModel<CommunityMembership> implemen
         {
             dataKey: 'community_color',
             attributeKey: 'color',
+            deserializer: colorDeserializer,
+            serializer: colorSerializer,
         },
         {
             dataKey: 'community_title',
@@ -50,6 +53,21 @@ export class CommunityMembership extends DataModel<CommunityMembership> implemen
     constructor(data: ModelData) {
         super(data);
         this.updateWithData(data);
+        this.bootstrapComputedAttributes();
+    }
+
+    private bootstrapComputedAttributes() {
+        let colorInvert;
+
+        if (this.color && this.color.isDark()) {
+            // Dark
+            colorInvert = Color('rgb(255, 255, 255)');
+        } else {
+            // Light
+            colorInvert = Color('rgb(0, 0, 0)');
+        }
+
+        this.colorInvert = colorInvert;
     }
 }
 
