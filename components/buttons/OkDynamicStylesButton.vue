@@ -17,7 +17,7 @@
     import { BehaviorSubject } from "~/node_modules/rxjs";
     import { ITheme } from "~/models/common/theme/ITheme";
     import { IThemeService } from "~/services/theme/IThemeService";
-    import {ICommunity} from "~/models/communities/community/ICommunity";
+import { ICommunityMembership } from "~/models/communities/community/community-membership/ICommunityMembership";
 
     @Component({
         name: "OkDynamicStylesButton",
@@ -38,7 +38,7 @@
         @Prop({
             type: Object,
             required: false
-        }) readonly community: ICommunity;
+        }) readonly community: ICommunityMembership;
 
         @Prop({
             type: Boolean,
