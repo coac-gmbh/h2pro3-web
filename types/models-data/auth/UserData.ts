@@ -1,4 +1,5 @@
 import { ModelData } from 'types/models-data/ModelData';
+import { CommunityMembershipData } from '../communities/CommunityMembershipData';
 
 export interface UserData extends ModelData {
     uuid?: string,
@@ -21,4 +22,5 @@ export interface UserData extends ModelData {
     is_reported?: boolean,
     is_fully_connected?: boolean,
     is_member_of_communities?: boolean,
+    communities_memberships?: CommunityMembershipData[],
 }

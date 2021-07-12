@@ -10,6 +10,8 @@ import { ModelData } from '~/types/models-data/ModelData';
 import {
     categoriesDeserializer,
     categoriesSerializer,
+    communityMembershipsDeserializer,
+    communityMembershipsSerializer,
     dateDeserializer,
     dateSerializer, languageDeserializer, languageSerializer,
     userProfileDeserializer,
@@ -21,6 +23,7 @@ import { IPostComment } from '~/models/posts/post-comment/IPostComment';
 import { ILanguage } from '~/models/common/language/ILanguage';
 import { UserVisibility } from '~/models/auth/user/lib/UserVisibility';
 import { ICategory } from '~/models/common/category/ICategory';
+import { ICommunityMembership } from '~/models/communities/community/community-membership/ICommunityMembership';
 
 export class User extends DataModel<User> implements IUser {
     uuid!: string;
@@ -51,6 +54,7 @@ export class User extends DataModel<User> implements IUser {
     language!: ILanguage;
     visibility!: UserVisibility;
     categories!: ICategory[];
+    communities!: ICommunityMembership[];
 
     dataMaps: DataModelAttributeMap<IUser>[] = [
         {
@@ -117,6 +121,12 @@ export class User extends DataModel<User> implements IUser {
             deserializer: categoriesDeserializer,
             serializer: categoriesSerializer,
         },
+        {
+            dataKey: 'communities_memberships',
+            attributeKey: 'communities',
+            deserializer: communityMembershipsDeserializer,
+            serializer: communityMembershipsSerializer,
+        }, 
         {
             dataKey: 'username',
             attributeKey: 'username'
