@@ -14,20 +14,13 @@ export interface IGroupTypeField {
 }
 
 export const GROUP_TYPES: IGroupTypeConfig[] = [
-    { key: 'C', fields: ['about_us', 'website', 'population', 'area', 'energy_demand'] },
-    { key: 'Q', fields: ['about_us', 'website', 'industry', 'employee', 'location'] },
-    { key: 'U', fields: ['about_us', 'website', 'institution', 'departments'] },
-    { key: 'I', fields: ['about_us', 'website'] }
+    { key: 'C', fields: ['website', 'population', 'area', 'energy_demand'] },
+    { key: 'Q', fields: ['website', 'industry', 'employee', 'location'] },
+    { key: 'U', fields: ['website', 'institution', 'departments'] },
+    { key: 'I', fields: ['website'] }
 ]
 
 export const GROUP_TYPES_FIELDS: IGroupTypeField[] = [
-    {
-        key: 'about_us',
-        type: 'textarea',
-        validations: {
-            maxLength: maxLength(2000)
-        }
-    },
     {
         key: 'website',
         type: 'input-text',

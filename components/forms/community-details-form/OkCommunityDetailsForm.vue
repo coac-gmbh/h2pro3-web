@@ -192,7 +192,7 @@
                                     <option :value="null">
                                         ---
                                     </option>
-                                    <option :value="type" v-for="type in groupTypes" :key="type.id">
+                                    <option :value="type" v-for="type in groupTypes" :key="type.key">
                                         {{ $t(`global.group_types.${type.key}`) }}
                                     </option>
                                 </select>
