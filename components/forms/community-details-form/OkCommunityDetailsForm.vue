@@ -192,7 +192,7 @@
                                     <option :value="null">
                                         ---
                                     </option>
-                                    <option :value="type" v-for="type in groupTypes" :key="type.key">
+                                    <option v-for="(type) in groupTypes" :value="type" :key="type.key">
                                         {{ $t(`global.group_types.${type.key}`) }}
                                     </option>
                                 </select>
@@ -202,7 +202,7 @@
                 </ok-tile>
                 
                 <template v-for="(input) in groupTypesFields">
-                    <transition name="fade" :key="`${input.key}-transition`">
+                    <transition name="fade" :key="input.key">
                         <ok-tile alignmentClass="align-items-start" v-if="selectedGroupType && selectedGroupType.fields.includes(input.key)" :key="input.key">
                             <template v-slot:content>
                                 <div class="field">
@@ -228,7 +228,8 @@
                                             :id="input.key"
                                             :value="$v[input.key].$model"
                                             @input="changeModelValidation(input.key, $event.target.value)"
-                                        />
+                                        >
+                                        </textarea>
                                     </div>
                                     <div v-if="$v[input.key].$invalid && formWasSubmitted" class="has-padding-top-5 has-text-left">
                                         <p class="help is-danger" v-if="input.validations.maxLength && !$v[input.key].maxLength">
@@ -273,7 +274,8 @@
                     </template>
                 </ok-tile>
 
-                <ok-tile alignmentClass="align-items-start">
+                <!-- Categories disabled because they are now sync by the group type from the backend -->
+                <!-- <ok-tile alignmentClass="align-items-start">
                     <template v-slot:content>
                         <div class="field">
                             <label for="category" class="label has-text-left ok-has-text-primary-invert-80">
@@ -291,7 +293,7 @@
                             </div>
                         </div>
                     </template>
-                </ok-tile>
+                </ok-tile> -->
 
                 <ok-tile alignmentClass="align-items-start">
                     <template v-slot:content>

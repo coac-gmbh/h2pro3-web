@@ -201,7 +201,7 @@ export interface CreateCommunityApiParams {
     name: string;
     title: string;
     type: CommunityType;
-    categories: string[];
+    categories?: string[];
     /* Group types */
     group_type?: string;
     about_us?: string;
