@@ -195,6 +195,10 @@ export class Community extends DataModel<Community> implements ICommunity {
     constructor(data: ModelData) {
         super(data);
         this.updateWithData(data);
+        // Fixes issue when color is set to an empty string
+        if (!this.color) {
+            this.color = Color("#FFFFFF");
+        }
         this.bootstrapComputedAttributes();
     }
 
