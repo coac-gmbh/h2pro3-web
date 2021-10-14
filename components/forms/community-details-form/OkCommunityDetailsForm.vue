@@ -745,6 +745,8 @@
                         communityDetails[groupTypeField.key] = this[groupTypeField.key];
                     }
                 }    
+            } else {
+                communityDetails.group_type = null;
             }
 
             if (this.categories.length) { // probably a redundant check
