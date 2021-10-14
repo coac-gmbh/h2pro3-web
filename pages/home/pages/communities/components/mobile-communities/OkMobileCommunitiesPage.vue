@@ -43,7 +43,7 @@
                 </b-tab-item>
                 <template v-for="(communityCategory, index) in communitiesCategories">
                     <b-tab-item
-                            :key="index"
+                            :key="communityCategory.id"
                             :label="communityCategory.title">
                         <template slot="header">
                             <div class="has-padding-right-10 has-padding-bottom-10">
@@ -53,7 +53,7 @@
                         <h2 class="title ok-has-text-primary-invert">
                             {{ communityCategory.title }}
                         </h2>
-                        <ok-mobile-communities-category :ref="'okMobileCommunitiesCategory_' + (index + 1)"
+                        <ok-mobile-communities-category :ref="'okMobileCommunitiesCategory_' + (communityCategory.id)"
                                                         :category="communityCategory"></ok-mobile-communities-category>
                     </b-tab-item>
                 </template>

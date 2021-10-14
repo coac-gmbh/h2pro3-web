@@ -581,9 +581,9 @@ export default {
             "zoom_out": "Zoom Out"
         },
         "group_types": {
-            "C": "City",
+            "C": "City or District",
             "Q": "Company",
-            "U": "University",
+            "U": "Research",
             "I": "Institution"
         },
         "models": {

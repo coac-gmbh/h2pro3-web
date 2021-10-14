@@ -603,6 +603,8 @@ export class CommunitiesApiService implements ICommunitiesApiService {
                     bodyFormData.set(groupTypeField.key, params[groupTypeField.key]);
                 }
             }
+        } else {
+            bodyFormData.set('group_type', '');
         }
 
         bodyFormData.set('closed', params.closed.toString());

@@ -95,6 +95,11 @@
         min-height: 50px;
         min-width: 100%;
     }
+
+    .infinite-loading-container {
+        width: 100%;
+        margin-bottom: 40px;
+    }
 </style>
 
 <script lang="ts">
