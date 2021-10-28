@@ -611,30 +611,7 @@ export class UserService implements IUserService {
     }
 
     async updateCommunity(params: UpdateCommunityParams): Promise<ICommunity> {
-        const response: AxiosResponse<CommunityData> = await this.communitiesApiService.updateCommunity(params.community.name, {
-            name: params.name,
-            type: params.type,
-            rules: params.rules,
-            title: params.title,
-            categories: params.categories,
-            userAdjective: params.userAdjective,
-            usersAdjective: params.usersAdjective,
-            description: params.description,
-            color: params.color,
-            invitesEnabled: params.invitesEnabled,
-            closed: params.closed,
-            group_type: params.group_type,
-            about_us: params.about_us,
-            website: params.website,
-            population: params.population,
-            area: params.area,
-            energy_demand: params.energy_demand,
-            industry: params.industry,
-            employee: params.employee,
-            location: params.location,
-            institution: params.institution,
-            departments: params.departments,
-        });
+        const response: AxiosResponse<CommunityData> = await this.communitiesApiService.updateCommunity(params.community.name, params);
 
         return communityFactory.make(response.data);
     }
