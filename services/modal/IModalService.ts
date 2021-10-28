@@ -19,6 +19,8 @@ export interface IModalService {
     // Methods for clients
     ensureHasNoActiveModal();
 
+    openModalByType(modalType: ModalType): Promise<void>;
+
     openPostModal(params: PostModalParams): Promise<void>;
 
     openPostReactionsModal(params: PostReactionsModalParams): Promise<void>;
