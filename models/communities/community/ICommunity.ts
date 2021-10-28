@@ -15,7 +15,7 @@ export interface ICommunity extends IDataModel<ICommunity> {
     userAdjective?: string;
     usersAdjective?: string;
     description?: string;
-    /* Group types */
+    /* Tip, search for "Group types" to find all places where you need to add new attributes */
     groupType?: string,
     about_us?: string,
     website?: string,
@@ -27,6 +27,9 @@ export interface ICommunity extends IDataModel<ICommunity> {
     location?: string,
     institution?: string,
     departments?: string,
+    project_partners?: string;
+    project_duration?: string;
+    lessons_learned?: string;
     /* End group types */
     color?: Color;
     cover?: string;
