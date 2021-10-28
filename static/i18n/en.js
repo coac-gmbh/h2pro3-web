@@ -180,6 +180,15 @@ export default {
                 "departments": {
                     "label": "Departments"
                 },
+                "project_partners": {
+                    "label": "Project partners"
+                },
+                "project_duration": {
+                    "label": "Project duration"
+                },
+                "lessons_learned": {
+                    "label": "Lessons learned"
+                },
             }
         },
     },
@@ -584,7 +593,9 @@ export default {
             "C": "City or District",
             "Q": "Company",
             "U": "Research",
-            "I": "Institution"
+            "I": "Institution",
+            "P": "Project",
+            "E": "Event",
         },
         "models": {
             "post": "post",
