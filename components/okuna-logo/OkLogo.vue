@@ -28,7 +28,7 @@
         @Prop(String) readonly textClass;
 
         get logoImage() {
-            return require("./assets/logo.png");
+            return require("./assets/h2pro3.svg");
         }
     }
 </script>
