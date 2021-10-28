@@ -135,6 +135,12 @@
         <b-modal :active.sync="confirmationModalOpen" :trap-focus="true" @close="onModalClosed">
             <ok-confirmation-modal :params="activeModalParams" v-if="activeModalParams"></ok-confirmation-modal>
         </b-modal>
+        <b-modal :active.sync="whatIsH2pro3Open" :trap-focus="true" @close="onModalClosed">
+            <what-is-h2pro3></what-is-h2pro3>
+        </b-modal>
+        <b-modal :active.sync="aboutUsOpen" :trap-focus="true" @close="onModalClosed">
+            <about-us-modal></about-us-modal>
+        </b-modal>
     </div>
 </template>
 
@@ -208,10 +214,14 @@
     import OkCommunityAddBannedUserModal from '~/pages/home/components/modals/components/community-settings/OkCommunityAddBannedUserModal.vue';
 
     import OkConfirmationModal from '~/pages/home/components/modals/components/OkConfirmationModal.vue';
+    import AboutUsModal from '~/pages/home/components/modals/components/AboutUsModal.vue';
+    import WhatIsH2pro3 from '~/pages/home/components/modals/components/WhatIsH2Pro3Modal.vue';
 
     @Component({
         name: "OkModals",
         components: {
+            AboutUsModal,
+            WhatIsH2pro3,
             OkPostStudioModal,
             OkApplicationSettingsModal,
             OkSettingsModal,
@@ -258,6 +268,8 @@
         // ARGGG I cannot just bind the observable to the view because buefy requires a double bount value to control opening and closing
 
         ModalType = ModalType;
+        aboutUsOpen: boolean = false;
+        whatIsH2pro3Open: boolean = false;
         postModalOpened: boolean = false;
         postReactionsModalOpened: boolean = false;
         postActionsModalOpened: boolean = false;
@@ -325,6 +337,8 @@
 
         private onActiveModalChanged(activeModalValue: ModalType) {
             this.modalService.setActiveModalReturnData(null);
+            this.aboutUsOpen = activeModalValue === ModalType.aboutUs;
+            this.whatIsH2pro3Open = activeModalValue === ModalType.whatIsH2pro3;
             this.postModalOpened = activeModalValue === ModalType.post;
             this.postReactionsModalOpened = activeModalValue === ModalType.postReactions;
             this.postCommentReactionsModalOpened = activeModalValue === ModalType.postCommentReactions;
