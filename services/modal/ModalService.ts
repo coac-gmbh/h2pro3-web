@@ -66,6 +66,11 @@ export class ModalService implements IModalService {
         });
     };
 
+    async openModalByType(modalType: ModalType): Promise<void> {
+        this.ensureHasNoActiveModal();
+        return this.openModal(modalType);
+    }
+
     async openReportObjectModal(params: ReportObjectModalParams): Promise<void> {
         this.ensureHasNoActiveModal();
         return this.openModal(ModalType.reportObject, params);
