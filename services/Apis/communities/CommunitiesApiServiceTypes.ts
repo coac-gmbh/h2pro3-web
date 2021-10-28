@@ -202,7 +202,7 @@ export interface CreateCommunityApiParams {
     title: string;
     type: CommunityType;
     categories?: string[];
-    /* Group types */
+    /* Tip, search for "Group types" to find all places where you need to add new attributes */
     group_type?: string;
     about_us?: string;
     website?: string;
@@ -214,6 +214,9 @@ export interface CreateCommunityApiParams {
     location?: string;
     institution?: string;
     departments?: string;
+    project_partners?: string;
+    project_duration?: string;
+    lessons_learned?: string;
     /* End group types */
     avatar?: File | Blob | string;
     cover?: File | Blob | string;
@@ -238,7 +241,7 @@ export interface UpdateCommunityApiParams {
     color?: Color;
     invitesEnabled?: boolean;
     closed: boolean;
-    /* Group types */
+    /* Tip, search for "Group types" to find all places where you need to add new attributes */
     group_type?: string;
     about_us?: string;
     website?: string;
@@ -250,5 +253,8 @@ export interface UpdateCommunityApiParams {
     location?: string;
     institution?: string;
     departments?: string;
+    project_partners?: string;
+    project_duration?: string;
+    lessons_learned?: string;
     /* End group types */
 }

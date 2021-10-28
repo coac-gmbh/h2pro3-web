@@ -343,6 +343,7 @@
                     </template>
                 </ok-tile>
 
+                <!-- DISABLED for H2pro3
                 <ok-tile alignmentClass="align-items-start">
                     <template v-slot:content>
                         <div class="field">
@@ -389,7 +390,8 @@
                             </div>
                         </div>
                     </template>
-                </ok-tile>
+                </ok-tile> 
+                END Disabled for H2pro3 -->
 
                 <ok-tile>
                     <template v-slot:content>
@@ -588,7 +590,7 @@
         categories: ICategory[] = [];
         invitesEnabled: boolean = false;
 
-        /* Group types */
+        /* Tip, search for "Group types" to find all places where you need to add new attributes */
         groupTypes = GROUP_TYPES;
         groupTypesFields = GROUP_TYPES_FIELDS;
         selectedGroupType: IGroupTypeConfig = null;
@@ -602,6 +604,9 @@
         location: string = null;
         institution: string = null;
         departments: string = null;
+        project_partners: string = null;
+        project_duration: string = null;
+        lessons_learned: string = null;
         /* End group types */
 
         avatarUrl: string = '';

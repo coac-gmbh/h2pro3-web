@@ -17,7 +17,8 @@ export const GROUP_TYPES: IGroupTypeConfig[] = [
     { key: 'C', fields: ['website', 'population', 'area', 'energy_demand'] },
     { key: 'Q', fields: ['website', 'industry', 'employee', 'location'] },
     { key: 'U', fields: ['website', 'institution', 'departments'] },
-    { key: 'I', fields: ['website'] }
+    { key: 'P', fields: ['location', 'project_partners', 'project_duration', 'website', 'lessons_learned'] },
+    { key: 'E', fields: ['website'] },
 ]
 
 export const GROUP_TYPES_FIELDS: IGroupTypeField[] = [
@@ -80,6 +81,27 @@ export const GROUP_TYPES_FIELDS: IGroupTypeField[] = [
     },
     {
         key: 'departments',
+        type: 'textarea',
+        validations: {
+            maxLength: maxLength(2000)
+        }
+    },
+    {
+        key: 'project_partners',
+        type: 'textarea',
+        validations: {
+            maxLength: maxLength(2000)
+        }
+    },
+    {
+        key: 'project_duration',
+        type: 'input-text',
+        validations: {
+            maxLength: maxLength(64)
+        }
+    },
+    {
+        key: 'lessons_learned',
         type: 'textarea',
         validations: {
             maxLength: maxLength(2000)

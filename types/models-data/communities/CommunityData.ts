@@ -10,7 +10,7 @@ export interface CommunityData extends ModelData {
     rules?: string;
     avatar?: string;
     title?: string;
-    /* Group types */
+    /* Tip, search for "Group types" to find all places where you need to add new attributes */
     group_type?: string,
     about_us?: string,
     website?: string,
@@ -22,6 +22,9 @@ export interface CommunityData extends ModelData {
     location?: string,
     institution?: string,
     departments?: string,
+    project_partners?: string;
+    project_duration?: string;
+    lessons_learned?: string;
     /* End group types */
     user_adjective?: string;
     users_adjective?: string;
