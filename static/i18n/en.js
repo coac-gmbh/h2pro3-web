@@ -1,5 +1,6 @@
 export default {
     "name": "H2pro3",
+    "name_html": "H<sub>2</sub>Pro<sup>3</sup>",
     "pages": {
         "auth": {
             "title": "H2pro3",
@@ -618,6 +619,7 @@ export default {
             "get_the_app": "Get the app",
             "create_post": "Create post",
             "type_here": "Type here...",
+            "what_is_h2pro3": "What is H<sub>2</sub>Pro<sup>3</sup>",
             "about_us": "About us",
             "hooray": "Hooray!",
             "community_rules": "Group rules",
