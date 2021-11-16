@@ -14,10 +14,10 @@
                         @click="openAboutUsModal">
                         {{$t('global.snippets.about_us')}}
                     </div>
-                    <!-- <div class="column footer-link footer-link--privacy-policy ok-has-text-primary-invert-60 has-cursor-pointer"
+                    <div class="column footer-link footer-link--privacy-policy ok-has-text-primary-invert-60 has-cursor-pointer"
                         @click="onWantsToOpenPrivacyPolicy">
                         {{$t('global.snippets.privacy_policy')}}
-                    </div> -->
+                    </div>
                     <!-- <div class="column footer-link footer-link--terms-of-use ok-has-text-primary-invert-60 has-cursor-pointer"
                          @click="onWantsToOpenTou">
                         {{$t('global.snippets.terms_of_use')}}
