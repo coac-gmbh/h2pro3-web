@@ -33,14 +33,14 @@
                     :onNext="goToNextStep"
             />
         </template>
-        <template v-else-if="activeStep === 5">
+        <!-- <template v-else-if="activeStep === 5">
             <ok-register-user-accepts-documents
                     :initialAcceptsDocuments="userAcceptedDocuments"
                     :onPrevious="goToPreviousStep"
                     :onNext="goToNextStep"
             />
-        </template>
-        <template v-else-if="activeStep === 6">
+        </template> -->
+        <template v-else-if="activeStep === 5">
             <ok-register-user-submit
                     :userName="userName"
                     :userUsername="userUsername"
@@ -51,7 +51,7 @@
                     @onUserRegistered="onUserRegistered"
             />
         </template>
-        <template v-else-if="activeStep === 7">
+        <template v-else-if="activeStep === 6">
             <ok-register-user-suggested-communities
                     :onNext="onRegistrationDone"
             />
