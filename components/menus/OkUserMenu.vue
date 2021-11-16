@@ -114,6 +114,54 @@
                             </span>
                 </nuxt-link>
             </li>
+            <li>
+                <a href="javascript://"
+                    @click="openAboutH2pro3Modal"
+                    class="has-no-hover-text-decoration ok-has-background-primary-highlight-hover"
+                >
+                    <span class="icon has-padding-right-10">
+                        <ok-information-variant-icon class="ok-svg-icon-primary-invert"></ok-information-variant-icon>
+                    </span>
+                    <span class="ok-has-text-primary-invert" v-html="$t('global.snippets.about_h2pro3')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript://"
+                    @click="openWhatIsH2pro3Modal"
+                    class="has-no-hover-text-decoration ok-has-background-primary-highlight-hover"
+                >
+                    <span class="icon has-padding-right-10">
+                        <ok-help-icon class="ok-svg-icon-primary-invert"></ok-help-icon>
+                    </span>
+                    <span class="ok-has-text-primary-invert" v-html="$t('global.snippets.what_is_h2pro3')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript://"
+                    @click="openAboutUsModal"
+                    class="has-no-hover-text-decoration ok-has-background-primary-highlight-hover"
+                >
+                    <span class="icon has-padding-right-10">
+                        <ok-information-outline-icon class="ok-svg-icon-primary-invert"></ok-information-outline-icon>
+                    </span>
+                    <span class="ok-has-text-primary-invert">
+                        {{$t('global.snippets.about_us')}}
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript://"
+                    @click="onWantsToOpenPrivacyPolicy"
+                    class="has-no-hover-text-decoration ok-has-background-primary-highlight-hover"
+                >
+                    <span class="icon has-padding-right-10">
+                        <ok-file-document-icon class="ok-svg-icon-primary-invert"></ok-file-document-icon>
+                    </span>
+                    <span class="ok-has-text-primary-invert">
+                        {{$t('global.snippets.privacy_policy')}}
+                    </span>
+                </a>
+            </li>
         </ul>
         <p class="menu-label ok-has-text-primary-invert-80">
             {{$t('components.user_dropdown.app_and_account')}}
@@ -210,6 +258,7 @@
     import { INavigationService } from "~/services/navigation/INavigationService";
     import { IToastService } from "~/services/toast/IToastService";
     import { ToastType } from "~/services/toast/lib/ToastType";
+    import { ModalType } from "~/services/modal/lib/ModalType";
     import { IModalService } from "../../services/modal/IModalService";
 
     @Component({
@@ -242,6 +291,26 @@
 
         get profileUrl() {
             return `/${this.$observables.loggedInUser.value.username}`;
+        }
+
+        openAboutH2pro3Modal() {
+            this.$emit("leaveMenu");
+            this.modalService.openModalByType(ModalType.aboutH2pro3);
+        }
+        
+        openAboutUsModal() {
+            this.$emit("leaveMenu");
+            this.modalService.openModalByType(ModalType.aboutUs);
+        }
+        
+        openWhatIsH2pro3Modal() {
+            this.$emit("leaveMenu");
+            this.modalService.openModalByType(ModalType.whatIsH2pro3);
+        }
+
+        onWantsToOpenPrivacyPolicy() {
+            this.$emit("leaveMenu");
+            this.modalService.openPrivacyPolicyModal();
         }
 
         async onWantsToLogout() {
