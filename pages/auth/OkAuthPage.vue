@@ -34,17 +34,6 @@
                                 Dann sind Sie hier richtig! Registrieren Sie sich kostenfrei auf unserer Plattform und vernetzen Sie sich mit anderen Akteuren.
                             </p>
                         </div>
-                        <div class="columns is-vcentered is-centered is-mobile has-padding-top-20 has-padding-bottom-20 has-padding-left-20-desktop has-padding-right-20-desktop">
-                            <div class="column is-flex justify-center">
-                                <img src="./assets/hyc-logo.svg" alt="HyCologne">
-                            </div>
-                            <div class="column is-flex justify-center">
-                                <img src="./assets/th-koeln-logo.svg" alt="TH Köln">
-                            </div>
-                            <div class="column is-flex justify-center">
-                                <img src="./assets/coac-logo.svg" alt="coac">
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <ok-footer></ok-footer>
