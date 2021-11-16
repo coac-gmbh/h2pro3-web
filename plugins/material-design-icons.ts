@@ -36,6 +36,9 @@ import CloseCircle from 'vue-material-design-icons/CloseCircle.vue';
 import MenuDown from 'vue-material-design-icons/MenuDown.vue';
 import PlusCircleOutline from 'vue-material-design-icons/PlusCircleOutline.vue';
 import FaceProfile from 'vue-material-design-icons/FaceProfile.vue';
+import FileDocument from 'vue-material-design-icons/FileDocument.vue';
+import InformationOutline from 'vue-material-design-icons/InformationOutline.vue';
+import InformationVariant from 'vue-material-design-icons/InformationVariant.vue';
 import LocationIcon from 'vue-material-design-icons/MapMarker.vue';
 import BabyIcon from 'vue-material-design-icons/BabyFaceOutline.vue';
 import AdultIcon from 'vue-material-design-icons/EmoticonHappyOutline.vue';
@@ -162,6 +165,12 @@ Vue.component('ok-menu-down-icon', MenuDown);
 Vue.component('ok-plus-circle-outline-icon', PlusCircleOutline);
 
 Vue.component('ok-profile-icon', FaceProfile);
+
+Vue.component('ok-file-document-icon', FileDocument);
+
+Vue.component('ok-information-outline-icon', InformationOutline);
+
+Vue.component('ok-information-variant-icon', InformationVariant);
 
 Vue.component('ok-bio-icon', BookmarkIcon);
 

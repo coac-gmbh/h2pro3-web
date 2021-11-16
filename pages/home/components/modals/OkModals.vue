@@ -141,6 +141,9 @@
         <b-modal :active.sync="aboutUsOpen" :trap-focus="true" @close="onModalClosed">
             <about-us-modal></about-us-modal>
         </b-modal>
+        <b-modal :active.sync="aboutH2pro3Open" :trap-focus="true" @close="onModalClosed">
+            <about-h2pro3-modal></about-h2pro3-modal>
+        </b-modal>
     </div>
 </template>
 
@@ -216,12 +219,14 @@
     import OkConfirmationModal from '~/pages/home/components/modals/components/OkConfirmationModal.vue';
     import AboutUsModal from '~/pages/home/components/modals/components/AboutUsModal.vue';
     import WhatIsH2pro3 from '~/pages/home/components/modals/components/WhatIsH2Pro3Modal.vue';
+    import AboutH2pro3Modal from '~/pages/home/components/modals/components/AboutH2Pro3Modal.vue';
 
     @Component({
         name: "OkModals",
         components: {
             AboutUsModal,
             WhatIsH2pro3,
+            AboutH2pro3Modal,
             OkPostStudioModal,
             OkApplicationSettingsModal,
             OkSettingsModal,
@@ -270,6 +275,7 @@
         ModalType = ModalType;
         aboutUsOpen: boolean = false;
         whatIsH2pro3Open: boolean = false;
+        aboutH2pro3Open: boolean = false;
         postModalOpened: boolean = false;
         postReactionsModalOpened: boolean = false;
         postActionsModalOpened: boolean = false;
@@ -339,6 +345,7 @@
             this.modalService.setActiveModalReturnData(null);
             this.aboutUsOpen = activeModalValue === ModalType.aboutUs;
             this.whatIsH2pro3Open = activeModalValue === ModalType.whatIsH2pro3;
+            this.aboutH2pro3Open = activeModalValue === ModalType.aboutH2pro3;
             this.postModalOpened = activeModalValue === ModalType.post;
             this.postReactionsModalOpened = activeModalValue === ModalType.postReactions;
             this.postCommentReactionsModalOpened = activeModalValue === ModalType.postCommentReactions;

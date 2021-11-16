@@ -1,8 +1,8 @@
 <template>
     <div class="has-text-centered has-padding-20 ok-has-text-primary-invert" @submit.prevent="onSubmit">
         <div v-if="requestInProgress">
-            <div class="has-padding-bottom-20">
-                <span v-twemoji class="icon is-large">🥚</span>
+            <div class="is-flex justify-center has-padding-bottom-20">
+                <ok-logo></ok-logo>
             </div>
             <div class="content">
                 <h4>
@@ -14,8 +14,8 @@
             </div>
         </div>
         <div v-else-if="hasError">
-            <div class="has-padding-bottom-20">
-                <span v-twemoji class="icon is-large">😭</span>
+            <div class="is-flex justify-center has-padding-bottom-20">
+                <ok-logo></ok-logo>
             </div>
             <div class="content">
                 <h4>
@@ -34,8 +34,8 @@
                     class="has-padding-top-20"/>
         </div>
         <div v-else>
-            <div class="has-padding-bottom-20">
-                <span v-twemoji class="icon is-large">🐣</span>
+            <div class="is-flex justify-center has-padding-bottom-20">
+                <ok-logo></ok-logo>
             </div>
             <div class="content">
                 <h4>
@@ -64,11 +64,12 @@
     import { IUtilsService } from "~/services/utils/IUtilsService";
     import { TYPES } from "~/services/inversify-types";
     import { CancelableOperation } from "~/lib/CancelableOperation";
+    import OkLogo from "~/components/okuna-logo/OkLogo.vue";
     import { RegistrationResponse } from "~/services/Apis/auth/AuthApiServiceTypes";
 
     @Component({
         name: "OkRegisterUserSubmit",
-        components: {OkButtonsNavigation}
+        components: {OkButtonsNavigation, OkLogo}
     })
     export default class OkRegisterUserSubmit extends Vue {
 

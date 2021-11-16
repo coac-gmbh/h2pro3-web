@@ -1,6 +1,7 @@
 export class ModalType {
     static aboutUs = new ModalType('aboutUs');
     static whatIsH2pro3 = new ModalType('whatIsH2pro3');
+    static aboutH2pro3 = new ModalType('aboutH2pro3');
     static post = new ModalType('Post');
     static postReactions = new ModalType('PostReactions');
     static postActions = new ModalType('PostActions');
