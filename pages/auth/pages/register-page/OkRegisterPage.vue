@@ -94,7 +94,7 @@
         }
 
         onUserRegistered(registrationResponse: RegistrationResponse) {
-            this.registerFormClass = "has-background-confetti";
+            this.registerFormClass = "";
         }
 
     }
