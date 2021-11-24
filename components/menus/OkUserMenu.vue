@@ -1,6 +1,6 @@
 <template>
     <nav class="menu has-padding-20">
-        <ul class="menu-list">
+        <!-- <ul class="menu-list">
             <li class="has-padding-bottom-5">
                 <button class="button is-success is-rounded is-fullwidth has-background-rainbow has-text-weight-bold justify-center align-items-center"
                         @click="onWantsToGetTheApp">
@@ -9,7 +9,7 @@
                     <span class="has-padding-left-10">{{$t('global.snippets.get_the_app')}}</span>
                 </button>
             </li>
-        </ul>
+        </ul> -->
         <p class="menu-label ok-has-text-primary-invert-80">
             {{$t('components.user_dropdown.my_okuna')}}
         </p>
@@ -40,7 +40,7 @@
                 </nuxt-link>
             </li>
              -->
-            <li>
+            <!-- <li>
                 <nuxt-link :to="'/'"
                            class="is-disabled has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
                             <span class="icon has-padding-right-10">
@@ -51,7 +51,7 @@
                                 {{$t('components.user_dropdown.lists')}}
                             </span>
                 </nuxt-link>
-            </li>
+            </li> -->
             <li>
                 <a href="javascript://"
                            @click="onFollowersClick"
@@ -78,7 +78,7 @@
                             </span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <nuxt-link :to="'/'"
                            class="is-disabled has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
                             <span class="icon has-padding-right-10">
@@ -89,8 +89,8 @@
                                 {{$t('components.user_dropdown.invites')}}
                             </span>
                 </nuxt-link>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <nuxt-link :to="'/'"
                            class="is-disabled has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
                             <span class="icon has-padding-right-10">
@@ -101,8 +101,8 @@
                                 {{$t('components.user_dropdown.moderation_tasks')}}
                             </span>
                 </nuxt-link>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <nuxt-link :to="'/'"
                            class="is-disabled has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
                             <span class="icon has-padding-right-10">
@@ -113,7 +113,7 @@
                                 {{$t('components.user_dropdown.moderation_penalties')}}
                             </span>
                 </nuxt-link>
-            </li>
+            </li> -->
             <li>
                 <a href="javascript://"
                     @click="openAboutH2pro3Modal"
@@ -196,8 +196,8 @@
                 </a>
             </li>
             <li>
-                <nuxt-link :to="'/'"
-                           class="is-disabled has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
+                <a :href="`mailto:${supportAndFeedbackEmail}`" target="_blank"
+                           class="has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
                             <span class="icon has-padding-right-10">
                                  <ok-help-icon
                                          class="ok-svg-icon-primary-invert"></ok-help-icon>
@@ -205,9 +205,9 @@
                     <span class="ok-has-text-primary-invert">
                                 {{$t('components.user_dropdown.support_and_feedback')}}
                             </span>
-                </nuxt-link>
+                </a>
             </li>
-            <li>
+            <!-- <li>
                 <nuxt-link :to="'/'"
                            class="is-disabled has-no-hover-text-decoration ok-has-background-primary-highlight-hover">
                             <span class="icon has-padding-right-10">
@@ -218,7 +218,7 @@
                                 {{$t('components.user_dropdown.useful_links')}}
                             </span>
                 </nuxt-link>
-            </li>
+            </li> -->
         </ul>
         <ul class="menu-list ok-has-border-top-primary-highlight has-padding-top-10">
             <li>
@@ -260,6 +260,7 @@
     import { ToastType } from "~/services/toast/lib/ToastType";
     import { ModalType } from "~/services/modal/lib/ModalType";
     import { IModalService } from "../../services/modal/IModalService";
+    import { SUPPORT_AND_FEEDBACK_EMAIL } from "~/config";
 
     @Component({
         name: "OkUserMenu",
@@ -288,6 +289,8 @@
         tooltipOptions = {
             placement: "bottom-end"
         };
+
+        supportAndFeedbackEmail = SUPPORT_AND_FEEDBACK_EMAIL
 
         get profileUrl() {
             return `/${this.$observables.loggedInUser.value.username}`;
