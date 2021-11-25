@@ -144,6 +144,9 @@
         <b-modal :active.sync="aboutH2pro3Open" :trap-focus="true" @close="onModalClosed">
             <about-h2pro3-modal></about-h2pro3-modal>
         </b-modal>
+        <b-modal :active.sync="imprintOpen" :trap-focus="true" @close="onModalClosed">
+            <imprint-modal></imprint-modal>
+        </b-modal>
     </div>
 </template>
 
@@ -220,6 +223,7 @@
     import AboutUsModal from '~/pages/home/components/modals/components/AboutUsModal.vue';
     import WhatIsH2pro3 from '~/pages/home/components/modals/components/WhatIsH2Pro3Modal.vue';
     import AboutH2pro3Modal from '~/pages/home/components/modals/components/AboutH2Pro3Modal.vue';
+    import ImprintModal from '~/pages/home/components/modals/components/ImprintModal.vue';
 
     @Component({
         name: "OkModals",
@@ -227,6 +231,7 @@
             AboutUsModal,
             WhatIsH2pro3,
             AboutH2pro3Modal,
+            ImprintModal,
             OkPostStudioModal,
             OkApplicationSettingsModal,
             OkSettingsModal,
@@ -276,6 +281,7 @@
         aboutUsOpen: boolean = false;
         whatIsH2pro3Open: boolean = false;
         aboutH2pro3Open: boolean = false;
+        imprintOpen: boolean = false;
         postModalOpened: boolean = false;
         postReactionsModalOpened: boolean = false;
         postActionsModalOpened: boolean = false;
@@ -346,6 +352,7 @@
             this.aboutUsOpen = activeModalValue === ModalType.aboutUs;
             this.whatIsH2pro3Open = activeModalValue === ModalType.whatIsH2pro3;
             this.aboutH2pro3Open = activeModalValue === ModalType.aboutH2pro3;
+            this.imprintOpen = activeModalValue === ModalType.imprint;
             this.postModalOpened = activeModalValue === ModalType.post;
             this.postReactionsModalOpened = activeModalValue === ModalType.postReactions;
             this.postCommentReactionsModalOpened = activeModalValue === ModalType.postCommentReactions;

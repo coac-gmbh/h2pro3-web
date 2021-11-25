@@ -1,7 +1,8 @@
 <template>
-    <div class="columns ok-has-background-primary is-semi-rounded has-padding-top-20 has-padding-bottom-20 is-flex-1 is-vcentered is-centered is-marginless">
+    <div class="columns ok-has-background-primary is-semi-rounded has-padding-bottom-20 has-padding-top-20 is-flex-1 is-vcentered is-centered is-marginless">
         <div class="column content is-medium is-11-desktop">
-            <h1 class="has-text-rounded ok-has-text-primary-invert">
+            <img :src="logoImage" alt="H2pro3 logo" style="width: 110px;">
+            <h1 class="has-text-rounded ok-has-text-primary-invert" style="margin-top: 20px;">
                 Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte
             </h1>
             <h6>Willkommen bei H2Pro3. Hier vernetzen sich Akteure und Interessenten, um innovative Projekte und Anwendungen mit Wasserstoff produktiver und erfolgreicher voranzutreiben.</h6>
@@ -33,3 +34,16 @@
         </div>
     </div>
 </template>
+
+<script lang="ts">
+    import { Component, Vue } from "nuxt-property-decorator"
+
+    @Component({
+        name: "AboutH2Pro3Modal",
+    })
+    export default class extends Vue {
+        get logoImage() {
+            return require("~/components/okuna-logo/assets/h2pro3.svg");
+        }
+    }
+</script>

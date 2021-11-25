@@ -18,6 +18,10 @@
                         @click="onWantsToOpenPrivacyPolicy">
                         {{$t('global.snippets.privacy_policy')}}
                     </div>
+                    <div class="column footer-link footer-link--privacy-policy ok-has-text-primary-invert-60 has-cursor-pointer"
+                        @click="openImprintModal">
+                        {{$t('global.snippets.imprint')}}
+                    </div>
                     <!-- <div class="column footer-link footer-link--terms-of-use ok-has-text-primary-invert-60 has-cursor-pointer"
                          @click="onWantsToOpenTou">
                         {{$t('global.snippets.terms_of_use')}}
@@ -87,6 +91,10 @@
         
         openWhatIsH2pro3Modal() {
             this.modalService.openModalByType(ModalType.whatIsH2pro3);
+        }
+
+        openImprintModal() {
+            this.modalService.openModalByType(ModalType.imprint);
         }
 
         onWantsToOpenTou() {
