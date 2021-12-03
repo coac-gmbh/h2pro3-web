@@ -36,7 +36,7 @@ export default {
     },
     "components": {
         "report_object_modal": {
-            "why": "Warum möchtest du {objectName} melden?",
+            "why": "Warum möchten Sie {objectName} melden?",
         },
         "post_actions": {},
 
@@ -47,7 +47,7 @@ export default {
 
         "post_comments_sort_switcher": {
             "showing": "Zeige",
-            "first": "zuerst."
+            "first": "zuerst"
         },
         "post_comment": {
             "collapse_replies": "Antworten einklappen",
@@ -84,47 +84,47 @@ export default {
             "logout": "Logout",
         },
         "notifications": {
-            "title": "Notifications",
-            "general_tab_label": "General",
-            "requests_tab_label": "Requests",
-            "post_preview_alt_text": "Post preview",
-            "user_new_post": "posted something.",
-            "community_new_post": "There was a new post in c/{communityName}.",
-            "connection_request": "wants to connect with you.",
-            "accepted_connection_request": "accepted your connection request.",
-            "reacted_to_post": "reacted to your post.",
-            "reacted_to_post_comment": "reacted to your post comment.",
-            "following_you": "is now following you.",
-            "user_community_invite": "has invited you to join group c/{communityName}.",
-            "user_replied": "replied: {postCommentText}",
-            "user_also_replied": "also replied: {postCommentText}",
-            "commented_on_your_post": "commented on your post: {postCommentText}",
-            "also_commented": "also commented: {postCommentText}",
-            "mentioned_in_post": "mentioned you in a post.",
-            "mentioned_in_comment": "mentioned you in a comment: {postCommentText}"
+            "title": "Benachrichtigungen",
+            "general_tab_label": "Allgemein",
+            "requests_tab_label": "Anfragen",
+            "post_preview_alt_text": "Beitragsvorschau",
+            "user_new_post": "hat etwas gepostet",
+            "community_new_post": "Es gab einen neuen Beitrag in c/{communityName}",
+            "connection_request": "möchte sich mit Ihnen in Verbindung setzen",
+            "accepted_connection_request": "hat die Anfrage bestätigt",
+            "reacted_to_post": "hat auf den Beitrag reagiert",
+            "reacted_to_post_comment": "hat auf den Kommentar reagiert",
+            "following_you": "hat Sie abboniert",
+            "user_community_invite": "hat Sie zu der Gruppe c/{communityName} eingeladen",
+            "user_replied": "hat geantwortet: {postCommentText}",
+            "user_also_replied": "hat geantwortet: {postCommentText}",
+            "commented_on_your_post": "hat kommentiert: {postCommentText}",
+            "also_commented": "hat kommentiert: {postCommentText}",
+            "mentioned_in_post": "hat Sie in einem Beitrag erwähnt",
+            "mentioned_in_comment": "hat Sie in einem Kommentar erwähnt: {postCommentText}"
         },
         "user_profile_age": {
-            "age_in_years": "{years}y",
-            "age_in_weeks": "{weeks}w",
+            "age_in_years": "{years} Jahr",
+            "age_in_weeks": "{weeks} Wochen",
         },
         "user_posts_count": {
-            "posts": "Posts",
+            "posts": "Beiträge",
         },
         "user_following_count": {
-            "following": "Following",
+            "following": "Abonniert",
         },
         "user_followers_count": {
-            "followers": "Followers",
+            "followers": "Abonnenten",
         },
         "community_profile_visibility": {
-            "public": "Public",
-            "private": "Private",
+            "public": "Öffentlich",
+            "private": "Privat",
         },
         "community_posts_count": {
-            "posts": "Posts",
+            "posts": "Beiträge",
         },
         "community_members_count": {
-            "members": "Members",
+            "members": "Mitglieder",
         },
     },
     "forms": {
@@ -139,56 +139,56 @@ export default {
             "i_understand_submit": "I understand, submit.",
         },
         "login": {
-            "or_signup_delimited": "or"
+            "or_signup_delimited": "oder"
         },
         "comment_post": {
-            "placeholder": "Write something...",
-            "placeholder_reply": "Your reply...",
-            "submit": "Post",
-            "submit_reply": "Reply",
+            "placeholder": "Kommentar eingeben",
+            "placeholder_reply": "Ihre Antwort",
+            "submit": "Senden",
+            "submit_reply": "Antworten",
             "title": "Comment post",
             "title_reply": "Reply to comment",
         },
         "create_community": {
             "details": {
                 "about_us": {
-                    "label": "About us"
+                    "label": "Über uns"
                 },
                 "website": {
                     "label": "Website"
                 },
                 "population": {
-                    "label": "Population"
+                    "label": "Anzahl Einwohner*innen"
                 },
                 "energy_demand": {
-                    "label": "Energy demand"
+                    "label": "Energiebedarf"
                 },
                 "area": {
-                    "label": "Area"
+                    "label": "Fläche"
                 },
                 "industry": {
-                    "label": "Industry"
+                    "label": "Branche / Industriezweig"
                 },
                 "employee": {
-                    "label": "Employee"
+                    "label": "Anzahl Mitarbeiter*innen"
                 },
                 "location": {
-                    "label": "Location"
+                    "label": "Standort"
                 },
                 "institution": {
-                    "label": "Institution"
+                    "label": "Fakultät / Institut"
                 },
                 "departments": {
-                    "label": "Departments"
+                    "label": "Fachbereich / Abteilung"
                 },
                 "project_partners": {
-                    "label": "Project partners"
+                    "label": "Projektpartner"
                 },
                 "project_duration": {
-                    "label": "Project duration"
+                    "label": "Projektlaufzeit"
                 },
                 "lessons_learned": {
-                    "label": "Lessons learned"
+                    "label": "Gewonnene Erkenntnisse"
                 },
             }
         },
@@ -226,7 +226,7 @@ export default {
             "remove_avatar_confirmation": "Soll das Profilbild wirklich gelöscht werden?",
 
             "username": {
-                "label": "Username",
+                "label": "Benutzername",
                 "placeholder": "z.B. mmustermann"
             },
             "name": {
@@ -243,37 +243,37 @@ export default {
             },
             "bio": {
                 "label": "Profilbeschreibung",
-                "placeholder": "Nennen Sie ein paar Dinge über sich."
+                "placeholder": "Nennen Sie ein paar Dinge über sich"
             }
         },
         "visibility": {
-            "title": "Sichtbarkeit",
+            "title": "Sichtbarkeit einstellen",
 
             "public": {
                 "name": "Öffentlich",
-                "description": "Jeder kann dein Profil sehen."
+                "description": "Jeder kann Ihr Profil sehen"
             },
             "okuna": {
                 "name": "H2pro3",
-                "description": "Nur Nutzer von H2Pro3 können dein Profil sehen."
+                "description": "Nur Nutzer von H2Pro3 können Ihr Profil sehen"
             },
             "private": {
                 "name": "Privat",
-                "description": "Nur Nutzer, die du bestätigt hast können dein Profil sehen."
+                "description": "Nur Nutzer, die Sie bestätigt haben können Ihr Profil sehen"
             }
         },
         "settings": {
             "details": {
-                "name": "Details",
-                "description": "Change your username, name, url, location, avatar or cover photo."
+                "name": "Bearbeiten",
+                "description": "Benutzername, Name, Website, Standort und Profilbilder bearbeiten."
             },
             "followers_count": {
-                "name": "Followers count",
-                "description": "Display the number of people that follow you, on your profile."
+                "name": "Abonnenten anzeigen",
+                "description": "Die Zahl der Abonnenten auf dem Profil anzeigen"
             },
             "community_posts": {
-                "name": "Group posts",
-                "description": "Display posts you share with public groups, on your profile."
+                "name": "Öffentliche Posts posts",
+                "description": "Öffentliche Posts auf dem Profil anzeigen"
             }
         }
     },
@@ -285,23 +285,23 @@ export default {
             },
             "administrators": {
                 "name": "Administratoren",
-                "description": "Administratoren der Gruppe verwalten."
+                "description": "Administratoren der Gruppe verwalten"
             },
             "moderators": {
                 "name": "Moderatoren",
-                "description": "Moderatoren der Gruppe verwalten."
+                "description": "Moderatoren der Gruppe verwalten"
             },
             "banned_users": {
                 "name": "Gesperrte Nutzer",
-                "description": "Gesperrte Nutzer anzeigen und bearbeiten."
+                "description": "Gesperrte Nutzer anzeigen und bearbeiten"
             },
             "moderation_reports": {
                 "name": "Übersicht Moderation",
-                "description": "Übersicht der Moderation anzeigen."
+                "description": "Übersicht der Moderation anzeigen"
             },
             "closed_posts": {
                 "name": "Geschlossene Posts",
-                "description": "Geschlossene Posts anzeigen und bearbeiten."
+                "description": "Geschlossene Posts anzeigen und bearbeiten"
             },
             "post_notifications": {
                 "enable": "Benachrichtigungen aktivieren",
@@ -309,17 +309,17 @@ export default {
             },
             "invite": {
                 "name": "Personen einladen",
-                "description": "Mitglieder und Interessenten einladen."
+                "description": "Mitglieder und Interessenten einladen"
             },
             "favorite": {
                 "name_favorite": "Als Favorit hinzufügen",
-                "description_favorite": "Die Gruppe als Favorit hinzufügen.",
+                "description_favorite": "Die Gruppe als Favorit hinzufügen",
                 "name_unfavorite": "Als Favorit entfernen",
-                "description_unfavorite": "Die Gruppe als Favorit entfernen."
+                "description_unfavorite": "Die Gruppe als Favorit entfernen"
             },
             "delete": {
                 "name": "Gruppe Löschen",
-                "description": "Gruppe endgültig löschen."
+                "description": "Gruppe endgültig löschen"
             },
             "report": {
                 "name": "Gruppe melden",
@@ -337,7 +337,7 @@ export default {
             "remove": "Löschen",
             "add_confirmation": {
                 "title": "Soll @{username} als Administrator hinzugefügt werden?",
-                "contents": "Dies erlaubt dem Nutzer die Gruppe zu bearbeiten und Administratoren, Moderatoren und gesperrte Nutzer zu verwalten."
+                "contents": "Dies erlaubt dem Nutzer die Gruppe zu bearbeiten und Administratoren, Moderatoren und gesperrte Nutzer zu verwalten"
             }
         },
 
@@ -347,7 +347,7 @@ export default {
             "remove": "Löschen",
             "add_confirmation": {
                 "title": "Soll @{username} als Moderator hinzugefügt werden?",
-                "contents": "Dies erlaubt dem Nutzer die Gruppe zu moderieren und gesperrte Nutzer zu verwalten."
+                "contents": "Dies erlaubt dem Nutzer die Gruppe zu moderieren und gesperrte Nutzer zu verwalten"
             }
         },
 
@@ -357,7 +357,7 @@ export default {
             "ban_user": "Nutzer sperren",
             "ban_confirmation": {
                 "title": "Soll @{username} wirklich gesperrt werden?",
-                "contents": "Der Nutzer wird aus der Gruppe entfernt und kann nicht erneut beitreten."
+                "contents": "Der Nutzer wird aus der Gruppe entfernt und kann nicht erneut beitreten"
             }
         },
 
@@ -379,7 +379,7 @@ export default {
 
             "title": {
                 "label": "Gruppenname (Anzeigename)",
-                "placeholder": "z.B. H2 GmbH,HyCologne e.V., TH Köln"
+                "placeholder": "z.B. H2 GmbH, HyCologne e.V., TH Köln"
             },
 
             "name": {
@@ -403,7 +403,7 @@ export default {
 
             "closed_community": {
                 "label": "Geschlossene Gruppe (Ja/Nein)",
-                "description": "In geschlossenen Gruppen können nur Administratoren posten."
+                "description": "In geschlossenen Gruppen können nur Administratoren posten"
             },
 
             "invites_enabled": {
@@ -421,8 +421,8 @@ export default {
             },
 
             "rules": {
-                "label": "Regeln",
-                "placeholder": "Gibt es etwas, das die Nutzer befolgen sollen?"
+                "label": "Medien",
+                "placeholder": "z.B. Zusätzliche Informationen, Links, Veröffentlichungen, Studien, etc."
             },
 
             "user_adjective": {
@@ -439,311 +439,311 @@ export default {
     "global": {
         "errors": {
             "generic": {
-                "forbidden": '🙅‍♀️ You are not allowed to do this.',
-                "tooManyRequests": "😥 Too many requests. Please wait a couple minutes until trying again",
-                "invalidRequest": '🤔 The request was invalid.',
-                "notFound": "👀 Not found",
-                "unhandled": "😭 Unhandled error",
+                "forbidden": 'Sie haben dazu keine Berechtigung',
+                "tooManyRequests": "Zu viele Anfragen. Bitte ein paar Minuten warten und erneut versuchen",
+                "invalidRequest": 'Die Anfrage war ungültig',
+                "notFound": "Nicht gefunden",
+                "unhandled": "Unhandled error",
             },
             "validations": {
                 "invalid_url": "Der Link ist ungültig."
             },
             "captcha": {
-                "required": "You must pass the captcha"
+                "required": "Das Captcha muss ausgefüllt werden"
             },
             "password": {
                 "required": "Ein Passwort wird benötigt",
-                "min_length": "Das Passwort muss mindestens 10 Zeichen lang sein.",
-                "max_length": "Das Passwort muss kleiner als 128 Zeichen lang sein."
+                "min_length": "Das Passwort muss mindestens 10 Zeichen lang sein",
+                "max_length": "Das Passwort muss kleiner als 128 Zeichen lang sein"
             },
             "post_comment_text": {
-                "required": "Comment is required",
-                "max_length": "Text has to be smaller than 5000 characters"
+                "required": "Bitte Text eingeben",
+                "max_length": "Der Text muss kleiner als 5000 Zeichen sein"
             },
             "moderation_report_description": {
-                "max_length": "Description has to be smaller than 1000 characters"
+                "max_length": "Die Beschreibung muss kleiner als 1000 Zeichen sein"
             },
             "user_username": {
-                "required": "Ein Username muss angegeben werden.",
-                "max_length": "Your username can't be longer than {max} characters",
-                "min_length": "Your username can't be shorter than {min} characters",
-                "taken": "This username is already taken",
+                "required": "Ein Benutzername muss angegeben werden",
+                "max_length": "Der Benutzername darf nicht länger als {max} Zeichen sein",
+                "min_length": "Der Benutzername darf nicht kürzer als {min} Zeichen sein",
+                "taken": "Der Benutzername ist bereits vergeben",
             },
             "email": {
-                "required": "Eine gültige E-mail Adresse wird benötigt.",
-                "invalid": "Die E-Mail Adresse ist ungültig.",
-                "taken": "Diese E-Mail Adresse existiert bereits.",
+                "required": "Eine gültige E-mail Adresse wird benötigt",
+                "invalid": "Die E-Mail Adresse ist ungültig",
+                "taken": "Diese E-Mail Adresse existiert bereits",
             },
             "invite_token": {
-                "required": "Invite token is required",
-                "invalid": "The token is not valid",
+                "required": "Ein Einladungscode wird benötigt",
+                "invalid": "Der Code ist ungültig",
             },
             "user_name": {
                 "required": "Sie müssen einen Namen angeben",
-                "max_length": "Der name darf nicht länger als {max} Zeichen sein.",
-                "min_length": "Der name darf nicht kürzer als {min} Zeichen sein."
+                "max_length": "Der Name darf nicht länger als {max} Zeichen sein",
+                "min_length": "Der Name darf nicht kürzer als {min} Zeichen sein"
             },
             "media": {
                 "max_size": "Die Datei darf nicht größer als {limit} sein.",
-                "unsupported_type": "Dieser Dateityp wird nicht unterstützt."
+                "unsupported_type": "Dieser Dateityp wird nicht unterstützt"
             },
             "community_name": {
-                "required": "Name cannot be empty",
-                "max_length": "Name can't be longer than {max} characters",
-                "min_length": "Name can't be shorter than {min} characters",
-                "taken": "This group name is already taken",
+                "required": "Die Gruppen-ID darf nicht leer sein",
+                "max_length": "Die Gruppen-ID darf nicht länger als {max} Zeichen sein",
+                "min_length": "Die Gruppen-ID darf nicht kürzer als {min} Zeichen sein",
+                "taken": "Die Gruppen-ID ist bereits vergeben",
             },
             "community_title": {
-                "required": "Title cannot be empty",
-                "max_length": "Title can't be longer than {max} characters",
-                "min_length": "Title can't be shorter than {min} characters",
+                "required": "Der Gruppenname darf nicht leer sein",
+                "max_length": "Der Gruppenname darf nicht länger als {max} Zeichen sein",
+                "min_length": "Der Gruppenname darf nicht kürzer als {min} Zeichen sein",
             },
             "community_description": {
-                "max_length": "Description can't be longer than {max} characters",
+                "max_length": "Die Beschreibung darf nicht länger als {max} Zeichen sein",
             },
             "community_rules": {
-                "max_length": "Rules can't be longer than {max} characters",
+                "max_length": "Die Regeln dürfen nicht länger als {max} Zeichen sein",
             },
             "community_user_adjective": {
-                "max_length": "User adjective can't be longer than {max} characters",
+                "max_length": "Darf nicht länger als {max} Zeichen sein",
             },
             "community_about_us": {
                 "max_length": "About us can't be longer than {max} characters",
             },
             "community_website": {
-                "max_length": "Website can't be longer than {max} characters",
+                "max_length": "Die Website darf nicht länger als {max} Zeichen sein",
             },
             "community_population": {
-                "max_length": "Population can't be longer than {max} characters",
+                "max_length": "Die Anzahl Einwohner*innen darf nicht länger als {max} Zeichen sein",
             },
             "community_area": {
-                "max_length": "Area can't be longer than {max} characters",
+                "max_length": "Die Fläche darf nicht länger als {max} Zeichen sein",
             },
             "community_energy_demand": {
-                "max_length": "Energy Demand can't be longer than {max} characters",
+                "max_length": "Der Energiebedarf darf nicht länger als {max} Zeichen sein",
             },
             "community_industry": {
-                "max_length": "Industry can't be longer than {max} characters",
+                "max_length": "Branche/Industriezweig darf nicht länger als {max} Zeichen sein",
             },
             "community_employee": {
-                "max_length": "Employee can't be longer than {max} characters",
+                "max_length": "Anzahl Mitarbeiter*innen darf nicht länger als {max} Zeichen sein",
             },
             "community_location": {
-                "max_length": "Location can't be longer than {max} characters",
+                "max_length": "Der Standort darf nicht länger als {max} Zeichen sein",
             },
             "community_institution": {
-                "max_length": "Institution can't be longer than {max} characters",
+                "max_length": "Darf nicht länger als {max} Zeichen sein",
             },
             "community_department": {
-                "max_length": "Department can't be longer than {max} characters",
+                "max_length": "Darf nicht länger als {max} Zeichen sein",
             },
         },
         "keywords": {
-            "people": "People",
+            "people": "Personen",
             "person": "Person",
-            "back": "Back",
-            "world": "World",
-            "share": "Share",
-            "media": "Media",
-            "remove": "Remove",
-            "retry": "Retry",
+            "back": "Zurück",
+            "world": "Gesamter Plattform",
+            "share": "Teilen",
+            "media": "Medien",
+            "remove": "Entfernen",
+            "retry": "Wiederholen",
             "email": "E-mail",
-            "follow": "Follow",
-            "unfollow": "Unfollow",
-            "password": "Password",
-            "username": "Username",
-            "about": "About",
-            "manage": "Manage",
-            "you": 'You',
-            "all": 'All',
-            "explore": 'Explore',
+            "follow": "Abonnieren",
+            "unfollow": "Deabonnieren",
+            "password": "Passwort",
+            "username": "Benutzername",
+            "about": "Über",
+            "manage": "Bearbeiten",
+            "you": 'Sie',
+            "all": 'Alle',
+            "explore": 'Erkunden',
             "trending": 'Trending',
-            "posts": "posts",
-            "search": "Search",
+            "posts": "Posts",
+            "search": "Suchen",
             "hashtag": "Hashtag",
             "hashtags": "Hashtags",
-            "community": "Group",
-            "communities": "Groups",
-            "users": "Users",
-            "more": "More",
+            "community": "Gruppe",
+            "communities": "Gruppen",
+            "users": "Nutzer",
+            "more": "Mehr",
             "optional": "Optional",
-            "description": "description",
-            "done": "Done",
-            "save": "Save",
+            "description": "Beschreibung",
+            "done": "Fertig",
+            "save": "Speichern",
             "ok": "OK",
-            "cancel": "Cancel",
+            "cancel": "Abbrechen",
             "yes": "Ja",
             "no": "Nein",
-            "validate": "Validate",
-            "next": "Next",
-            "previous": "Previous",
-            "guidelines": "Guidelines",
-            "administrators": "Administrators",
-            "moderators": "Moderators",
-            "cancelling": "Cancelling",
-            "cancelled": "Cancelled",
-            "waiting": "Waiting",
-            "published": "Published",
-            "circles": "circles",
-            "rotate_90deg_left": "Rotate 90° counter-clockwise",
-            "rotate_90deg_right": "Rotate 90° clockwise",
-            "zoom_in": "Zoom In",
-            "zoom_out": "Zoom Out"
+            "validate": "Validieren",
+            "next": "Weiter",
+            "previous": "Zurück",
+            "guidelines": "Richtlinien",
+            "administrators": "Administratoren",
+            "moderators": "Moderatoren",
+            "cancelling": "Wird abgebrochen",
+            "cancelled": "Abgebrochen",
+            "waiting": "Bitte warten",
+            "published": "Veröffentlicht",
+            "circles": "Kreise",
+            "rotate_90deg_left": "Um 90° gegen den Uhrzeigersinn drehen",
+            "rotate_90deg_right": "Um 90° im Uhrzeigersinn drehen",
+            "zoom_in": "Vergrößern",
+            "zoom_out": "Verkleinern"
         },
         "group_types": {
             "C": "Stadt oder Kreis",
             "Q": "Unternehmen",
-            "U": "Forschungseinrichtung",
+            "U": "Wissenschaft",
             "I": "Institution",
             "P": "Projekt",
             "E": "Veranstaltung",
         },
         "models": {
-            "post": "post",
-            "post_comment": "post comment",
-            "user": "user",
-            "hashtag": "hashtag",
-            "community": "group",
-            "fallback": "item"
+            "post": "den Beitrag",
+            "post_comment": "den Kommentar",
+            "user": "den Benutzer",
+            "hashtag": "den Hashtag",
+            "community": "die Gruppe",
+            "fallback": "Element"
         },
         "snippets": {
-            "a_community": "A group",
-            "my_circles": "My circles",
-            "share_to_circles_description": "Share the post to one of multiple of your circles.",
-            "share_to_community_description": "Share the post to a group you're part of.",
-            "share_to": "Share to",
-            "share_to_circles": "Share to circles",
-            "share_to_community": "Share to group",
-            "get_started_with_communities": "Get started by joining the following groups.",
-            "forgot_password": "Forgot password?",
-            "get_the_app": "Get the app",
-            "create_post": "Create post",
-            "type_here": "Type here...",
+            "a_community": "einer Gruppe",
+            "my_circles": "einem Personenkreis",
+            "share_to_circles_description": "Den Beitrag mit Personenkreisen teilen",
+            "share_to_community_description": "Den Beitrag in einer Gruppe teilen",
+            "share_to": "Teilen mit",
+            "share_to_circles": "Teilen mit",
+            "share_to_community": "Teilen mit einer Gruppe",
+            "get_started_with_communities": "Zum Beginn können Sie diesen Gruppen beitreten.",
+            "forgot_password": "Passwort vergessen?",
+            "get_the_app": "Die App installieren",
+            "create_post": "Einen Beitrag erstellen",
+            "type_here": "Hier eingeben",
             "about_h2pro3": "Über H2Pro3",
             "what_is_h2pro3": "Was ist H2Pro3",
             "about_us": "Über uns",
             "imprint": "Impressum",
             "hooray": "Hooray!",
-            "community_rules": "Group rules",
-            "community_staff": "Group staff",
-            "account_created": "Your account has been created.",
-            "legal_confirmation": "Legal confirmation",
+            "community_rules": "Gruppenregeln",
+            "community_staff": "Gruppenbesitzer",
+            "account_created": "Ihr Benutzerprofil wurde angelegt",
+            "legal_confirmation": "Rechtsbelehrung",
             "legal_confirmation_description": "By registering in H2pro3, I certify that I'm older than 16 years old and have read the Group Guidelines, Privacy Policy and Terms of Use and agree to all of the items included.",
             "privacy_policy": "Datenschutzerklärung",
-            "terms_of_use": "Terms of use",
+            "terms_of_use": "Nutzungsbedingungen",
             "one_last_thing": "One last thing",
             "do_you_agree_to_the_presented_terms": "Do you agree?",
-            "please_take_a_moment_to_read_the_following_documents": "Please take a moment to read through the following documents.",
-            "documents_contain_important_information": "They contain important information about your experience in H2pro3 and you must agree to them.",
-            "community_guidelines": "Group guidelines",
-            "dont_have_an_account": "Dont have an account?",
-            "already_have_an_account": "Already have an account?",
-            "remembered_your_password": "Remembered your password?",
-            "paste_your_invite_code": "Paste your invite link or code",
-            "dont_have_one": "Don't have one?",
-            "request_one": "Request one",
-            "sign_up": "Sign up",
-            "login": "Login",
+            "please_take_a_moment_to_read_the_following_documents": "Durch Klicken auf Weiter stimmen Sie den Nutzungsbedingungen, der Datenschutzerklärung und der Cookie-Richtlinie von H2Pro3 zu.",
+            "documents_contain_important_information": "Bitte lesen Sie diese sorgfältig.",
+            "community_guidelines": "Richtlinien",
+            "dont_have_an_account": "Neu bei H<sub>2</sub>Pro<sup>3</sup>?",
+            "already_have_an_account": "Benutzerkonto vorhanden?",
+            "remembered_your_password": "Passwort wieder eingefallen?",
+            "paste_your_invite_code": "Einladung einfügen",
+            "dont_have_one": "Sie haben keine?",
+            "request_one": "Anfordern",
+            "sign_up": "Registrieren",
+            "login": "Jetzt anmelden",
             "operational_status": "Status",
-            "no_results_for_query": "☹️ No results for \"{query}\"",
-            "search_for_something": "🕵️‍♀️ Search for something...",
-            "all_loaded": "🎉 All loaded!",
-            "no_items_found": "☹️ No items found",
-            "delete_post": "Delete post",
-            "post_deleted": "Post deleted",
-            "post_reported": "Post reported",
-            "post_closed": "Post closed",
-            "post_opened": "Post opened",
-            "report_post": "Report post",
-            "close_post": "Close post",
-            "open_post": "Open post",
-            "copy_post_link": "Copy link to post",
-            "disable_post_comments": "Disable post comments",
-            "enable_post_comments": "Enable post comments",
-            "post_comments_disabled": "Post comments disabled",
-            "post_comments_enabled": "Post comments enabled",
-            "edit_post": "Edit post",
-            "report_user": "Report user",
-            "user_reported": "User reported",
-            "report_hashtag": "Report hashtag",
-            "hashtag_reported": "Hashtag reported",
-            "report_community": "Report group",
-            "commmunity_reported": "Group reported",
-            "block_user": "Block user",
-            "user_blocked": "User blocked",
-            "unblock_user": "Unblock user",
-            "user_unblocked": "User unblocked",
-            "confirm_user_connection": "Confirm connection",
-            "deny_user_connection": "Deny connection",
-            "disconnect_from_user": "Disconnect from user",
-            "disconnected_from_user": "You have been disconnected from this user",
-            "user_connection_confirmed": "Connection confirmed",
-            "connect_with_user": "Connect with user",
-            "connection_request_sent": "Connection request sent",
-            "add_connection_to_circle": "Add connection to circle",
-            "update_connection_circles": "Update connection circles",
-            "connection_circles_updated": "Connection circles updated",
-            "cancel_connection_request": "Cancel connection request",
-            "request_to_follow": "Request to follow",
-            "cancel_request_to_follow": "Cancel request to follow",
-            "delete_post_comment": "Delete post comment",
-            "post_comment_deleted": "Post comment deleted",
-            "report_post_comment": "Report post comment",
-            "post_comment_reported": "Post comment reported",
-            "copy_post_comment_link": "Copy link to comment",
-            "link_copied": "Copied!",
-            "link_copy_failed": "Failed to copy the link.",
-            "valid_invite_token": "🎉 The token is valid!",
-            "whats_your_name": "What's your name?",
-            "whats_your_email": "What's your email?",
-            "pick_your_username": "Pick your username!",
-            "choose_a_password": "Choose a password",
-            "pick_a_new_password": "Pick a new password",
-            "password_requirement": "({min}-{max} characters)",
+            "no_results_for_query": "Keine Ergebnisse für \"{query}\"",
+            "search_for_something": "Nach etwas suchen",
+            "all_loaded": "Alles geladen",
+            "no_items_found": "Nichts gefunden",
+            "delete_post": "Beitrag löschen",
+            "post_deleted": "Beitrag gelöscht",
+            "post_reported": "Beitrag reported",
+            "post_closed": "Beitrag geschlossen",
+            "post_opened": "Beitrag geöffnet",
+            "report_post": "Beitrag melden",
+            "close_post": "Beitrag schließen",
+            "open_post": "Beitrag öffnen",
+            "copy_post_link": "Link zum Beitrag kopieren",
+            "disable_post_comments": "Kommentare deaktivieren",
+            "enable_post_comments": "Kommentare Aktivieren",
+            "post_comments_disabled": "Kommentare wurden deaktiviert",
+            "post_comments_enabled": "Kommentare wurden aktiviert",
+            "edit_post": "Beitrag bearbeiten",
+            "report_user": "Nutzer melden",
+            "user_reported": "Nutzer wurde gemeldet",
+            "report_hashtag": "Hashtag melden",
+            "hashtag_reported": "Hastag wurde gemeldet",
+            "report_community": "Gruppe melden",
+            "commmunity_reported": "Gruppe wurde gemeldet",
+            "block_user": "Nutzer blockieren",
+            "user_blocked": "Nutzer wurde blockiert",
+            "unblock_user": "Blockierung aufheben",
+            "user_unblocked": "Blockierung wurde aufgehoben",
+            "confirm_user_connection": "Kontakt bestätigen",
+            "deny_user_connection": "Kontakt ablehnen",
+            "disconnect_from_user": "Kontakt zum Nutzer entfernen",
+            "disconnected_from_user": "Kontakt zum Nutzer wurde entfernt ",
+            "user_connection_confirmed": "Kontakt bestätigt",
+            "connect_with_user": "Mit Nutzer in Kontakt treten",
+            "connection_request_sent": "Kontaktanfrage gesendet",
+            "add_connection_to_circle": "Zu Personenkreis hinzufügen",
+            "update_connection_circles": "Personenkreis ändern",
+            "connection_circles_updated": "Personenkreis wurde geändert",
+            "cancel_connection_request": "Kontaktanfrage zurückziehen",
+            "request_to_follow": "Abonnement anfragen",
+            "cancel_request_to_follow": "Abo-Anfrage zurückziehen",
+            "delete_post_comment": "Kommentar löschen",
+            "post_comment_deleted": "Kommentar wurde gelöscht",
+            "report_post_comment": "Kommentar melden",
+            "post_comment_reported": "Beitrag wurde gemeldet",
+            "copy_post_comment_link": "Link zu diesem Kommentar kopieren",
+            "link_copied": "Link wurde kopiert",
+            "link_copy_failed": "Link konnte nicht kopiert werden",
+            "valid_invite_token": "The token is valid!",
+            "whats_your_name": "Wie lautet Ihr Name?",
+            "whats_your_email": "Wie lautet Ihre E-Mail Adresse?",
+            "pick_your_username": "Wählen Sie einen Benutzernamen",
+            "choose_a_password": "Wählen Sie ein Passwort",
+            "pick_a_new_password": "Wählen Sie ein neues Passwort",
+            "password_requirement": "({min}-{max} Zeichen)",
             "please_take_a_moment_to_read_our_guidelines": "Please take a moment to read and accept our guidelines",
             "great_now_check_our_terms_of_service": "Great! Now please read through our terms of service.",
             "we_have_made_tos_simple": "We have made them a simple as our jurisdiction allows us to do so.",
-            "hang_in_there": "Hang in there!",
-            "were_creating_your_account": "We're creating your account",
-            "were_changing_your_password": "We're changing your password",
-            "oh_no": "Oh no",
-            "we_couldnt_create_your_account": "We couldn't create your account.",
-            "we_couldnt_change_your_password": "We couldn't change your password.",
-            "we_have_recorded_the_error": " We have recorded what went wrong and will fix it as soon as possible.",
-            "awww_yeah": "Aww yeah!",
-            "youve_got_mail": "You've got mail",
-            "password_changed": "Password changed",
-            "sending_you_to_login_in": "You can now log in with your new password",
-            "we_have_sent_password_reset_to_mail": "We have sent you a password reset link to your email.",
-            "your_password_was_changed": "Your password was changed",
-            "your_account_is_ready": "Your account is ready.",
+            "hang_in_there": "Einen Moment bitte",
+            "were_creating_your_account": "Das Benutzerkonto wird erstellt",
+            "were_changing_your_password": "Das Passwort wird geändert",
+            "oh_no": "Fehler!",
+            "we_couldnt_create_your_account": "Das Benutzerkonto konnte nicht erstellt werden.",
+            "we_couldnt_change_your_password": "Das Passwort konnte nicht geändert werden.",
+            "we_have_recorded_the_error": "Scheinbar ist etwas schief gelaufen, bitte erneut versuchen.",
+            "awww_yeah": "Erfolgreich!",
+            "youve_got_mail": "Sie haben eine Nachricht",
+            "password_changed": "Passwort geändert",
+            "sending_you_to_login_in": "Sie können sich nun mit Ihrem neuen Passwort anmelden",
+            "we_have_sent_password_reset_to_mail": "Wir haben Ihnen einen Link zum zurücksetzen an Ihre E-Mail Adresse gesendet.",
+            "your_password_was_changed": "Ihr Passwort wurde geändert",
+            "your_account_is_ready": "Sie können sich nun anmelden.",
             "its_better_on_the_app": "It's better on the app",
             "okuna_web_is_wip": "H2pro3 for the web is a work-in-progress.",
             "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your groups reports and more.",
-            "glad_you_made_it": "We're glad you made it!",
-            "welcome_to_okuna": "Welcome to H2pro3 for the web.",
-            "welcome_to_okuna_keep_in_mind_okuna_wip": "Please keep in mind that this version is a WIP (Work In Progress) and some functionality will be missing while we catch up with our mobile version.",
-            "welcome_to_okuna_get_the_app": "If you want to experience the whole of H2pro3 right now, get the app!",
-            "welcome_to_okuna_thanks": "Thanks for being part of H2pro3! We hope you have a fun, friendly and joyful experience.",
-            "welcome_to_okuna_signature": "- ❤️ H2pro3 Team",
-            "account_settings": "Account settings",
-            "application_settings": "Application settings",
-            "developer_settings": "Developer settings",
-            "about": "About",
-            "notifications_sound": "Notifications sound",
-            "whats_going_on": "What's going on?",
-            "sharing_post_to": "Sharing post to",
-            "creating_post": "Creating post",
-            "compressing_media": "Compressing media",
-            "uploading_media": "Uploading media",
-            "processing_media": "Processing media",
-            "publishing_post": "Publishing post",
-            "post_published": "Post published",
-            "you_shared_with": "You shared with",
-            "post_shared_privately_in": "Post shared privately in",
+            "glad_you_made_it": "Geschafft!",
+            "welcome_to_okuna": "Wilkommen auf der Plattform H<sub>2</sub>Pro<sup>3</sup>.",
+            "welcome_to_okuna_keep_in_mind_okuna_wip": "Bitte beachten Sie, dass es sich bei der aktuellen Plattform um eine Beta-Version handelt, die noch nicht über alle Features verfügt.",
+            "welcome_to_okuna_get_the_app": "Weitere Features wie das Matchmaking können Sie bald in der H<sub>2</sub>Pro<sup>3</sup>-App ausprobieren!",
+            "welcome_to_okuna_thanks": "Danke, dass Sie Teil von H<sub>2</sub>Pro<sup>3</sup> sind! Wir freuen uns über Feedback und hoffen, dass Ihnen die Plattform gefällt.",
+            "welcome_to_okuna_signature": "- ❤️ H<sub>2</sub>Pro<sup>3</sup> Team",
+            "account_settings": "Account-Einstellungen",
+            "application_settings": "Plattform-Einstellungen",
+            "developer_settings": "Entwickler-Einstellungen",
+            "about": "Über",
+            "notifications_sound": "Töne bei Mitteilungen",
+            "whats_going_on": "Welcher Inhalt soll geteilt werden?",
+            "sharing_post_to": "Beitrag wird geteilt mit",
+            "creating_post": "Beitrag wird erstellt",
+            "compressing_media": "Medien werden komprimiert",
+            "uploading_media": "Medien werden hochgeladen",
+            "processing_media": "Wird bearbeitet",
+            "publishing_post": "Beitrag wird veröffentlicht",
+            "post_published": "Beitrag wurde veröffentlicht",
+            "you_shared_with": "Geteilt mit",
+            "post_shared_privately_in": "Beitrag privat geteilt mit",
         },
-        "closed_comunity": "Closed group",
-        "open_comunity": "Open group",
+        "closed_comunity": "Geschlossene Gruppe",
+        "open_comunity": "Offene Gruppe",
 
     },
 }
