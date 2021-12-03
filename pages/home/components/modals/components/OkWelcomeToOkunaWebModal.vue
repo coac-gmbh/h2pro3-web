@@ -25,14 +25,14 @@
                         {{$t('global.snippets.welcome_to_okuna_signature')}}
                     </p>
                 </div>
-                <div class="columns is-mobile">
+                <!-- <div class="columns is-mobile">
                     <div class="column">
                         <ok-app-store-button/>
                     </div>
                     <div class="column">
                         <ok-play-store-button/>
                     </div>
-                </div>
+                </div> -->
             </div>
             </div>
     </div>

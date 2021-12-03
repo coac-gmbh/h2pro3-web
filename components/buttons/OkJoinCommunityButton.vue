@@ -3,7 +3,7 @@
             :disabled="requestInProgress"
             @click="onWantsToToggleJoinCommunity"
             class="button is-rounded has-text-weight-bold is-borderless ok-join-button" :style="buttonCssStyle">
-        {{ isMemberOfCommunity ? 'Leave' : 'Join'}}
+        {{ isMemberOfCommunity ? $t('global.keywords.leave') : $t('global.keywords.join')}}
     </button>
 </template>
 

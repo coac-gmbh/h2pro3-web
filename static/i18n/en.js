@@ -588,7 +588,14 @@ export default {
             "rotate_90deg_left": "Rotate 90° counter-clockwise",
             "rotate_90deg_right": "Rotate 90° clockwise",
             "zoom_in": "Zoom In",
-            "zoom_out": "Zoom Out"
+            "zoom_out": "Zoom Out",
+            "join": "Join",
+            "leave": "Leave"
+        },
+        "placeholders": {
+            "username": "e.g. johndoe",
+            "name": "e.g. John Doe",
+            "email": "e.g john@doe.com"
         },
         "group_types": {
             "C": "City or District",

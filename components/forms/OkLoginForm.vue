@@ -5,16 +5,16 @@
                 {{$t('global.keywords.username')}}
             </label>
             <div class="control">
-                <input type="text" placeholder="e.g. johntravolta" class="input is-rounded is-medium ok-input"
+                <input type="text" :placeholder="$t('global.placeholders.username')" class="input is-rounded is-medium ok-input"
                        required
                        id="username" v-model="username">
             </div>
             <p class="help is-danger has-text-left" v-if="!$v.username.required && $v.username.$dirty">
-                {{$t('global.errors.username.required')}}
+                {{$t('global.errors.user_username.required')}}
             </p>
         </div>
         <div class="field">
-            <label for="password" class="label has-text-left ok-has-text-primary-invert-80">Password</label>
+            <label for="password" class="label has-text-left ok-has-text-primary-invert-80">{{ $t('global.keywords.password') }}</label>
             <div class="control">
                 <input type="password" placeholder="*******" class="input is-rounded is-medium ok-input" required
                        id="password"

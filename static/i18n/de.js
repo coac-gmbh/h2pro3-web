@@ -588,7 +588,14 @@ export default {
             "rotate_90deg_left": "Um 90° gegen den Uhrzeigersinn drehen",
             "rotate_90deg_right": "Um 90° im Uhrzeigersinn drehen",
             "zoom_in": "Vergrößern",
-            "zoom_out": "Verkleinern"
+            "zoom_out": "Verkleinern",
+            "join": "Beitreten",
+            "leave": "Verlassen"
+        },
+        "placeholders": {
+            "username": "z.B. mmustermann",
+            "name": "z.B. Max Mustermann",
+            "email": "z.B. max@mustermann.de"
         },
         "group_types": {
             "C": "Stadt oder Kreis",
@@ -636,7 +643,7 @@ export default {
             "please_take_a_moment_to_read_the_following_documents": "Durch Klicken auf Weiter stimmen Sie den Nutzungsbedingungen, der Datenschutzerklärung und der Cookie-Richtlinie von H2Pro3 zu.",
             "documents_contain_important_information": "Bitte lesen Sie diese sorgfältig.",
             "community_guidelines": "Richtlinien",
-            "dont_have_an_account": "Neu bei H<sub>2</sub>Pro<sup>3</sup>?",
+            "dont_have_an_account": "Neu bei H2Pro3?",
             "already_have_an_account": "Benutzerkonto vorhanden?",
             "remembered_your_password": "Passwort wieder eingefallen?",
             "paste_your_invite_code": "Einladung einfügen",
@@ -721,11 +728,11 @@ export default {
             "okuna_web_is_wip": "H2pro3 for the web is a work-in-progress.",
             "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your groups reports and more.",
             "glad_you_made_it": "Geschafft!",
-            "welcome_to_okuna": "Wilkommen auf der Plattform H<sub>2</sub>Pro<sup>3</sup>.",
+            "welcome_to_okuna": "Wilkommen auf der Plattform H2Pro3.",
             "welcome_to_okuna_keep_in_mind_okuna_wip": "Bitte beachten Sie, dass es sich bei der aktuellen Plattform um eine Beta-Version handelt, die noch nicht über alle Features verfügt.",
-            "welcome_to_okuna_get_the_app": "Weitere Features wie das Matchmaking können Sie bald in der H<sub>2</sub>Pro<sup>3</sup>-App ausprobieren!",
-            "welcome_to_okuna_thanks": "Danke, dass Sie Teil von H<sub>2</sub>Pro<sup>3</sup> sind! Wir freuen uns über Feedback und hoffen, dass Ihnen die Plattform gefällt.",
-            "welcome_to_okuna_signature": "- ❤️ H<sub>2</sub>Pro<sup>3</sup> Team",
+            "welcome_to_okuna_get_the_app": "Weitere Features wie das Matchmaking können Sie bald in der H2Pro3-App ausprobieren!",
+            "welcome_to_okuna_thanks": "Danke, dass Sie Teil von H2Pro3 sind! Wir freuen uns über Feedback und hoffen, dass Ihnen die Plattform gefällt.",
+            "welcome_to_okuna_signature": "- ❤️ H2Pro3 Team",
             "account_settings": "Account-Einstellungen",
             "application_settings": "Plattform-Einstellungen",
             "developer_settings": "Entwickler-Einstellungen",

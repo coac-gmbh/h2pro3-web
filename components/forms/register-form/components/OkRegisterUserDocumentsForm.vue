@@ -14,16 +14,11 @@
                             class="media is-flex justify-center align-items-center has-cursor-pointer"
                             role="button"
                             tabindex="0"
-                            @click="onWantsToOpenCommunityGuidelines">
-                        <div class="media-left">
-                            <figure class="image is-32x32 is-flex justify-center align-items-center">
-                                <span v-twemoji class="icon">🏡</span>
-                            </figure>
-                        </div>
+                            @click="openAboutUsModal">
                         <div class="media-content">
                             <div class="content">
                                 <strong class="ok-has-text-primary-invert">
-                                    {{$t('global.snippets.community_guidelines')}}
+                                    {{$t('global.snippets.about_us')}}
                                 </strong>
                             </div>
                         </div>
@@ -41,16 +36,11 @@
                             class="media is-flex justify-center align-items-center has-cursor-pointer"
                             role="button"
                             tabindex="0"
-                            @click="onWantsToOpenTou">
-                        <div class="media-left">
-                            <figure class="image is-32x32 is-flex justify-center align-items-center">
-                                <span v-twemoji class="icon">👩‍⚖️</span>
-                            </figure>
-                        </div>
+                            @click="openImprintModal">
                         <div class="media-content">
                             <div class="content">
                                 <strong class="ok-has-text-primary-invert">
-                                    {{$t('global.snippets.terms_of_use')}}
+                                    {{$t('global.snippets.imprint')}}
                                 </strong>
                             </div>
                         </div>
@@ -69,11 +59,6 @@
                             role="button"
                             tabindex="0"
                             @click="onWantsToOpenPrivacyPolicy">
-                        <div class="media-left">
-                            <figure class="image is-32x32 is-flex justify-center align-items-center">
-                                <span v-twemoji class="icon">🔐️</span>
-                            </figure>
-                        </div>
                         <div class="media-content">
                             <div class="content">
                                 <strong class="ok-has-text-primary-invert">
@@ -106,6 +91,7 @@
     import { okunaContainer } from "~/services/inversify";
     import { TYPES } from "~/services/inversify-types";
     import { IModalService } from '~/services/modal/IModalService';
+    import { ModalType } from "~/services/modal/lib/ModalType";
 
     @Component({
         name: "OkRegisterUserDocumentsForm",
@@ -124,6 +110,14 @@
 
         private modalService: IModalService = okunaContainer.get<IModalService>(TYPES.ModalService);
 
+        
+        openAboutUsModal() {
+            this.modalService.openModalByType(ModalType.aboutUs);
+        }
+
+        openImprintModal() {
+            this.modalService.openModalByType(ModalType.imprint);
+        }
 
         onWantsToOpenCommunityGuidelines(){
             this.modalService.openCommunityGuidelinesModal();

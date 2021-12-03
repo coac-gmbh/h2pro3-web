@@ -6,7 +6,7 @@
                     <div class="card-header-title is-flex align-items-center justify-center has-padding-20">
                         <h2 class="is-size-5 is-flex align-items-center justify-center">
                             <span v-twemoji class="icon">✨</span>
-                            <span class="has-padding-left-10 ok-has-text-primary-invert">Sign up</span>
+                            <span class="has-padding-left-10 ok-has-text-primary-invert">{{ $t('global.snippets.sign_up') }}</span>
                         </h2>
                     </div>
                 </div>

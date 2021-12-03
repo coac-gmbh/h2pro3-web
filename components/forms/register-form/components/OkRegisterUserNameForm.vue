@@ -7,7 +7,7 @@
             <div class="control">
                 <input type="text"
                        ref="name"
-                       placeholder="e.g. Pablo Picasso"
+                       :placeholder="$t('global.placeholders.name')"
                        class="input is-rounded is-medium ok-input"
                        required
                        id="userName" v-model="userName">

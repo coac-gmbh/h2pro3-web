@@ -1,0 +1,6 @@
+{
+    "i18n-ally.localesPaths": [
+        "static/i18n",
+    ],
+    "i18n-ally.enabledParsers": ["js"]
+}

@@ -7,7 +7,7 @@
             <div class="control">
                 <input type="email"
                        ref="email"
-                       placeholder="e.g. vincent@vega.com"
+                       :placeholder="$t('global.placeholders.email')"
                        class="input is-rounded is-medium ok-input"
                        required
                        id="userEmail" v-model="userEmail">

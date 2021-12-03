@@ -6,7 +6,7 @@
             </label>
             <div class="control">
                 <input type="text"
-                       placeholder="e.g. jbiebs"
+                       :placeholder="$t('global.placeholders.username') "
                        class="input is-rounded is-medium ok-input"
                        required
                        ref="username"
