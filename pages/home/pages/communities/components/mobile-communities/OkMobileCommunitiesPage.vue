@@ -161,7 +161,7 @@
         }
 
         private onLoggedInUser(user: IUser) {
-            if (typeof user === "undefined") return;
+            if (!user) return;
             this.refreshCategories();
         }
 

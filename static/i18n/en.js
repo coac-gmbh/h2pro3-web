@@ -750,6 +750,7 @@ export default {
             "post_published": "Post published",
             "you_shared_with": "You shared with",
             "post_shared_privately_in": "Post shared privately in",
+            "create_community": "Create group"
         },
         "closed_comunity": "Closed group",
         "open_comunity": "Open group",

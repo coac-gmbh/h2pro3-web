@@ -750,6 +750,7 @@ export default {
             "post_published": "Beitrag wurde veröffentlicht",
             "you_shared_with": "Geteilt mit",
             "post_shared_privately_in": "Beitrag privat geteilt mit",
+            "create_community": "Gruppe erstellen"
         },
         "closed_comunity": "Geschlossene Gruppe",
         "open_comunity": "Offene Gruppe",
