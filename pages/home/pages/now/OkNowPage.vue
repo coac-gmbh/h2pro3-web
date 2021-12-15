@@ -9,10 +9,10 @@
                 <div class="column">
                     <div class="field">
                         <label for="search" class="label has-text-left ok-has-text-primary-invert-80 is-hidden">
-                            {{$t('')}}
+                            {{ $t('global.keywords.search') }}
                         </label>
                         <div class="control has-icons-left ok-header-search-bar">
-                            <input type="text" placeholder="Search"
+                            <input type="text" :placeholder="$t('global.keywords.search')"
                                    class="input is-rounded is-normal ok-input"
                                    required
                                    id="search"

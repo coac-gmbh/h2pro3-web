@@ -590,7 +590,9 @@ export default {
             "zoom_in": "Zoom In",
             "zoom_out": "Zoom Out",
             "join": "Join",
-            "leave": "Leave"
+            "leave": "Leave",
+            "staff": "Staff",
+            "rules": "Rules"
         },
         "placeholders": {
             "username": "e.g. johndoe",

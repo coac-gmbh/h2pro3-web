@@ -7,8 +7,8 @@
             >
                 <ok-staff-icon class="ok-svg-icon-primary-invert" style="top: -3px"></ok-staff-icon>
                 <span class="has-padding-left-10 has-padding-right-10 ok-has-text-primary-invert">
-                            Staff
-                        </span>
+                    {{ $t('global.keywords.staff') }}
+                </span>
             </button>
         </div>
         <div class="column is-narrow" v-if="community.rules">
@@ -18,8 +18,8 @@
             >
                 <ok-rules-icon class="ok-svg-icon-primary-invert" style="top: -3px"></ok-rules-icon>
                 <span class="has-padding-left-10 has-padding-right-10 ok-has-text-primary-invert">
-                            Rules
-                        </span>
+                    {{ $t('global.keywords.rules') }}
+                </span>
             </button>
         </div>
     </div>

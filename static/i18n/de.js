@@ -1,9 +1,9 @@
 export default {
-    "name": "H2pro3",
+    "name": "H2Pro3",
     "name_html": "H<sub>2</sub>Pro<sup>3</sup>",
     "pages": {
         "auth": {
-            "title": "H2pro3",
+            "title": "H2Pro3",
             "usps": {
                 "friends": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 "privacy": "We don't track nor monitor what you do.",
@@ -67,7 +67,7 @@ export default {
             }
         },
         "user_dropdown": {
-            "my_okuna": "H2pro3",
+            "my_okuna": "H2Pro3",
             "profile": "Profil",
             "circles": "Kreise",
             "lists": "Listen",
@@ -91,10 +91,10 @@ export default {
             "user_new_post": "hat etwas gepostet",
             "community_new_post": "Es gab einen neuen Beitrag in c/{communityName}",
             "connection_request": "möchte sich mit Ihnen in Verbindung setzen",
-            "accepted_connection_request": "hat die Anfrage bestätigt",
+            "accepted_connection_request": "hat die Kontaktanfrage bestätigt",
             "reacted_to_post": "hat auf den Beitrag reagiert",
             "reacted_to_post_comment": "hat auf den Kommentar reagiert",
-            "following_you": "hat Sie abboniert",
+            "following_you": "hat Sie abonniert",
             "user_community_invite": "hat Sie zu der Gruppe c/{communityName} eingeladen",
             "user_replied": "hat geantwortet: {postCommentText}",
             "user_also_replied": "hat geantwortet: {postCommentText}",
@@ -132,8 +132,8 @@ export default {
             "provide_additional_details": "Can you provide additional details that might be relevant to the report?",
             "heres_what_happens_next": "Here's what will happen next:",
             "report_submitted_anon": "Your report will be submitted anonymously.",
-            "if_reporting_post_or_comment": "If you are reporting a post or comment, the report will be sent to the H2pro3 staff and the group moderators if applicable and the post will be hidden from your feed.",
-            "if_reporting_account_or_community": "If you are reporting an account or group, it will be sent to the H2pro3 staff.",
+            "if_reporting_post_or_comment": "If you are reporting a post or comment, the report will be sent to the H2Pro3 staff and the group moderators if applicable and the post will be hidden from your feed.",
+            "if_reporting_account_or_community": "If you are reporting an account or group, it will be sent to the H2Pro3 staff.",
             "we_will_review_it": "We'll review it, if approved, content will be deleted and penalties delivered to the people involved ranging from a temporary suspension to deletion of the account depending on the severity of the transgression.",
             "if_report_approved": "If the report is found to be made in an attempt to damage the reputation of another member or group in the platform with no infringement of the stated reason, penalties will be applied to you.",
             "i_understand_submit": "I understand, submit.",
@@ -254,7 +254,7 @@ export default {
                 "description": "Jeder kann Ihr Profil sehen"
             },
             "okuna": {
-                "name": "H2pro3",
+                "name": "H2Pro3",
                 "description": "Nur Nutzer von H2Pro3 können Ihr Profil sehen"
             },
             "private": {
@@ -272,8 +272,8 @@ export default {
                 "description": "Die Zahl der Abonnenten auf dem Profil anzeigen"
             },
             "community_posts": {
-                "name": "Öffentliche Posts posts",
-                "description": "Öffentliche Posts auf dem Profil anzeigen"
+                "name": "Öffentliche Beiträge",
+                "description": "Öffentliche Beiträge auf dem Profil anzeigen"
             }
         }
     },
@@ -590,7 +590,9 @@ export default {
             "zoom_in": "Vergrößern",
             "zoom_out": "Verkleinern",
             "join": "Beitreten",
-            "leave": "Verlassen"
+            "leave": "Verlassen",
+            "staff": "Administratoren",
+            "rules": "Medien"
         },
         "placeholders": {
             "username": "z.B. mmustermann",
@@ -630,12 +632,12 @@ export default {
             "what_is_h2pro3": "Was ist H2Pro3",
             "about_us": "Über uns",
             "imprint": "Impressum",
-            "hooray": "Hooray!",
+            "hooray": "Glückwunsch!",
             "community_rules": "Gruppenregeln",
             "community_staff": "Gruppenbesitzer",
             "account_created": "Ihr Benutzerprofil wurde angelegt",
             "legal_confirmation": "Rechtsbelehrung",
-            "legal_confirmation_description": "By registering in H2pro3, I certify that I'm older than 16 years old and have read the Group Guidelines, Privacy Policy and Terms of Use and agree to all of the items included.",
+            "legal_confirmation_description": "By registering in H2Pro3, I certify that I'm older than 16 years old and have read the Group Guidelines, Privacy Policy and Terms of Use and agree to all of the items included.",
             "privacy_policy": "Datenschutzerklärung",
             "terms_of_use": "Nutzungsbedingungen",
             "one_last_thing": "One last thing",
@@ -649,7 +651,7 @@ export default {
             "paste_your_invite_code": "Einladung einfügen",
             "dont_have_one": "Sie haben keine?",
             "request_one": "Anfordern",
-            "sign_up": "Registrieren",
+            "sign_up": "Jetzt registrieren",
             "login": "Jetzt anmelden",
             "operational_status": "Status",
             "no_results_for_query": "Keine Ergebnisse für \"{query}\"",
@@ -725,8 +727,8 @@ export default {
             "your_password_was_changed": "Ihr Passwort wurde geändert",
             "your_account_is_ready": "Sie können sich nun anmelden.",
             "its_better_on_the_app": "It's better on the app",
-            "okuna_web_is_wip": "H2pro3 for the web is a work-in-progress.",
-            "get_the_mobile_app": "Get the H2pro3 mobile app to create posts, circles, lists, moderate your groups reports and more.",
+            "okuna_web_is_wip": "H2Pro3 for the web is a work-in-progress.",
+            "get_the_mobile_app": "Get the H2Pro3 mobile app to create posts, circles, lists, moderate your groups reports and more.",
             "glad_you_made_it": "Geschafft!",
             "welcome_to_okuna": "Wilkommen auf der Plattform H2Pro3.",
             "welcome_to_okuna_keep_in_mind_okuna_wip": "Bitte beachten Sie, dass es sich bei der aktuellen Plattform um eine Beta-Version handelt, die noch nicht über alle Features verfügt.",

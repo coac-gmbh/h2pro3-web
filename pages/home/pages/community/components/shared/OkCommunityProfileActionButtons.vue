@@ -2,13 +2,13 @@
     <div class="columns column is-vcentered">
         <b-tooltip :label="$t('manage_community.details.closed_community.description')" :active="!canCreatePost" type="is-dark">
             <button v-if="isMember" class="button is-rounded has-text-weight-bold is-borderless" :disabled="!canCreatePost" :style="buttonCssStyle" @click="openPostModal">
-                Post
+                {{ $t('global.models.post') }}
             </button>
         </b-tooltip>
         <button v-if="canBanOrUnban"
                 @click.prevent="openCommunityMenu"
                 class="button is-rounded ok-has-background-primary-highlight ok-has-text-primary-invert is-borderless has-text-white has-text-weight-bold">
-            Manage
+            {{ $t('global.keywords.manage') }}
         </button>
         <div v-else class="columns column is-vcentered is-mobile">
             <div class="column is-narrow">

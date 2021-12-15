@@ -3,7 +3,7 @@
         <strong class="ok-has-text-primary-invert-80">
             {{humanFriendlyMembersCount}}
         </strong>
-        {{ community.usersAdjective || $t('components.community_members_count.members')}}
+        {{ $t('components.community_members_count.members')}}
     </span>
 </template>
 

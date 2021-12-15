@@ -21,10 +21,10 @@
             <div slot="reference" class="has-padding-right-10 has-padding-left-10 has-width-100-percent is-relative">
                 <div class="field has-width-100-percent">
                     <label for="search" class="label has-text-left ok-has-text-primary-invert-80 is-hidden">
-                        Search
+                        {{ $t('global.keywords.search') }}
                     </label>
                     <div class="control has-icons-left ok-header-search-bar">
-                        <input type="text" placeholder="Search"
+                        <input type="text" :placeholder="$t('global.keywords.search')"
                                class="input is-rounded is-normal ok-input has-text-centered"
                                required
                                autocomplete="off"

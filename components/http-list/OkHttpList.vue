@@ -10,7 +10,7 @@
                         {{$t('global.keywords.search')}}
                     </label>
                     <div class="control has-icons-left ok-header-search-bar">
-                        <input type="text" placeholder="Search"
+                        <input type="text" :placeholder="$t('global.keywords.search')"
                                class="input is-rounded is-normal ok-input has-text-centered"
                                required
                                :name="listKey + '-search'"
