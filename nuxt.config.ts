@@ -161,9 +161,9 @@ export default {
         seo: false,
     },
     proxy: {
-        '/local/': {target: 'https://api.openbook.social', pathRewrite: {'^/local/': ''}},
-        '/contentproxy': {target: 'https://contentproxy.okuna.io', pathRewrite: {'^/contentproxy': ''}},
-        '/www/': {target: 'https://www.okuna.io', pathRewrite: {'^/www/': ''}},
+        '/local/': {target: 'http://localhost', pathRewrite: {'^/local/': ''}},
+        // '/contentproxy': {target: 'https://contentproxy.okuna.io', pathRewrite: {'^/contentproxy': ''}},
+        '/api/': {target: 'https://h2pro3-backend.herokuapp.com', pathRewrite: {'^/api/': ''}},
     },
     styleResources: {
         scss: [
