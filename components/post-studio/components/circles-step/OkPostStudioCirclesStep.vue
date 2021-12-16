@@ -83,6 +83,7 @@
 
         created() {
             this.worldCircle = circleFactory.make({
+                isWorld: true,
                 id: 1,
                 name: this.$t("global.keywords.world") as string,
                 color: "#023ca7",

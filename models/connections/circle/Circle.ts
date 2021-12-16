@@ -9,6 +9,7 @@ import { colorDeserializer, colorSerializer } from '~/models/common/serializers'
 import Color from 'color';
 
 export class Circle extends DataModel<Circle> implements ICircle {
+    isWorld?: boolean; 
     creator!: IUser;
     name!: string;
     color!: Color;
@@ -19,6 +20,10 @@ export class Circle extends DataModel<Circle> implements ICircle {
         {
             dataKey: 'name',
             attributeKey: 'name'
+        },
+        {
+            dataKey: 'isWorld',
+            attributeKey: 'isWorld'
         },
         {
             dataKey: 'color',

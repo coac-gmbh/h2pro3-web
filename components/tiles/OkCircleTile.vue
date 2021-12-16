@@ -10,7 +10,7 @@
                     {{circle.name}}
                 </span>
             </div>
-            <div class="has-text-overflow-ellipsis">
+            <div class="has-text-overflow-ellipsis" v-if="!circle.isWorld">
                 <span class="ok-has-text-primary-invert-80">
                     <span>
                         {{humanFriendlyUsersCount(circle.usersCount)}}
