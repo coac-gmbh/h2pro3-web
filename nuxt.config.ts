@@ -163,7 +163,7 @@ export default {
     proxy: {
         '/local/': {target: 'http://localhost', pathRewrite: {'^/local/': ''}},
         // '/contentproxy': {target: 'https://contentproxy.okuna.io', pathRewrite: {'^/contentproxy': ''}},
-        '/api/': {target: 'https://h2pro3-backend.herokuapp.com', pathRewrite: {'^/api/': ''}},
+        '/backend': {target: 'https://h2pro3-backend.herokuapp.com', pathRewrite: {'^/backend': ''}},
     },
     styleResources: {
         scss: [
