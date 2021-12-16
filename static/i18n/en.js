@@ -399,6 +399,7 @@ export default {
 
             "community_type": {
                 "label": "Group type",
+                "placeholder": "Select the group type"
             },
 
             "closed_community": {
@@ -608,7 +609,7 @@ export default {
             "E": "Event",
         },
         "models": {
-            "post": "post",
+            "post": "Post",
             "post_comment": "post comment",
             "user": "user",
             "hashtag": "hashtag",

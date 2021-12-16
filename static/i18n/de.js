@@ -399,6 +399,7 @@ export default {
 
             "community_type": {
                 "label": "Gruppen-Typ",
+                "placeholder": "Wählen Sie den Gruppen-Typ aus"
             },
 
             "closed_community": {
