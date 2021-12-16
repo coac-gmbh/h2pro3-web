@@ -20,9 +20,9 @@
                     <p class="help is-danger" v-else-if="!$v.userEmail.email">
                         {{$t('global.errors.email.invalid')}}
                     </p>
-                    <p class="help is-danger" v-else-if="!hcaptchaToken">
+                    <!-- <p class="help is-danger" v-else-if="!hcaptchaToken">
                         {{$t('global.errors.captcha.required')}}
-                    </p>
+                    </p> -->
                 </div>
             </div>
             <ok-buttons-navigation :onNext="onSubmit" class="has-padding-top-20"/>
