@@ -39,25 +39,25 @@ export default {
     mode: 'spa',
     env: frontendEnvVars,
     head: {
-        title: 'H2pro3',
+        title: 'H2Pro3',
         meta: [
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
-            {hid: 'description', name: 'description', content: 'Ethical social network.'},
+            {hid: 'description', name: 'description', content: 'Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte.'},
             {name: 'theme-color', content: '#ffffff'},
             {name: 'msapplication-TileColor', content: '#000000'},
             {
                 'property': 'og:title',
-                'content': `H2pro3`,
+                'content': `H2Pro3`,
             },
             {
                 'property': 'og:description',
-                'content': `Ethical Social Network.`,
+                'content': `Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte.`,
             },
-            {
-                'property': 'og:image',
-                'content': `https://okuna.io/og-image.png`
-            }
+            // {
+            //     'property': 'og:image',
+            //     'content': `https://okuna.io/og-image.png`
+            // }
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
