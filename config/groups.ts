@@ -16,6 +16,7 @@ export interface IGroupTypeField {
 export const GROUP_TYPES: IGroupTypeConfig[] = [
     { key: 'C', fields: ['website', 'population', 'area', 'energy_demand'] },
     { key: 'Q', fields: ['website', 'industry', 'employee', 'location'] },
+    { key: 'I', fields: ['website'] },
     { key: 'U', fields: ['website', 'institution', 'departments'] },
     { key: 'P', fields: ['location', 'project_partners', 'project_duration', 'website', 'lessons_learned'] },
     { key: 'E', fields: ['website'] },

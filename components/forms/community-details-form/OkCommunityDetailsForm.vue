@@ -189,8 +189,8 @@
 
                             <div class="control">
                                 <select name="communityType" v-model="selectedGroupType" class="input ok-input is-rounded" id="communityType">
-                                    <option :value="null">
-                                        ---
+                                    <option disabled selected :value="null">
+                                        {{ $t('manage_community.details.community_type.placeholder') }}
                                     </option>
                                     <option v-for="(type) in groupTypes" :value="type" :key="type.key">
                                         {{ $t(`global.group_types.${type.key}`) }}
