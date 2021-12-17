@@ -61,6 +61,19 @@ export default {
             //     'content': `https://okuna.io/og-image.png`
             // }
         ],
+        script: [
+            {
+                id: "Cookiebot",
+                src: "https://consent.cookiebot.com/uc.js",
+                "data-cbid": "3388977b-4ecc-401d-8bf4-b945e30b9a0f",
+                "data-blockingmode": "auto"
+            },
+            {
+                id: "CookieDeclaration",
+                src: "https://consent.cookiebot.com/3388977b-4ecc-401d-8bf4-b945e30b9a0f/cd.js",
+                async: true,
+            },
+        ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
             {rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png'},
