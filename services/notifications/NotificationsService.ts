@@ -16,7 +16,7 @@ import { IUserPreferencesService } from '~/services/user-preferences/IUserPrefer
 @injectable()
 export class NotificationsService implements INotificationsService {
 
-    static readonly pollingLastNotificationTimeoutInMs = 2000;
+    static readonly pollingLastNotificationTimeoutInMs = 1000 * 60;
     static readonly hasNewNotificationStorageKey = 'hasNewNotification';
     static readonly lastNotificationIdStorageKey = 'lastNotificationId';
 
