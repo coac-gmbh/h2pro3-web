@@ -604,16 +604,16 @@ export default {
             "C": "Stadt oder Kreis",
             "Q": "Unternehmen",
             "U": "Wissenschaft",
-            "I": "Institution",
+            "I": "Netzwerk",
             "P": "Projekt",
             "E": "Veranstaltung",
         },
         "models": {
-            "post": "den Beitrag",
-            "post_comment": "den Kommentar",
-            "user": "den Benutzer",
-            "hashtag": "den Hashtag",
-            "community": "die Gruppe",
+            "post": "Beitrag",
+            "post_comment": "Kommentar",
+            "user": "Benutzer",
+            "hashtag": "Hashtag",
+            "community": "Gruppe",
             "fallback": "Element"
         },
         "snippets": {
