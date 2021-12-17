@@ -46,6 +46,7 @@
     "p-cancelable": "^2.0.0",
     "patch-package": "^6.2.2",
     "pino": "^5.17.0",
+    "redirect-ssl": "^3.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4",
     "twemoji": "^12.1.5",

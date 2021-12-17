@@ -1,3 +1,5 @@
+import redirectSSL from 'redirect-ssl';
+
 const dotEnvSrc = process.env.NODE_ENV === 'production' ? './.prod.env' : './.dev.env';
 
 const result = require('dotenv').config({
@@ -67,6 +69,11 @@ export default {
             {rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ffffff'},
         ],
     },
+    serverMiddleware: [
+        redirectSSL.create({
+            enabled: process.env.NODE_ENV === 'production'
+        })
+    ],
     loading: {color: '#000000'},
     css: [
         '~/assets/styles/index.scss',
