@@ -13,6 +13,7 @@
     "@nuxtjs/router": "^1.5.0",
     "@nuxtjs/router-extras": "^1.1.0",
     "@nuxtjs/sentry": "^3.3.1",
+    "@nuxt/typescript-runtime": "^1.0.0",
     "@types/color": "^3.0.1",
     "@types/howler": "^2.2.1",
     "@types/twemoji": "^12.1.0",
@@ -86,7 +87,6 @@
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^2.0.2",
-    "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@types/cheerio": "^0.22.21",
     "@types/pino": "^5.17.0",
