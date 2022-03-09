@@ -182,8 +182,9 @@ export default {
     },
     proxy: {
         '/local/': {target: 'http://localhost', pathRewrite: {'^/local/': ''}},
+        // '/local': {target: 'https://h2.content.coac.de/api', pathRewrite: {'^/local': ''}},
         // '/contentproxy': {target: 'https://contentproxy.okuna.io', pathRewrite: {'^/contentproxy': ''}},
-        '/backend': {target: 'https://h2pro3-backend.herokuapp.com', pathRewrite: {'^/backend': ''}},
+        '/backend': {target: 'https://h2pro3-backend.a1.coacapp.de', pathRewrite: {'^/backend': ''}},
     },
     styleResources: {
         scss: [
