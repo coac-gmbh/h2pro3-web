@@ -17,12 +17,12 @@
                                     <ok-home-icon class="ok-svg-icon-primary-invert is-icon-2x"></ok-home-icon>
                                 </nuxt-link>
                             </div>
-                            <div class="column is-flex align-items-center justify-center" id="now-button">
+                            <!-- <div class="column is-flex align-items-center justify-center" id="now-button">
                                 <nuxt-link to="/now" class="has-cursor-pointer is-flex">
                                     <ok-search-icon class="ok-svg-icon-primary-invert is-icon-2x" v-if="environmentResolution === EnvironmentResolution.mobile"></ok-search-icon>
                                     <ok-now-icon v-else class="ok-svg-icon-primary-invert is-icon-2x"></ok-now-icon>
                                 </nuxt-link>
-                            </div>
+                            </div> -->
                             <div class="column is-flex align-items-center justify-center">
                                 <nuxt-link to="/c" class="has-cursor-pointer is-flex">
                                     <ok-communities-icon
