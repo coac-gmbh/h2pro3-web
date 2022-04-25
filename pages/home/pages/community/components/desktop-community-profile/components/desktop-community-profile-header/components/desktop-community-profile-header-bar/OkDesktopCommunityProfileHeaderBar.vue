@@ -15,8 +15,8 @@
                         ></ok-community-avatar>
                     </div>
                     <div class="column is-flex align-items-center">
-                        <div class="columns has-width-100-percent is-variable is-8">
-                            <div class="column flex-direction-column is-narrow is-flex justify-center">
+                        <div class="columns has-width-100-percent is-8">
+                            <div class="column flex-direction-column is-flex justify-center">
                                 <ok-desktop-community-profile-header-bar-ids
                                         :community="community"></ok-desktop-community-profile-header-bar-ids>
                             </div>
