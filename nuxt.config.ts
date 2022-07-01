@@ -43,23 +43,13 @@ export default {
     head: {
         title: 'H2Pro3',
         meta: [
-            {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
-            {hid: 'description', name: 'description', content: 'Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte.'},
-            {name: 'theme-color', content: '#ffffff'},
-            {name: 'msapplication-TileColor', content: '#000000'},
-            {
-                'property': 'og:title',
-                'content': `H2Pro3`,
-            },
-            {
-                'property': 'og:description',
-                'content': `Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte.`,
-            },
-            // {
-            //     'property': 'og:image',
-            //     'content': `https://okuna.io/og-image.png`
-            // }
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { hid: 'title', name: 'title', content: 'H2Pro3' },
+            { hid: 'description', name: 'description', content: 'Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte.' },
+            { hid: 'keywords', name: 'keywords', content: 'H2Pro3, Wasserstoff, platform, hydrogen, projekte' },
+            { name: 'theme-color', content: '#ffffff' },
+            { name: 'msapplication-TileColor', content: '#000000' },
         ],
         script: [
             {
@@ -75,11 +65,11 @@ export default {
             },
         ],
         link: [
-            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-            {rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png'},
-            {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png'},
-            {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png'},
-            {rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ffffff'},
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+            { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+            { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+            { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ffffff' },
         ],
     },
     serverMiddleware: [
