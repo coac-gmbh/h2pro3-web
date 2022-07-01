@@ -47,7 +47,7 @@ export default {
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { hid: 'title', name: 'title', content: 'H2Pro3' },
             { hid: 'description', name: 'description', content: 'Die App zur Vernetzung von Akteuren für erfolgreiche Wasserstoff-Projekte.' },
-            { hid: 'keywords', name: 'keywords', content: 'H2Pro3, Wasserstoff oder, Wasserstoff Plattform' },
+            { hid: 'keywords', name: 'keywords', content: 'H2Pro3, Wasserstoff, platform, hydrogen, projekte' },
             { name: 'theme-color', content: '#ffffff' },
             { name: 'msapplication-TileColor', content: '#000000' },
         ],
