@@ -31,12 +31,12 @@
                 <ok-community-profile-categories :categories="user.categories"></ok-community-profile-categories>
             </div>
         </div>
-        <div v-if="communities.length" class="ok-has-border-bottom-primary-highlight">
+        <div v-if="user.communities.length" class="ok-has-border-bottom-primary-highlight">
             <p class="menu-label ok-has-text-primary-invert-80 has-padding-left-20 has-padding-right-20 has-padding-top-20 is-marginless">
                 {{$t('global.keywords.communities')}}
             </p>
             <div class="has-padding-left-20 has-padding-right-20 has-padding-top-10 is-marginless has-padding-bottom-30">
-                <ok-user-profile-groups :communities="communities" />
+                <ok-user-profile-groups :communities="user.communities" />
             </div>
         </div>
         <div class="card-content">
@@ -69,7 +69,6 @@
     import OkUserProfileActionButtons from '~/pages/home/pages/user/components/shared/OkUserProfileActionButtons.vue';
     import OkCommunityProfileCategories
         from '~/pages/home/pages/community/components/shared/OkCommunityProfileCategories.vue';
-    import {ICommunity} from "~/models/communities/community/ICommunity";
     import {IUserService} from "~/services/user/IUserService";
     import {okunaContainer} from "~/services/inversify";
     import {TYPES} from "~/services/inversify-types";
@@ -108,16 +107,6 @@
         }) readonly headerVisible: boolean;
 
         private userService: IUserService = okunaContainer.get<IUserService>(TYPES.UserService);
-
-        communities: ICommunity[] = [];
-
-        async mounted() {
-            this.communities = await this.joinedCommunitiesRefresher()
-        }
-
-        joinedCommunitiesRefresher(): Promise<ICommunity[]> {
-            return this.userService.getJoinedCommunities();
-        }
 
     }
 </script>

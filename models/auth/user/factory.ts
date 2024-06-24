@@ -10,18 +10,18 @@ class UserFactory extends IModelFactory<IUser> {
 
     make(data: UserData, config: {storeInSessionCache: boolean} = {storeInSessionCache: true}): IUser {
         const userId = data.id;
+        // TODO: SESSION CACHE
+        // let user = this.sessionUsersCache.get(userId) || this.navigationUsersCache.get(userId);
 
-        let user = this.sessionUsersCache.get(userId) || this.navigationUsersCache.get(userId);
+        // if (user) {
+        //     user.updateWithData(data);
+        //     return user;
+        // }
 
-        if (user) {
-            user.updateWithData(data);
-            return user;
-        }
-
-        user = new User(data);
-        config.storeInSessionCache
-            ? this.sessionUsersCache.set(userId, user)
-            : this.navigationUsersCache.set(userId, user);
+        let user = new User(data);
+        // config.storeInSessionCache
+        //     ? this.sessionUsersCache.set(userId, user)
+        //     : this.navigationUsersCache.set(userId, user);
 
         return user;
     }

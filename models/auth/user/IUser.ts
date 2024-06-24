@@ -7,6 +7,7 @@ import { IPostComment } from '~/models/posts/post-comment/IPostComment';
 import { ICommunity } from '~/models/communities/community/ICommunity';
 import { UserVisibility } from '~/models/auth/user/lib/UserVisibility';
 import { ICategory } from '~/models/common/category/ICategory';
+import { ICommunityMembership } from '~/models/communities/community/community-membership/ICommunityMembership';
 
 
 export interface IUser extends IDataModel<IUser> {
@@ -38,6 +39,7 @@ export interface IUser extends IDataModel<IUser> {
     categories: ICategory[];
     connectedCircles: ICircle[];
     profile: IUserProfile;
+    communities: ICommunityMembership[];
 
 
     incrementFollowersCount(): void;
